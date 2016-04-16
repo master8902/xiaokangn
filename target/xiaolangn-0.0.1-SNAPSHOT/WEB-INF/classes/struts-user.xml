@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="user" extends="oa-default" namespace="/user" >
+		<action name="login_*" class="com.xiaoliangn.action.LoginAction" method="{1}">			
+ 		<result name="back">/redirect.jsp</result>
+		</action>
+		<action name="user_*" class="com.xiaoliangn.action.UserAction" method="{1}">	   
+			<result name="user">/user/user.jsp</result>
+			<result name="current">../current.jsp</result>	
+		</action>
+	</package>
+</struts>
