@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.xiaolangn.mapper.ProductMapper">
+	<resultMap type="com.xiaolangn.bean.Product" id="r">
+	</resultMap>
+
+	<resultMap type="com.xiaolangn.bean.Product" id="ra">
+	</resultMap>
+	<parameterMap type="com.xiaolangn.bean.Product" id="p"></parameterMap>
+
+
+
+	<select id="getProductByHot" resultMap="r" parameterType="int">
+		SELECT title,startDate,endDate,picture_url
+		FROM product_info WHERE ishot=#{ishot}
+	</select>
+
+
+
+
+</mapper>
