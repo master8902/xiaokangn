@@ -61,8 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("\n");
       out.write("<html>\n");
       out.write("<body>\n");
-      out.write("<h2>\n");
-      out.write("Hello World!\n");
+      out.write("\n");
       out.write("\n");
       out.write("<a>旅程</a>\n");
       out.write("<a> 票务</a>\n");
@@ -73,7 +72,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.print(basePath );
       out.write("user/user_info2.do?userid=1\"> 我的-调到一个新的页面</a>\n");
       out.write("\n");
-      out.write("</h2>\n");
       out.write("</body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

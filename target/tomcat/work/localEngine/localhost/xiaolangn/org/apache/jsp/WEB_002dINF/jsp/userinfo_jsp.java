@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("<html>\n");
       out.write("<body>\n");
       out.write("<h2>\n");
-      out.write("Hello World!\n");
+      out.write("这是userinfo页面\n");
       out.write("\n");
       out.write("我的电话号码是: ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${PhoneNum}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));

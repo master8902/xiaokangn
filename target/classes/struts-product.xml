@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="product" extends="oa-default" namespace="/product" >
+
+		<action name="product_*" class="com.xiaolangn.action.ProductAction" method="{1}">	   
+			<result name="productinfo">/WEB-INF/jsp/productinfo.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -54,11 +54,11 @@ public class UserAction extends BaseAction {
 	public String info2() {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		
-		String userid = request.getParameter("userid");
+		String userid = request.getParameter("userid");//userid从前台jsp到后台
 		User user = userService.getUserById(Integer.valueOf(userid));		
 		String PhoneNum = user.getPhoneNum();	
-		request.setAttribute("PhoneNum", PhoneNum);
-		return "userinfo";
+		request.setAttribute("PhoneNum", PhoneNum);//从后台返回参数给request（跟jsp有关）
+		return "userinfo";//指定返回路径
 
 	}
 
