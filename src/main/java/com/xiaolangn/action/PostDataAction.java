@@ -42,6 +42,7 @@ public class PostDataAction extends BaseAction {
 		PrintWriter out;
 		try {
 			out = response.getWriter();
+			//比对密码
 			out.print("success");
 			out.flush();
 			out.close();

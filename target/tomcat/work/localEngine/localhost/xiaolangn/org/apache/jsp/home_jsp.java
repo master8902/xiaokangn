@@ -146,6 +146,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("pay/pay_apply.do?\"> 申请调用付款</a>\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("<br>\r\n");
+      out.write("<br>\r\n");
       out.write("<textarea id=\"textplan3\" class=\"textplans\" name=\"textplan3\"></textarea>\r\n");
       out.write("<br>\r\n");
       out.write("<br>\r\n");
@@ -153,7 +155,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("<br>\r\n");
       out.write("<br>\r\n");
       out.write("<textarea id=\"textplan5\" class=\"textplans\" name=\"textplan5\"></textarea>\r\n");
-      out.write("<input type=\"button\" onclick=\"check()\"/>\r\n");
+      out.write("<input type=\"button\" onclick=\"check()\" value=\"上传\"/>\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("</body>\r\n");

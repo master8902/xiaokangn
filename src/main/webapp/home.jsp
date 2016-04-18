@@ -24,7 +24,7 @@ function check() {
 
 var textplan3 = $.trim($("#textplan3").val());
 	
-	var result = checkisNULL(textplan3,"请填111");
+	var result = checkisNULL(textplan3,"请填111");//出错提示
 	if(result==false){
 	//	$("#sub").attr("disabled",false); 
 		return false;
