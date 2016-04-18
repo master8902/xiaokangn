@@ -18,4 +18,5 @@
 	<include file="struts-user.xml"></include>
 	<include file="struts-product.xml"></include>
 	<include file="struts-schedule.xml"></include>
+	<include file="struts-pay.xml"></include>
 </struts>    

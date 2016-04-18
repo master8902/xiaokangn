@@ -51,29 +51,39 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write('\n');
-      out.write('\n');
+      out.write("\r\n");
+      out.write("\r\n");
 
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 
-      out.write("\n");
-      out.write("\n");
-      out.write("<html>\n");
-      out.write("<body>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<a>旅程</a>\n");
-      out.write("<a> 票务</a>\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<html>\r\n");
+      out.write("<body>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<a>旅程</a>\r\n");
+      out.write("<a> 票务</a>\r\n");
       out.write("<a href=\"");
       out.print(basePath );
-      out.write("user/user_info.do?userid=1\"> 我的-直接返回数据</a>\n");
+      out.write("user/user_info.do?userid=1\"> 我的-直接返回数据</a>\r\n");
       out.write("<a href=\"");
       out.print(basePath );
-      out.write("user/user_info2.do?userid=1\"> 我的-调到一个新的页面</a>\n");
-      out.write("\n");
-      out.write("</body>\n");
-      out.write("</html>\n");
+      out.write("user/user_info2.do?userid=1\"> 我的-调到一个新的页面</a>\r\n");
+      out.write("<a href=\"");
+      out.print(basePath );
+      out.write("product/product_info2.do?ishot=1\"> 我的-调到一个近期热门产品页面</a>\r\n");
+      out.write("<a href=\"");
+      out.print(basePath );
+      out.write("schedule/schedule_info2.do?productId=1\"> 我的-调到一个日程安排页面</a>\r\n");
+      out.write("\r\n");
+      out.write("<a href=\"");
+      out.print(basePath );
+      out.write("pay/pay_apply.do?\"> 申请调用付款</a>\r\n");
+      out.write("\r\n");
+      out.write("</body>\r\n");
+      out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
