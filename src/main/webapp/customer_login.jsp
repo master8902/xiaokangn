@@ -26,7 +26,64 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 function tocustomer_reg(){
 	window.location.href="<%=basePath %>register/register_show.do";
+	
+	 $.ajax({
+	        url: '<%=basePath %>register/register_show.do',
+	         type: 'POST'
+	    });
 } 
+
+
+function checkisNULL(value,message){
+	if(value==""|value=="null"){
+		alert(message);
+		//$("#sub").attr("disabled",false); 
+		return false;	
+	}
+	return true;	
+} 
+
+function check() {
+
+var textplan3 = $.trim($("#textplan3").val());
+	
+	var result = checkisNULL(textplan3,"请填111");//出错提示
+	if(result==false){
+	//	$("#sub").attr("disabled",false); 
+		return false;
+	}
+var textplan4 = $.trim($("#textplan4").val());
+	
+	var result = checkisNULL(textplan4,"请填写222");
+	if(result==false){
+	//	$("#sub").attr("disabled",false); 
+		return false;
+	}
+var textplan5 =$.trim($("#textplan5").val());
+	
+	var result = checkisNULL(textplan5,"请填写333");
+	if(result==false){
+	//	$("#sub").attr("disabled",false); 
+		return false;
+	}
+	
+	
+	//需要POST的值，把每个变量都通过&来联接  
+var postdata   = "textplan3="+ textplan3 +"&textplan4="+ textplan4 +"&textplan5="+ textplan5;  
+	
+    $.ajax({
+        url: '<%=basePath %>postdata/post_demo.do',
+         type: 'POST',
+         data: postdata,
+         success: function (returndata) {      	
+ 				alert("上传成功");
+ 				//跳到新的页面 			
+         },
+         error: function (returndata) {
+        	 alert(returndata);
+         }
+    });
+}
 
 </script>
 </head>
@@ -34,12 +91,12 @@ function tocustomer_reg(){
 <body>
     <div id="denglu" class="page-container" >
     <img alt="" src="">
-   <form action="" method="post">
-   			<s:textfield name="mobile"  class="username" placeholder="手机号码" size="18"></s:textfield>
-            <s:password name="password"  class="password" placeholder="密码" size="18"></s:password>
-            <button type="submit">登	 陆</button>　
+ 
+   			<s:textfield name="mobile"  id="username" class="username" placeholder="手机号码" size="18"></s:textfield>
+            <s:password name="password" id="password" class="password" placeholder="密码" size="18"></s:password>
+            <button type="submit" onclick="tocustomer_check()">登	 陆</button>　
             <button type="submit" onclick="tocustomer_reg()">注   册</button>　
- 	</form>
+ 	
     </div>
 </body>
 </html>
