@@ -7,4 +7,6 @@ import com.xiaolangn.bean.Product;
 
 public interface IProductService {
 	public  List<Product> getProductByHot(Integer ishot);
+	
+	public  List<Product> getProductByType(String type);
 }

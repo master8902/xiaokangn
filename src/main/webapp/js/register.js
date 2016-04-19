@@ -1,3 +1,20 @@
+ var code ; //在全局 定义验证码      
+  function createCode(){    
+
+    code = "";      
+    var codeLength = 4;//验证码的长度          
+    var selectChar = new Array(0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','j','k','l','m','n','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z');      
+          
+    for(var i=0;i<codeLength;i++) {      
+       var charIndex = Math.floor(Math.random()*60);      
+      code +=selectChar[charIndex];      
+    }      
+    if(code.length != codeLength){      
+      createCode();      
+    }
+    // checkCode.text = code;
+    return code;   
+  }     
 //去掉前后空格  
 function trim(str) {  
     var strnew = str.replace(/^\s*|\s*$/g, "");  
@@ -14,6 +31,10 @@ function xspassword(){
 function xspasswordb(){
 	 $("#passwordRepeat").show();//隐藏
 	 $("#passwordRepeatTip").hide();//隐藏 
+}
+function xstypz(){
+	 $("#tpyz").show();//隐藏
+	 $("#tpyzTip").hide();//隐藏
 }
 // 手机校验
 function checkjbPhone() {  
@@ -87,3 +108,17 @@ function checkpasswrodb() {
         return true;  
     }  
 }  
+
+function checktypz(){
+	 var tpyz = $("#tpyz").val();  
+	 var tpyzm =  $("#tpyzm").val(); 
+	    if (trim(tpyz) != trim(tpyzm)) {  
+	   	 $("#tpyz").hide();//隐藏
+		 $("#tpyzTip").show();//隐藏 
+		$("#tpyzTip").val("密码错误");
+	        return false;  
+	    } else {  
+	        return true;  
+	    }  
+	
+}

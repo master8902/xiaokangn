@@ -19,7 +19,10 @@
 		FROM product_info WHERE ishot=#{ishot}
 	</select>
 
-
+	<select id="getProductByType" resultMap="r" parameterType="int">
+		SELECT chineseName,englishName,price,startDate,endDate,picture_url
+		FROM product_info WHERE type=1
+	</select>
 
 
 </mapper>

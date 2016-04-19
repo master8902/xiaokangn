@@ -10,5 +10,5 @@ public interface ProductMapper {
 
    public List<Product> getProductByHot(Integer ishot);
 
-   
+   public List<Product> getProductByType(String type);
 }

@@ -26,6 +26,12 @@ public class ProductService implements IProductService {
         // TODO Auto-generated method stub
         return productMapper.getProductByHot(ishot);
     }
+    
+    @Override
+    public List<Product> getProductByType(String type) {
+        // TODO Auto-generated method stub
+        return productMapper.getProductByType(type);
+    }
 
    
 

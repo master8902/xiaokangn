@@ -76,6 +76,18 @@ public class ProductAction extends BaseAction {
 		return "productinfo";//指定返回路径
 
 	}
+	
+	public String typeInfo() {
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("utf-8");		
+		String type = request.getParameter("type");//ishot从前台jsp到后台
+		List<Product> product = productService.getProductByType(type);	
+		
+
+		
+		return "productinfo";//指定返回路径
+
+	}
 
 
 }

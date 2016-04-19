@@ -56,11 +56,41 @@ public class UserAction extends BaseAction {
 		response.setCharacterEncoding("utf-8");		
 		String userid = request.getParameter("userid");//userid从前台jsp到后台
 		User user = userService.getUserById(Integer.valueOf(userid));		
-		String PhoneNum = user.getPhoneNum();	
-		request.setAttribute("PhoneNum", PhoneNum);//从后台返回参数给request（跟jsp有关）
+		String phoneNum = user.getPhoneNum();	
+		request.setAttribute("phoneNum", phoneNum);//从后台返回参数给request（跟jsp有关）
 		return "userinfo";//指定返回路径
 
 	}
 
+	public void login() {
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("utf-8");		
+		String phoneNum = request.getParameter("phoneNum");
+		String password = request.getParameter("password");
+//		System.out.println(textplan3);
+		//根据手机号查询密码
+		User user = userService.getUserByPhone(phoneNum);		
+		
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+			if(user==null)
+				out.print("error");
+			//比对密码
+			else if(user.getPassword().equals(password))
+			{
+				out.print("success");
+			}
+			else 
+			{
+				out.print("error");
+			}
+			out.flush();
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
 
 }

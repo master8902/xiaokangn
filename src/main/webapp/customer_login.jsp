@@ -16,6 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/supersized.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+        <script type="text/javascript" src="<%=basePath %>js/jquery.min.js"></script>
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -43,25 +44,18 @@ function checkisNULL(value,message){
 	return true;	
 } 
 
-function check() {
+function tocustomer_check() {
 
-var textplan3 = $.trim($("#textplan3").val());
+var phoneNum = $.trim($("#phoneNum").val());
 	
-	var result = checkisNULL(textplan3,"请填111");//出错提示
+	var result = checkisNULL(phoneNum,"手机号码不能为空");//出错提示
 	if(result==false){
 	//	$("#sub").attr("disabled",false); 
 		return false;
 	}
-var textplan4 = $.trim($("#textplan4").val());
+var password = $.trim($("#password").val());
 	
-	var result = checkisNULL(textplan4,"请填写222");
-	if(result==false){
-	//	$("#sub").attr("disabled",false); 
-		return false;
-	}
-var textplan5 =$.trim($("#textplan5").val());
-	
-	var result = checkisNULL(textplan5,"请填写333");
+	var result = checkisNULL(password,"密码不能为空");
 	if(result==false){
 	//	$("#sub").attr("disabled",false); 
 		return false;
@@ -69,18 +63,19 @@ var textplan5 =$.trim($("#textplan5").val());
 	
 	
 	//需要POST的值，把每个变量都通过&来联接  
-var postdata   = "textplan3="+ textplan3 +"&textplan4="+ textplan4 +"&textplan5="+ textplan5;  
+var postdata   = "phoneNum="+ phoneNum +"&password="+ password ;  
 	
     $.ajax({
-        url: '<%=basePath %>postdata/post_demo.do',
+        url: '<%=basePath %>user/user_login.do',
          type: 'POST',
          data: postdata,
-         success: function (returndata) {      	
- 				alert("上传成功");
+         success: function (returndata) { 
+ 				alert("登陆成功");
  				//跳到新的页面 			
          },
          error: function (returndata) {
-        	 alert(returndata);
+        	 //alert(returndata);
+             alert("请输入正确的手机号和密码");
          }
     });
 }
@@ -92,7 +87,7 @@ var postdata   = "textplan3="+ textplan3 +"&textplan4="+ textplan4 +"&textplan5=
     <div id="denglu" class="page-container" >
     <img alt="" src="">
  
-   			<s:textfield name="mobile"  id="username" class="username" placeholder="手机号码" size="18"></s:textfield>
+   			<s:textfield name="phoneNum"  id="phoneNum" class="phoneNum" placeholder="手机号码" size="18"></s:textfield>
             <s:password name="password" id="password" class="password" placeholder="密码" size="18"></s:password>
             <button type="submit" onclick="tocustomer_check()">登	 陆</button>　
             <button type="submit" onclick="tocustomer_reg()">注   册</button>　

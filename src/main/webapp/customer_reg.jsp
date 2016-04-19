@@ -29,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/js/sms.js"  
     type="text/javascript"></script>    
+
 <title>用户注册</title>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style1.css">
@@ -63,8 +64,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</td>
 		</tr>
 		<tr>
+			<td>
+			<input id="tpyz"   placeholder="请输入验证码" onblur="checktypz()"/>
+			<input id="tpyzTip" style="display:none;" onfocus="xstypz()"/>
+			<input type="button" id="tpyzm"  />
+    <script type="text/javascript">
+    	$(function(){
+    	a=createCode();
+    	document.getElementById('tpyzm').value=a;
+    	});
+    </script>
+			 </td>
+		</tr>
+		<tr>
 		  <td>
 		  <button type="submit">注   册</button>　
+		  </td>
 		 </tr>
 	</table>
 	</form>
