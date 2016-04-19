@@ -20,6 +20,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+        
+        
+        <script  type="text/javascript">
+
+function tocustomer_reg(){
+	window.location.href="<%=basePath %>register/register_show.do";
+} 
+
+</script>
 </head>
 
 <body>
@@ -29,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    			<s:textfield name="mobile"  class="username" placeholder="手机号码" size="18"></s:textfield>
             <s:password name="password"  class="password" placeholder="密码" size="18"></s:password>
             <button type="submit">登	 陆</button>　
-            <button type="submit">注   册</button>　
+            <button type="submit" onclick="tocustomer_reg()">注   册</button>　
  	</form>
     </div>
 </body>

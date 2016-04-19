@@ -7,5 +7,5 @@ public interface UserMapper {
 
    public User getUserById(Integer userid);
 
-   
+   public  User getUserByPhone(String phoneNum);
 }

@@ -23,6 +23,13 @@ public class UserService implements IUserService {
         return userMapper.getUserById(userid);
     }
 
+
+	@Override
+	public User getUserByPhone(String phoneNum) {
+		// TODO Auto-generated method stub
+		return userMapper.getUserByPhone(phoneNum);
+	}
+
    
 
 

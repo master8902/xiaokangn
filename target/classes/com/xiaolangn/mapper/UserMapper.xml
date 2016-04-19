@@ -20,6 +20,11 @@
 	</select>
 
 
+<select id="getUserByPhone" resultMap="r" parameterType="String">
+		SELECT *
+		FROM t_user WHERE phoneNum=#{phoneNum}
+	</select>
+
 
 
 </mapper>

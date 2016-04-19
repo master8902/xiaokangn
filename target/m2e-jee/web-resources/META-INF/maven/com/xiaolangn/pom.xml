@@ -281,6 +281,10 @@
 		<!-- <dependency> <groupId>com.sun</groupId> <artifactId>tools</artifactId> 
 			<version>1.6.0</version> <scope>system</scope> <systemPath>C:/Java/jdk1.6.0_37/lib/tools.jar</systemPath> 
 			</dependency> -->
+			
+			
+
+    
 	</dependencies>
 	<build>
 		<finalName>xiaolangn</finalName>
@@ -307,6 +311,20 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
+			
+			<plugin>
+                <artifactId>CCP_REST_SMS_SDK_JAVA_v2.6.3r</artifactId>  
+                <version>3.3</version>            
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArguments>
+                        <extdirs>${project.basedir}/lib/CCP_REST_SMS_SDK_JAVA_v2.6.3r.jar</extdirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+			
 		</plugins>
 	</build>
 </project>
