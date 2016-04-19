@@ -4,7 +4,7 @@
 	<package name="register" extends="oa-default" namespace="/register" >
 
 		<action name="register_*" class="com.xiaolangn.action.RegisterAction" method="{1}">	   
-			<result name="show">customer_reg.jsp</result>
+			<result name="show">/customer_reg.jsp</result>
 		</action>
 	</package>
 </struts>

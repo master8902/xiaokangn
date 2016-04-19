@@ -46,6 +46,11 @@ public class RegisterAction extends BaseAction {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		
 		String phoneNum = request.getParameter("phoneNum");
+		String passWord = request.getParameter("passWord");
+		
+		if(phoneNum==null||phoneNum.trim().equals("")){
+			json = "{\"msg\": \"手机号码不能为空\"}";
+		}
 		
 		User user = userService.getUserByPhone(phoneNum);
 		//如果该用户已经注册
