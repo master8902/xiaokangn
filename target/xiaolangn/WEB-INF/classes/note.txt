@@ -1,0 +1,4 @@
+1.商机号名称的问题
+	SalesCaseMapper  updateCodes对应的查询sql
+2.出差报告出现两次的情况
+	trip_process_matchup 表删除一条重复记录  将rep_status设置为-1  （可能会出现出差记录显示慢的问题）

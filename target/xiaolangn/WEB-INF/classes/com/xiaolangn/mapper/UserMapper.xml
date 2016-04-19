@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.xiaolangn.mapper.UserMapper">
+	<resultMap type="com.xiaolangn.bean.User" id="r">
+	</resultMap>
+
+	<resultMap type="com.xiaolangn.bean.User" id="ra">
+	</resultMap>
+	<parameterMap type="com.xiaolangn.bean.User" id="p"></parameterMap>
+
+
+
+	<select id="getUserById" resultMap="r" parameterType="int">
+		SELECT *
+		FROM t_user WHERE id=#{id}
+	</select>
+
+
+
+
+</mapper>

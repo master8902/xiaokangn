@@ -5,7 +5,7 @@
   <artifactId>xiaolangn</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>xiaolangn Maven Webapp</name>
+  <name>xiaolangn</name>
   <url>http://maven.apache.org</url>
 
   <dependencies>
@@ -283,7 +283,7 @@
 			</dependency> -->
 	</dependencies>
 	<build>
-		<finalName>ryingoa</finalName>
+		<finalName>xiaolangn</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
