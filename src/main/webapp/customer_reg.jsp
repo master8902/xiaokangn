@@ -16,9 +16,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page"> 
 
-<title>用户注册</title>
-</head>
-<script src="<%=request.getContextPath()%>/js/jquery-1.4.4.min.js"  
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="">
+	<meta name="author" content="">
+<script src="<%=request.getContextPath()%>/js/jquery.min.js"  
     type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/js/formValidator-4.1.3.js"  
     type="text/javascript"></script>
@@ -28,65 +29,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/js/sms.js"  
     type="text/javascript"></script>    
+<title>用户注册</title>
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style1.css">
+</head>
 <body>
-<div>
-    <div id="zhuce">
-	<s:form id="form1" name="form1"  method="post" > 
-	<table width="80%" border="0" cellpadding="0" cellspacing="0">
+<div id="zhuce" class="page-container">
+	<form id="form1" name="form1"  method="post" > 
+	<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td>
-				<s:textfield id="Phone" name="Phone" cssStyle="width:160px;height:24px;" placeholder="请输入手机" onblur="checkjbPhone()"/>
-			</td>
-			<td align="left" width="30%">  
-	       		<span id="jbPhoneTip"  name="jbPhoneTip">  
-                        <s:fielderror cssStyle="color:red;padding-left:10px;">  
-                            <s:param>jbPhone</s:param>  
-                        </s:fielderror>  
-            	</span>  
-     		 </td>  		
-			</tr>
-			<tr>  
-                 <td align="left" colspan="2" style="padding-left: 112px;" placeholder="短信验证码">  
-                     <s:textfield id="SmsCheckCode" name="SmsCheckCode" cssStyle="width:80px;height:24px;" maxLength="4" />  
-                      <span><input type="button" id="btnSendCode" name="btnSendCode" value="免费获取验证码" onclick="sendMessage()" /></span>  
-                       <span id="SmsCheckCodeTip">  
-                           <s:fielderror cssStyle="color:red;padding-left:10px;">  
-                               <s:param>SmsCheckCodeTip</s:param>  
-                          </s:fielderror>  
-                     </span>  
+				<input id="Phone" name="Phone"  placeholder="请输入手机" onblur="checkjbPhone()"/>
+				<input id="PhoneTip" style="display:none;" onfocus="xsphone()"/>
+			</td>		
+		</tr>
+		<tr>  
+             <td>  
+                  <input id="SmsCheckCode" name="SmsCheckCode" placeholder="短信验证码" maxLength="4" />  
+                  <input id="SmsCheckCodeTip" style="display:none;" onfocus="xssmscode()"/>
+                  <input type="button" id="btnSendCode" name="btnSendCode" value="获取验证码" onclick="sendMessage()"/>
                 </td>  
            </tr>  			
 		<tr>
 			<td>
-				<s:password id="password" name="password" placeholder="请输入密码" onblur="checkpassword()"></s:password>
-			</td>
-			 <td align="left" width="30%">  
-                            <span id="passwordTip">  
-                                <s:fielderror cssStyle="color:red;padding-left:10px;">  
-                                    <s:param>password</s:param>  
-                                </s:fielderror>  
-                            </span>  
-                        </td>  
-			
+				<input type="password" id="password" name="password" placeholder="请输入密码" onblur="checkpassword()"/>
+				<input  id="passwordTip" style="display:none;" onfocus="xspassword()"/>
+			</td>	
 		</tr>
 		<tr>
 			<td>
-				<s:password name="repassword"  id="passwordRepeat" placeholder="请确认密码" onblur="checkpasswrodb()"></s:password>
+				<input type="password" name="repassword"  id="passwordRepeat" placeholder="请确认密码" onblur="checkpasswrodb()"/>
+				<input  id="passwordRepeatTip" style="display:none;" onfocus="xspasswordb()"/>
 			</td>
-			 <td align="left" width="30%">  
-                            <span id="passwordRepeatTip">  
-                                <s:fielderror cssStyle="color:red;padding-left:10px;">  
-                                    <s:param>passwordRepeat</s:param>  
-                                </s:fielderror>  
-                            </span>  
-                        </td>  
-			
 		</tr>
 		<tr>
-		  <td><input type="submit" name="submit" value="注册"></td>
+		  <td>
+		  <button type="submit">注   册</button>　
 		 </tr>
 	</table>
-	</s:form>
+	</form>
 </div>
 </body>
 </html>
