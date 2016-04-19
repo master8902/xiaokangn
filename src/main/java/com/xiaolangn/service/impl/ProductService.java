@@ -1,8 +1,12 @@
 package com.xiaolangn.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+
+
 
 import com.xiaolangn.bean.Product;
 import com.xiaolangn.mapper.ProductMapper;
@@ -18,7 +22,7 @@ public class ProductService implements IProductService {
 
   
     @Override
-    public Product getProductByHot(Integer ishot) {
+    public List<Product> getProductByHot(Integer ishot) {
         // TODO Auto-generated method stub
         return productMapper.getProductByHot(ishot);
     }

@@ -56,22 +56,22 @@ public class ProductAction extends BaseAction {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		
 		String ishot = request.getParameter("ishot");//ishot从前台jsp到后台
-		Product product = productService.getProductByHot(Integer.valueOf(ishot));	
+		List<Product> product = productService.getProductByHot(Integer.valueOf(ishot));	
 		
-		String title = product.getTitle();	
-		request.setAttribute("title", title);//从后台返回参数给request（跟jsp有关）
-		
-		Date startDate = product.getStartDate();
-		String startDateString = startDate.toLocaleString();
-		request.setAttribute("startDateString", startDateString);//从后台返回参数给request（跟jsp有关）
-		System.out.println("############################"+startDateString);
-		
-		Date endDate = product.getEndDate();	
-		String endDateString = endDate.toLocaleString();
-		request.setAttribute("endDateString", endDateString);//从后台返回参数给request（跟jsp有关）
-		
-		String picture_url = product.getPicture_url();	
-		request.setAttribute("picture_url", picture_url);//从后台返回参数给request（跟jsp有关）
+//		String title = product.getTitle();	
+//		request.setAttribute("title", title);//从后台返回参数给request（跟jsp有关）
+//		
+//		Date startDate = product.getStartDate();
+//		String startDateString = startDate.toLocaleString();
+//		request.setAttribute("startDateString", startDateString);//从后台返回参数给request（跟jsp有关）
+//		System.out.println("############################"+startDateString);
+//		
+//		Date endDate = product.getEndDate();	
+//		String endDateString = endDate.toLocaleString();
+//		request.setAttribute("endDateString", endDateString);//从后台返回参数给request（跟jsp有关）
+//		
+//		String picture_url = product.getPicture_url();	
+//		request.setAttribute("picture_url", picture_url);//从后台返回参数给request（跟jsp有关）
 		
 		return "productinfo";//指定返回路径
 

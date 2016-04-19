@@ -1,7 +1,10 @@
 package com.xiaolangn.service;
 
+
+import java.util.List;
+
 import com.xiaolangn.bean.Product;
 
 public interface IProductService {
-	public  Product getProductByHot(Integer ishot);
+	public  List<Product> getProductByHot(Integer ishot);
 }

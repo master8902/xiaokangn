@@ -80,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("\r\n");
       out.write("var textplan3 = $.trim($(\"#textplan3\").val());\r\n");
       out.write("\t\r\n");
-      out.write("\tvar result = checkisNULL(textplan3,\"请填111\");\r\n");
+      out.write("\tvar result = checkisNULL(textplan3,\"请填111\");//出错提示\r\n");
       out.write("\tif(result==false){\r\n");
       out.write("\t//\t$(\"#sub\").attr(\"disabled\",false); \r\n");
       out.write("\t\treturn false;\r\n");
