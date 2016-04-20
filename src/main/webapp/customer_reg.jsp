@@ -76,6 +76,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		 </tr>
 	</table>
 	</form>
+	
+	<a href="<%=basePath %>pay/test/pay_apply.do?"> 申请调用付款</a>
+	
 </div>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"  
     type="text/javascript"></script>
