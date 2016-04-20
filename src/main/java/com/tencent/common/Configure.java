@@ -14,7 +14,7 @@ public class Configure {
 	private static String key = "";
 
 	//微信分配的公众号ID（开通公众号之后可以获取到）
-	private static String appID = "";
+	private static String appID = "wx9ffc728a584dc255";
 
 	//微信支付分配的商户号ID（开通公众号的微信支付功能之后可以获取到）
 	private static String mchID = "";

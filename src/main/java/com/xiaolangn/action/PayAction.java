@@ -6,6 +6,8 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.util.Date;
+import java.util.Map;
+import java.util.TreeMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +21,7 @@ import com.tencent.common.Signature;
 import com.xiaolangn.bean.SignBean;
 import com.xiaolangn.service.IUserService;
 import com.xiaolangn.util.AccessToken;
+import com.xiaolangn.util.CusAccessObjectUtil;
 import com.xiaolangn.util.TokenThread;
 import com.xiaolangn.util.WXConfigure;
 
@@ -36,7 +39,25 @@ public class PayAction extends BaseAction {
 	HttpServletResponse response = ServletActionContext.getResponse();
 	HttpServletRequest request = ServletActionContext.getRequest();
 	
-	
+	public void getPrepayId(){
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("utf-8");	
+		//获取用户的真实IP地址
+		String ip = CusAccessObjectUtil.getIpAddress(request);
+		
+		//预处理的map集合中key一定要是全部小写英文
+		  Map parameters = new TreeMap ();
+	       parameters.put("appid", WXConfigure.appId); // 公众账号ID
+	       parameters.put("mch_id", "1231117525"); // 商户号
+	       parameters.put("nonce_str", WXConfigure.nonceStr); // 随机字符串
+	       parameters.put("body", ""); // 商品描述
+	       parameters.put("out_trade_no", "");// 商户订单号
+	       parameters.put("total_fee", ""); // 总金额
+	       parameters.put("spbill_create_ip", "192.168.0.1"); // 订单生成的机器IP,测试IP
+	       parameters.put("notify_url", ""); // 通知地址,测试地址    
+	       parameters.put("trade_type", "JSAPI"); // 交易类型(JSAPI、NATIVE、APP)
+	       parameters.put("openid", "");// 用户标识 JSAPI时，此参数必传，根据第一步授权获取openid
+	}
 	
 	public String apply() {
 		response.setContentType("text/html;charset=UTF-8");
@@ -59,8 +80,8 @@ public class PayAction extends BaseAction {
 		si.setNoncestr(WXConfigure.nonceStr);
 		si.setTimestamp(tinmeStamp.toString());
 		String path = request.getContextPath();
-		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
-		si.setUrl(basePath+request.getServletPath());
+	//	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
+	//	si.setUrl(basePath+request.getServletPath());
 		String sign = "";
 		try {
 			sign = Signature.getSign(si);
