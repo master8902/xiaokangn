@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
+    <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
@@ -19,20 +19,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="">
 	<meta name="author" content="">
-<script src="<%=request.getContextPath()%>/js/jquery.min.js"  
-    type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/js/formValidator-4.1.3.js"  
-    type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/js/formValidatorRegex.js"  
-    type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/js/register.js"  
-    type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/js/sms.js"  
-    type="text/javascript"></script>    
+
 
 <title>用户注册</title>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style1.css">
+           <script type="text/javascript" src="<%=basePath %>js/jquery.min.js"></script>
+ 
 </head>
 <body>
 <div id="zhuce" class="page-container">
@@ -48,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              <td>  
                   <input id="SmsCheckCode" name="SmsCheckCode" placeholder="短信验证码" maxLength="4" />  
                   <input id="SmsCheckCodeTip" style="display:none;" onfocus="xssmscode()"/>
-                  <input type="button" id="btnSendCode" name="btnSendCode" value="获取验证码" onclick="sendMessage()"/>
+                  <input type="button" id="btnSendCode" name="btnSendCode" value="获取验证码" onclick="sendMessage('<%=basePath %>')"/>
                 </td>  
            </tr>  			
 		<tr>
@@ -84,5 +77,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</table>
 	</form>
 </div>
+<script src="<%=request.getContextPath()%>/js/jquery.min.js"  
+    type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/js/formValidator-4.1.3.js"  
+    type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/js/formValidatorRegex.js"  
+    type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/js/register.js"  
+    type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/js/sms.js"  
+    type="text/javascript"></script>    
 </body>
 </html>

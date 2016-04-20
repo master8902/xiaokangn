@@ -94,7 +94,7 @@ public class SDKTestSendTemplateSMS {
 			
 			request.getSession().setAttribute("phoneNum", phoneNum);//往session设置设计号
 			request.getSession().setAttribute("phoneCode", code);//设置手机的验证码
-			request.getSession().setAttribute("phoneData", new Date());//设置新建验证码的时间
+			request.getSession().setAttribute("phoneData", new Date().toString());//设置新建验证码的时间
 			
 			//正常返回输出data包体信息（map）
 			HashMap<String,Object> data = (HashMap<String, Object>) result.get("data");

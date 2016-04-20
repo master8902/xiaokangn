@@ -9,7 +9,7 @@ function xssmscode(){
 	 $("#SmsCheckCodeTip").hide();//隐藏 
 }
 
-function sendMessage(){  
+function sendMessage(basepath){  
     curCount = count;  
     var jbPhone = $("#Phone").val(); 
     var jbPhoneTip = $("#PhoneTip").val();  
@@ -31,6 +31,21 @@ function sendMessage(){
         $("#PhoneTip").val("手机号码不能为空");  
         }  
     }
+    var phoneNum   = "phoneNum="+ jbPhone  ;  
+    	 $.ajax({
+    	        url: basepath+'register/register_sendSMS.do',
+    	         type: 'POST',
+    	         data: phoneNum,
+    	         success: function (returndata) { 
+    	        	 
+    	        	 var models = eval("("+returndata+")");
+    	        	 alert(models.msg);
+    	        	 if(models.msg=="success"){
+    	        		alert("发送成功");
+    	        	 }    
+    	         }
+    	    });
+ 
 }
   
 //timer处理函数  
