@@ -18,7 +18,7 @@ body {
 }
 
 .page-container {
-    margin: 220px auto 0 auto;
+    margin: 55% auto 0 auto;
     
 }
 
@@ -30,8 +30,8 @@ form {
     text-align: center;
 }
 
-input {
-    width: 270px;
+#phoneNum,#PhonelTip,#password{
+    width: 70%;
     height: 42px;
     margin-top: 25px;
     padding: 0 15px;
@@ -74,7 +74,7 @@ input:focus {
 
 button {
     cursor: pointer;
-    width: 200px;
+    width: 47%;
     height: 44px;
     margin-top: 25px;
     padding: 0;

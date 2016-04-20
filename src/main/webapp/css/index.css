@@ -1,1 +1,37 @@
 @CHARSET "UTF-8";
+#foot{
+	width:100%;
+	height:100%;
+	align:center;
+	text-align:center;
+}
+
+#lvchen,#piaowu,#wo{
+   width:33%;
+   height:100%;
+    padding: 0;
+    background: #FF8000;
+    border:#FF8000;
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+#select{
+	cursor: pointer;
+	width:33%;
+    padding: 0;
+    background: #FF8000;
+    border: 1px solid #ff730e;
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+}
+#search{
+	width:66%;
+	text-align:right;
+	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #ffab57;
+    background-color:#f8f5f5;
+    border: 0px;
+}
