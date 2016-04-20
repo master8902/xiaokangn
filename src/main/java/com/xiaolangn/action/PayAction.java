@@ -1,14 +1,8 @@
 package com.xiaolangn.action;
 
-import java.io.IOException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableKeyException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -16,12 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.tencent.common.HttpsRequest;
-import com.tencent.common.RandomStringGenerator;
 import com.tencent.common.Signature;
 import com.xiaolangn.bean.SignBean;
 import com.xiaolangn.service.IUserService;
-import com.xiaolangn.util.AccessToken;
 import com.xiaolangn.util.CusAccessObjectUtil;
 import com.xiaolangn.util.TokenThread;
 import com.xiaolangn.util.WXConfigure;
@@ -43,22 +34,28 @@ public class PayAction extends BaseAction {
 	public void getPrepayId(){
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");	
-		//获取用户的真实IP地址
-		String ip = CusAccessObjectUtil.getIpAddress(request);
+
 		//预处理的map集合中key一定要是全部小写英文
-		  Map parameters = new HashMap ();
+		  Map<String,String> parameters = new HashMap<String,String> ();
 	       parameters.put("appid", WXConfigure.appId); // 公众账号ID
-	       parameters.put("mch_id", "1231117525"); // 商户号
+	       parameters.put("mch_id", WXConfigure.mch_id); // 商户号
 	       parameters.put("nonce_str", WXConfigure.nonceStr); // 随机字符串
+	       parameters.put("device_info", WXConfigure.device_info); // 设备号	          
 	       parameters.put("body", "bussinesdesc"); // 商品描述
-	       parameters.put("out_trade_no", "1");// 商户订单号
-	       parameters.put("total_fee", ""); // 总金额
-	       parameters.put("spbill_create_ip", "192.168.0.1"); // 订单生成的机器IP,测试IP
-	       parameters.put("notify_url", ""); // 通知地址,测试地址    
-	       parameters.put("trade_type", "JSAPI"); // 交易类型(JSAPI、NATIVE、APP)
+	       //parameters.put("sign", ); // 签名	   
+	       parameters.put("out_trade_no", "111111");// 商户订单号
+	       parameters.put("total_fee", "1"); // 总金额
+	       parameters.put("spbill_create_ip", CusAccessObjectUtil.getIpAddress(request)); // 订单生成的机器IP,测试IP
+	       parameters.put("notify_url", WXConfigure.notify_url); // 通知地址,测试地址    
+	       parameters.put("trade_type", WXConfigure.trade_type); // 交易类型(JSAPI、NATIVE、APP)
 	       parameters.put("openid", "");// 用户标识 JSAPI时，此参数必传，根据第一步授权获取openid
 	}
 	
+	public void notifyWX() {
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("utf-8");		
+		System.out.println("");
+	}
 	public String apply() {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");				

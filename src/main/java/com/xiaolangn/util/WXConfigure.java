@@ -7,4 +7,10 @@ public class WXConfigure {
 	public static String appsecret = "debab9203359b388f044495a473394ee";	
 	public static String nonceStr = RandomStringGenerator.getRandomStringByLength(32);
 	public static String mch_id = "1333280901";
+	public static String device_info = "WEB";
+	public static String notify_url = "WEB";
+	public static String trade_type = "JSAPI";
+
+	
+	
 }
