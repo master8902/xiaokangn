@@ -21,6 +21,7 @@ public class Signature {
      * @return 签名
      * @throws IllegalAccessException
      */
+	/*
     public static String getSign(Object o) throws IllegalAccessException {
         ArrayList<String> list = new ArrayList<String>();
         Class cls = o.getClass();
@@ -44,7 +45,7 @@ public class Signature {
         result = MD5.MD5Encode(result).toUpperCase();
         Util.log("Sign Result:" + result);
         return result;
-    }
+    }*/
 
     public static String getSign(Map<String,Object> map){
         ArrayList<String> list = new ArrayList<String>();
