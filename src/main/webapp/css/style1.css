@@ -18,7 +18,7 @@ body {
 }
 
 .page-container {
-    margin: 220px auto 0 auto;
+    margin: 47% auto 0 auto;
     
 }
 
@@ -31,7 +31,7 @@ form {
 }
 
 #Phone,#PhoneTip,#password,#passwordTip,#passwordRepeat,#passwordRepeatTip {
-    width: 270px;
+    width: 75%;
     height: 42px;
     margin-top: 25px;
     padding: 0 15px;
@@ -55,6 +55,7 @@ form {
     -ms-transition: all .2s;
 }
 #SmsCheckCode,#SmsCheckCodeTip{
+	 width: 45%;
     height: 42px;
     margin-top: 25px;
     padding: 0 15px;
@@ -78,7 +79,7 @@ form {
     -ms-transition: all .2s;
 }
 #tpyz,#tpyzTip{
-	width: 200px;
+	width: 50%;
     height: 42px;
     margin-top: 25px;
     padding: 0 15px;
@@ -102,6 +103,7 @@ form {
     -ms-transition: all .2s;
 }
 #btnSendCode{
+	width: 30%;
 	 height: 42px;
     background: #FF8000; /* browsers that don't support rgba */
     -moz-border-radius: 6px;
@@ -122,6 +124,7 @@ form {
     -ms-transition: all .2s;
 }
 #tpyzm{
+	width: 25%;
 	width:60px;
 	 height: 42px;
     background:url(../images/yz.gif);
@@ -160,7 +163,7 @@ input:focus {
 
 button {
     cursor: pointer;
-    width: 200px;
+    width: 40%;
     height: 44px;
     margin-top: 25px;
     padding: 0;

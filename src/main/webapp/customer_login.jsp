@@ -14,9 +14,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="author" content="">
 <title>用户登录</title>
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css">
-        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/supersized.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
         <script type="text/javascript" src="<%=basePath %>js/jquery.min.js"></script>
+        <script type="text/javascript" src="<%=basePath %>js/login.js"></script>
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -87,13 +87,31 @@ var postdata   = "phoneNum="+ phoneNum +"&password="+ password ;
 
 <body>
     <div id="denglu" class="page-container" >
-    <img alt="" src="">
- 
-   			<s:textfield name="phoneNum"  id="phoneNum" class="phoneNum" placeholder="手机号码" size="18"></s:textfield>
-            <s:password name="password" id="password" class="password" placeholder="密码" size="18"></s:password>
-            <button type="submit" onclick="tocustomer_check()">登	 陆</button>　
-            <button type="submit" onclick="tocustomer_reg()">注   册</button>　
- 	
+   	<form action="" method="post">
+	<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<input id="phoneNum" name="phoneNum"  placeholder="请输入手机" onblur="checkjbPhone()"/>
+				<input id="PhonelTip" style="display:none;" onfocus="xsphone()"/>
+			</td>		
+		</tr>
+		<tr>
+			<td>
+            <input id="password" type="password"  class="password" placeholder="密码" size="18"/>
+            </td>
+         </tr>
+         <tr>
+        	 <td>
+            <button id="denglu" type="submit" onclick="tocustomer_check()">登	 录</button>　
+            </td>
+          </tr>
+          <tr>
+         	 <td>
+            <button id="zhuce" type="submit" onclick="tocustomer_reg()">立即注册</button>　
+            </td>
+            </tr>
+    </table>
+ 	</form>
     </div>
 </body>
 </html>
