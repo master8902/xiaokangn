@@ -37,12 +37,13 @@ function sendMessage(basepath){
     	         type: 'POST',
     	         data: phoneNum,
     	         success: function (returndata) { 
-    	        	 
     	        	 var models = eval("("+returndata+")");
-    	        	 alert(models.msg);
     	        	 if(models.msg=="success"){
     	        		alert("发送成功");
-    	        	 }    
+    	        	 }    else{
+    	        		 alert(models.msg);
+    	        	 }
+    	        	 
     	         }
     	    });
  
