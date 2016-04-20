@@ -16,6 +16,7 @@ F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\xiaolangn\util\InitSer
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\tencent\common\report\ReportRunable.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\tencent\common\XMLParser.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\tencent\protocol\refund_protocol\RefundResData.java
+F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\xiaolangn\util\ConfigUtil.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\tencent\service\DownloadBillService.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\tencent\protocol\pay_query_protocol\ScanPayQueryReqData.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\xiaolangn\action\BaseAction.java
@@ -64,13 +65,16 @@ F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\tencent\service\ScanPa
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\xiaolangn\spring\util\RyingLogs.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\xiaolangn\util\TokenThread.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\xiaolangn\util\MyX509TrustManager.java
+F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\xiaolangn\util\MD5Util.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\tencent\common\report\protocol\ReportReqData.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\tencent\service\RefundQueryService.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\tencent\protocol\pay_protocol\ScanPayReqData.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\tencent\common\report\ReporterFactory.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\xiaolangn\util\AccessToken.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\xiaolangn\action\ScheduleAction.java
+F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\xiaolangn\util\XMLUtil.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\tencent\protocol\refund_query_protocol\RefundQueryResData.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\tencent\service\IServiceRequest.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\tencent\protocol\downloadbill_protocol\DownloadBillResData.java
 F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\tencent\common\report\Reporter.java
+F:\myeclipsework\xiaolangn Maven Webapp\src\main\java\com\xiaolangn\util\PayCommonUtil.java

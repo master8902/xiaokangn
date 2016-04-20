@@ -39,33 +39,7 @@ public class WeixinUtil {
 	 * @return
 	 */
 	public static AccessToken getAccessToken(String appid, String appsecret) {
-		AccessToken accessToken = null;	
-		String str = 	"{\"access_token\":\"IL4rs5oZBOjjXjhKdg3SnkQjPUom4hO_JEutYzF7If811Xb-J9JVheQFC4g0AE1wMCzhUXcKWk5JyU-vfiszeCGmXbpb9x4cVvQwGsbJqqjwtQn3n2nOg-p71m0EWnUyHHShAJAVVG\",\"expires_in\":7200}";
-		JSONObject jsonObject = null;
-		String bvb = "{\"access_token\":\"ACCESS_TOKEN\",\"expires_in\":7200}";
-		jsonObject = JSONObject.fromObject(str);
-		
-		// 如果请求成功
-				if (null != jsonObject) {
-					try {
-						accessToken = new AccessToken();
-						accessToken.setToken(jsonObject.getString("access_token"));
-						accessToken.setExpiresIn(jsonObject.getInt("expires_in"));
-					} catch (JSONException e) {
-						accessToken = null;
-						// 获取token失败
-						try {
-							log.error("获取token失败 errcode:{} errmsg:{}", jsonObject.getInt("errcode"), jsonObject.getString("errmsg"));
-						} catch (JSONException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-					}
-				}
-		return accessToken;
-		
-		/*
-		
+
 		AccessToken accessToken = null;
 
 		String requestUrl = access_token_url.replace("APPID", appid).replace("APPSECRET", appsecret);
@@ -89,7 +63,7 @@ public class WeixinUtil {
 		}
 		return accessToken;
 		
-		*/
+
 	}
 
 	/**
@@ -165,32 +139,7 @@ public class WeixinUtil {
 	}
 
 	public static JsAPI getJsAPI(String appid, String appsecret, String token) {
-		JsAPI jsapi = new JsAPI();
-		String str = "{\"errcode\":0,\"errmsg\":\"ok\",\"ticket\":\"sM4AOVdWfPE4DxkXGEs8VIaxDtlOGC_hEkFgVx2sNdHwk3_k3QDkjvgKY-vVY56AfCLL5Pf35TFBE7Vg9OOgBw\",\"expires_in\":7200}";
-		JSONObject jsonObject = null;
-		jsonObject = JSONObject.fromObject(str);
-		
-		// 如果请求成功
-				if (null != jsonObject) {
-					try {
-						jsapi = new JsAPI();
-						jsapi.setJs_api(jsonObject.getString("ticket"));
-						jsapi.setExpiresIn(jsonObject.getInt("expires_in"));
-					} catch (JSONException e) {
-						jsapi = null;
-						// 获取token失败
-						try {
-							log.error("获取token失败 errcode:{} errmsg:{}", jsonObject.getInt("errcode"), jsonObject.getString("errmsg"));
-						} catch (JSONException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-					}
-				}
-		return jsapi;
-		
-		/*
-		
+
 		JsAPI js_api = null;
 
 		String requestUrl = js_api_url.replace("ACCESS_TOKEN", token);
@@ -213,6 +162,5 @@ public class WeixinUtil {
 			}
 		}
 		return js_api;
-		*/
 	}
 }
