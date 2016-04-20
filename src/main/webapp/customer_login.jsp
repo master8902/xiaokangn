@@ -27,11 +27,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 function tocustomer_reg(){
 	window.location.href="<%=basePath %>register/register_show.do";
-	
-	 $.ajax({
-	        url: '<%=basePath %>register/register_show.do',
-	         type: 'POST'
-	    });
 } 
 
 
@@ -70,7 +65,14 @@ var postdata   = "phoneNum="+ phoneNum +"&password="+ password ;
          type: 'POST',
          data: postdata,
          success: function (returndata) { 
- 				alert("登陆成功");
+        	 if(returndata=="success"){
+        		//登录成功，这边先暂时跳转到注册页面
+        		 window.location.href="<%=basePath %>register/register_show.do";
+        	 }
+        	 else{
+        		 alert("帐号或者密码错误");
+        	 }
+ 				
  				//跳到新的页面 			
          },
          error: function (returndata) {
