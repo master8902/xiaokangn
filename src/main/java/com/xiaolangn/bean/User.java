@@ -6,6 +6,7 @@ public class User {
     private Integer id;
 	private String phoneNum;
 	private String password;
+	private String createtime;
 	public Integer getId() {
 		return id;
 	}
@@ -30,7 +31,7 @@ public class User {
 	public void setCreatetime(String createtime) {
 		this.createtime = createtime;
 	}
-	private String createtime;
+	
 	
 
 }

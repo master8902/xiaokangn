@@ -30,6 +30,13 @@ public class UserService implements IUserService {
 		return userMapper.getUserByPhone(phoneNum);
 	}
 
+
+	@Override
+	public int insert(User user) {
+		// TODO Auto-generated method stub
+		return userMapper.insert(user);
+	}
+
    
 
 

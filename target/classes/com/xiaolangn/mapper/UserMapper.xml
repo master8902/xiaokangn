@@ -25,6 +25,9 @@
 		FROM t_user WHERE phoneNum=#{phoneNum}
 	</select>
 
-
+<insert id="insert" parameterMap="p" useGeneratedKeys="true">
+		 insert into chat_record(phoneNum,password,createtime) 
+			values(#{phoneNum},#{password},#{createtime}) 
+	</insert>
 
 </mapper>

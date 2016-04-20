@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import com.cloopen.rest.sdk.CCPRestSmsSDK;
 
 public class SDKTestSendTemplateSMS {
-	private static int DEADTIME = 5;//单位分钟
+	private static int DEADTIME = 2;//单位分钟
 	private static String ACCOUNT_SID = "aaf98f8952f7367a015317f3136c3e19";
 	private static String AUTH_TOKEN = "a09e23600e1841c28307d6a7fee78cea";
-	private static String AppId = "aaf98f8952f7367a015317f394ba3e20";
-	private static String restAPIUrl = "sandboxapp.cloopen.com";//*沙盒环境（用于应用开发调试）：restAPI.init("sandboxapp.cloopen.com", "8883");*
+	private static String AppId = "8a48b5515388ec1501539a311cb81a68";
+	private static String restAPIUrl = "app.cloopen.com";//*沙盒环境（用于应用开发调试）：restAPI.init("sandboxapp.cloopen.com", "8883");*
 																//*生产环境（用户应用上线使用）：restAPI.init("app.cloopen.com", "8883");       *
-	private static String modelId = "1";//短信模版的id
-	private static String restAPIPort = "8883";
+	private static String modelId = "81143";//短信模版的id
+	private static String restAPIPort = "8883";//短信服务器端口，不需要改
 	
 	
 	/**
@@ -42,8 +42,6 @@ public class SDKTestSendTemplateSMS {
 			else
 				return -1;
 		}
-		
-		
 		
 		//初始化SDK
 		CCPRestSmsSDK restAPI = new CCPRestSmsSDK();
@@ -86,8 +84,8 @@ public class SDKTestSendTemplateSMS {
 		//*则13800000000手机号收到的短信内容是：【云通讯】您使用的是云通讯短信模板，您的验证码是6532，请于5分钟内正确输入     *
 		//*********************************************************************************************************************
 		
-		String code = "6532";
-		result = restAPI.sendTemplateSMS(phoneNum,modelId ,new String[]{code,String.valueOf(DEADTIME)});
+		Integer code=1000+(int)(Math.random()*8999);
+		result = restAPI.sendTemplateSMS(phoneNum,modelId ,new String[]{code.toString(),String.valueOf(DEADTIME)});
 		
 		System.out.println("SDKTestGetSubAccounts result=" + result);
 		if("000000".equals(result.get("statusCode"))){
@@ -110,6 +108,8 @@ public class SDKTestSendTemplateSMS {
 			request.getSession().removeAttribute("phoneData");
 			//异常返回输出错误码和错误信息
 			System.out.println("错误码=" + result.get("statusCode") +" 错误信息= "+result.get("statusMsg"));
+			return -2;
+			
 		}
 		
 		return 1;
