@@ -8,8 +8,6 @@
 	<resultMap type="com.xiaolangn.bean.Product" id="r">
 	</resultMap>
 
-	<resultMap type="com.xiaolangn.bean.Product" id="ra">
-	</resultMap>
 	<parameterMap type="com.xiaolangn.bean.Product" id="p"></parameterMap>
 
 
@@ -22,6 +20,11 @@
 	<select id="getProductByType" resultMap="r" parameterType="int">
 		SELECT chineseName,englishName,price,startDate,endDate,picture_url
 		FROM product_info WHERE type=1
+	</select>
+	
+    <select id="getProductByName" resultMap="r" parameterType="String">
+		SELECT chineseName,englishName,price,startDate,endDate,picture_url
+		FROM product_info WHERE chineseName LIKE "%"#{chineseName}"%"
 	</select>
 
 

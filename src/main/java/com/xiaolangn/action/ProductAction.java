@@ -51,7 +51,11 @@ public class ProductAction extends BaseAction {
 //		}
 //
 //	}
-	
+
+/**
+ * 查询近期热门产品
+ * @return
+ */
 	public String info2() {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		
@@ -77,6 +81,10 @@ public class ProductAction extends BaseAction {
 
 	}
 	
+/**
+ * 	短途/远征查询产品
+ * @return
+ */
 	public String typeInfo() {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		
@@ -89,6 +97,17 @@ public class ProductAction extends BaseAction {
 
 	}
 
+/**
+ * 	模糊字段查询产品
+ * @return
+ */
+	public void queryProductByName() {
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("utf-8");		
+		String chineseName = "日本";
+		List<Product> product = productService.getProductByName(chineseName);	
+        System.out.println(product.size());
+	}	
 
 }
 

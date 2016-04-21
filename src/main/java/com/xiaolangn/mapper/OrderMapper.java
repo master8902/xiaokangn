@@ -12,6 +12,15 @@ public interface OrderMapper {
 	 * @param order 订单实例
 	 * @return 
 	 */
-   public Order newAddOrder(Order order);
-
+   public int newAddOrder(Order order);
+   
+   /**
+    * 根据订单id查询订单须知
+    */
+   public Order queryOrderById(Integer id);
+   
+   /**
+    * 修改订单信息
+    */
+   public void modifyOrder(Order order);
 }

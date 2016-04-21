@@ -8,8 +8,6 @@
 	<resultMap type="com.xiaolangn.bean.User" id="r">
 	</resultMap>
 
-	<resultMap type="com.xiaolangn.bean.User" id="ra">
-	</resultMap>
 	<parameterMap type="com.xiaolangn.bean.User" id="p"></parameterMap>
 
 

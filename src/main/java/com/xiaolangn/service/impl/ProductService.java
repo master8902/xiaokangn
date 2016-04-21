@@ -33,7 +33,11 @@ public class ProductService implements IProductService {
         return productMapper.getProductByType(type);
     }
 
-   
+    @Override
+    public List<Product> getProductByName(String chineseName) {
+        // TODO Auto-generated method stub
+        return productMapper.getProductByName(chineseName);
+    }
 
 
 }

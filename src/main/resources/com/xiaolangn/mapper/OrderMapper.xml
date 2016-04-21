@@ -8,16 +8,23 @@
 	<resultMap type="com.xiaolangn.bean.Order" id="r">
 	</resultMap>
 
-	<resultMap type="com.xiaolangn.bean.Order" id="ra">
-	</resultMap>
 	<parameterMap type="com.xiaolangn.bean.Order" id="p"></parameterMap>
 
 
-    <insert id="newAddOrder" parameterType="Order">
+    <insert id="newAddOrder" parameterMap="p" useGeneratedKeys="true">
     	INSERT INTO order_info (id,orderType,identificationType,identificationNumber,realName,
     	nationality,contacts,phoneNum,orderPrice,orderNotice,orderSaveTime,isPay,userId) VALUES 
     	(#{id},#{orderType},#{identificationType},#{identificationNumber},#{realName},
     	#{nationality},#{contacts},#{phoneNum},#{orderPrice},#{orderNotice},#{orderSaveTime},#{isPay},#{userId})
     </insert>
+    
+    <select id="queryOrderById" resultMap="r" parameterType="int">
+    	SELECT orderNotice
+		FROM order_info WHERE id=#{id}
+    </select>
+    
+    <update id="modifyOrder" parameterMap="p">
+    	UPDATE order_info SET isPay=#{isPay} WHERE id=#{id}
+    </update>
 
 </mapper>

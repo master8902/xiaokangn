@@ -2,6 +2,7 @@ package com.xiaolangn.util;
 
 
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
@@ -66,7 +67,7 @@ public class PayCommonUtil {
 	 * @param parameters  请求参数
 	 * @return
 	 */
-	public static String getRequestXml(SortedMap<Object,Object> parameters){
+	public static String getRequestXml(Map<String,Object> parameters){
 		StringBuffer sb = new StringBuffer();
 		sb.append("<xml>");
 		Set es = parameters.entrySet();

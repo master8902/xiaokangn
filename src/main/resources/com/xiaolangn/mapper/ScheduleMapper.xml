@@ -8,8 +8,6 @@
 	<resultMap type="com.xiaolangn.bean.Schedule" id="r">
 	</resultMap>
 
-	<resultMap type="com.xiaolangn.bean.Schedule" id="ra">
-	</resultMap>
 	<parameterMap type="com.xiaolangn.bean.Schedule" id="p"></parameterMap>
 
 

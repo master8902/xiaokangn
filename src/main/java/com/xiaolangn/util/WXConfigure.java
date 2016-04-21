@@ -11,6 +11,6 @@ public class WXConfigure {
 	public static String notify_url = "WEB";
 	public static String trade_type = "JSAPI";
 
-	
+	public static String key = "sharlon18352560727wuxixiaolangkj";
 	
 }

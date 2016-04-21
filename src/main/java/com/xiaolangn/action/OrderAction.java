@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Profile;
 import com.google.gson.Gson;
 import com.xiaolangn.bean.Order;
 import com.xiaolangn.service.IOrderService;
+import com.xiaolangn.service.impl.OrderService;
 
 public class OrderAction extends BaseAction {
 
@@ -51,7 +52,10 @@ public class OrderAction extends BaseAction {
 //
 //	}
 	
-	
+/**
+ * 新增订单
+ * 	
+ */
 	public void newAddOrder() {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		
@@ -59,11 +63,29 @@ public class OrderAction extends BaseAction {
         order.setId(1);
         order.setIdentificationType("身份证");
         order.setNationality("中国");
-//		String orderType = request.getParameter("orderType");//ishot从前台jsp到后台
 		orderService.newAddOrder(order);	
-		
 	}
 
+/**
+ * 根据订单id查询订单须知
+ */
+    public void queryOrderById(){
+    	Integer id = 1;
+    	Order order = orderService.queryOrderById(id);
+    	System.out.println(order.getOrderNotice());
+    }
+    
+/**
+ * 修改订单信息 --是否支付
+ * 订单id 必填
+ */
+    public void modifyOrder(){
+    	Order order =  new Order();
+    	order.setId(1);
+    	order.setIsPay(1);
+    	orderService.modifyOrder(order);
+    	
+    }
 
 }
 
