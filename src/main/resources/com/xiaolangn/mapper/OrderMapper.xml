@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.xiaolangn.mapper.OrderMapper">
+	<resultMap type="com.xiaolangn.bean.Order" id="r">
+	</resultMap>
+
+	<resultMap type="com.xiaolangn.bean.Order" id="ra">
+	</resultMap>
+	<parameterMap type="com.xiaolangn.bean.Order" id="p"></parameterMap>
+
+
+    <insert id="newAddOrder" parameterType="Order">
+    	INSERT INTO order_info (id,orderType,identificationType,identificationNumber,realName,
+    	nationality,contacts,phoneNum,orderPrice,orderNotice,orderSaveTime,isPay,userId) VALUES 
+    	(#{id},#{orderType},#{identificationType},#{identificationNumber},#{realName},
+    	#{nationality},#{contacts},#{phoneNum},#{orderPrice},#{orderNotice},#{orderSaveTime},#{isPay},#{userId})
+    </insert>
+
+</mapper>

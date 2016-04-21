@@ -21,4 +21,5 @@
 	<include file="struts-pay.xml"></include>
 	<include file="struts-postdata.xml"></include>
 	<include file="struts-register.xml"></include>
+	<include file="struts-order.xml"></include>
 </struts>    
