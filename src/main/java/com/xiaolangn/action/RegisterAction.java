@@ -46,6 +46,7 @@ public class RegisterAction extends BaseAction {
 		String json = "{\"msg\": \"success\"}";
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		
+		
 		String phoneNum = request.getParameter("Phone");
 		String passWord = request.getParameter("repassword");
 		String btnSendCode = request.getParameter("SmsCheckCode");
@@ -55,7 +56,7 @@ public class RegisterAction extends BaseAction {
 				String phoneCode1 = (String) request.getSession().getAttribute("phoneCode");//设置手机的验证码
 				String phoneDate1 = (String) request.getSession().getAttribute("phoneData");//设置新建验证码的时间
 				
-				if(phoneNum1!=null&&phoneCode1!=null&&phoneDate1!=null){//如果session里面有session，检测下时间，如果没过期就什么也不做，过期了就清空
+				if(phoneNum1==null||phoneCode1==null||phoneDate1==null){//如果session里面有session，检测下时间，如果没过期就什么也不做，过期了就清空
 					return;					
 				}else{
 					Date cur = new Date();
@@ -78,9 +79,10 @@ public class RegisterAction extends BaseAction {
 		}
 		
 		User user = new User();
-		user.setCreatetime(new Date().toString());
+		user.setCreatetime(new Date());
 		user.setPhoneNum(phoneNum);
 		user.setPassword(passWord);
+		
 		try{
 			int result = userService.insert(user);
 			if(result!=-1){

@@ -1,12 +1,14 @@
 package com.xiaolangn.bean;
 
+import java.util.Date;
+
 
 public class User {
 
     private Integer id;
 	private String phoneNum;
 	private String password;
-	private String createtime;
+	private Date createtime;
 	public Integer getId() {
 		return id;
 	}
@@ -25,13 +27,12 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getCreatetime() {
+	public Date getCreatetime() {
 		return createtime;
 	}
-	public void setCreatetime(String createtime) {
+	public void setCreatetime(Date createtime) {
 		this.createtime = createtime;
 	}
-	
 	
 
 }

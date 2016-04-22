@@ -24,7 +24,7 @@
 	</select>
 
 <insert id="insert" parameterMap="p" useGeneratedKeys="true">
-		 insert into chat_record(phoneNum,password,createtime) 
+		 insert into t_user(phoneNum,password,createtime) 
 			values(#{phoneNum},#{password},#{createtime}) 
 	</insert>
 
