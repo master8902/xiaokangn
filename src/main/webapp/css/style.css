@@ -30,7 +30,7 @@ form {
     text-align: center;
 }
 
-#Phonel,#PhonelTip,#passwordl{
+#phoneNum,#PhonelTip,#password{
     width: 70%;
     height: 42px;
     margin-top: 25px;

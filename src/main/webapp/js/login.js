@@ -4,16 +4,16 @@ function trim(str) {
 }  
 
 function checkjbPhone() {  
-    var jbPhone = $("#Phonel").val();  
+    var jbPhone = $("#phoneNum").val();  
     var re= /(^1[3|5|8][0-9]{9}$)/;  
     if (trim(jbPhone) == "") {  
-    	 $("#Phonel").hide();//隐藏
+    	 $("#phoneNum").hide();//隐藏
     	 $("#PhonelTip").show();//隐藏 
     	$("#PhonelTip").val("手机号码不能为空");
         return false;  
     } else if(trim(jbPhone) != ""){  
         if(!re.test(jbPhone)){  
-        	 $("#Phonel").hide();//隐藏
+        	 $("#phoneNum").hide();//隐藏
         	 $("#PhonelTip").show();//隐藏 
         	 $("#PhonelTip").val("请输入有效的手机号码");
             return false;  
@@ -43,6 +43,6 @@ function checkjbPhone() {
 //去掉前后空格  
 
 function xsphone(){
-	 $("#Phonel").show();//隐藏
+	 $("#phoneNum").show();//隐藏
 	 $("#PhonelTip").hide();//隐藏 
 }
