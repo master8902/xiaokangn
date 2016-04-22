@@ -61,7 +61,7 @@ public class ProductAction extends BaseAction {
 		response.setCharacterEncoding("utf-8");		
 		String ishot = request.getParameter("ishot");//ishot从前台jsp到后台
 		List<Product> product = productService.getProductByHot(Integer.valueOf(ishot));	
-		
+		request.setAttribute("product", product);
 //		String title = product.getTitle();	
 //		request.setAttribute("title", title);//从后台返回参数给request（跟jsp有关）
 //		

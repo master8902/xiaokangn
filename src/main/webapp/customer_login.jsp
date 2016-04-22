@@ -66,8 +66,7 @@ var postdata   = "phoneNum="+ phoneNum +"&password="+ password ;
          data: postdata,
          success: function (returndata) { 
         	 if(returndata=="success"){
-        		//登录成功，这边先暂时跳转到注册页面
-        		 window.location.href="<%=basePath %>product/product_info2.do";
+        		 window.location.href="<%=basePath %>product/product_info2.do?ishot=1";
         	 }
         	 else{
         		 alert("帐号或者密码错误");

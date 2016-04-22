@@ -5,6 +5,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -45,6 +46,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    
  </head> 
 <body>
+
+
+
+
+
 <div class="container-fluid">
 	<div class="row-fluid" style="height:30%">
 		<div class="span12">
@@ -58,15 +64,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 				</ol>
 				<div class="carousel-inner">
+				
 					<div class="item active">
 						<img alt="" src="<%=request.getContextPath()%>/images/1.jpg"/>
 					</div>
+					
 					<div class="item">
 						<img alt="" src="<%=request.getContextPath()%>/images/2.jpg"  />
 					</div>
 					<div class="item">
 						<img alt="" src="<%=request.getContextPath()%>/images/3.jpg" />
 					</div>
+					 
 				</div> <a class="left carousel-control" href="#carousel-58154" data-slide="prev">‹</a> <a class="right carousel-control" href="#carousel-58154" data-slide="next">›</a>
 			</div>
 		</div>
@@ -85,18 +94,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 	
+	
+
+
+
+
+
+
+
 	<div class="row-fluid">
 		<div class="span12">
 			<div id="wrapper" style="height:60%">
 				<div>
+				<s:iterator value="#request.product" id="bean" status="L">
+				<!--<s:property value="#L.index+1"/>-->
 					<div style="position:relative;width:100%;height:216px">				
 						<img alt="" src="<%=request.getContextPath()%>/images/1.jpg" />
 						<div style="width:100%;height:15%;position:absolute;bottom:0">
-							<span id="price1">价格</span>
-							<span id="xiwei1">席位</span>
-							<span id="data1">日期</span>
+							<span id="price1">价格:<s:property value="#bean.price"/></span>
+							<span id="xiwei1">席位:<s:property value="#bean.saleSeat"/></span>
+							<span id="data1">日期:<s:property value="#bean.startDate"/></span>
 						</div>
 					</div>
+					</s:iterator>
+					<!--  
 					<div style="position:relative;width:100%;height:216px">	
 						<img alt="" src="<%=request.getContextPath()%>/images/2.jpg" style="margin-top:1.5%"/>
 						<div style="width:100%;height:15%;position:absolute;bottom:0">
@@ -113,6 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<span id="data3">日期</span>
 						</div>
 					</div>
+					-->
 				</div>
 			</div>
 		</div>

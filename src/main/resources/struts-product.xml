@@ -4,7 +4,7 @@
 	<package name="product" extends="oa-default" namespace="/product" >
 
 		<action name="product_*" class="com.xiaolangn.action.ProductAction" method="{1}">	   
-			<result name="productinfo">/WEB-INF/jsp/productinfo.jsp</result>
+			<result name="productinfo">/index.jsp</result>
 		</action>
 	</package>
 </struts>
