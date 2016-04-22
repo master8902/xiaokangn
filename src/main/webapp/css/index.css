@@ -5,7 +5,21 @@
 	align:center;
 	text-align:center;
 }
-
+#price1,#xiwei1,#price2,#xiwei2,#price3,#xiwei3{
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #f57b16;
+    margin-left:3%;
+}
+#data1,#data2,#data3{
+	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #f57b16;
+    float:right;
+    margin-right:5%;
+}
 #lvchen,#piaowu,#wo{
    width:33%;
    height:100%;

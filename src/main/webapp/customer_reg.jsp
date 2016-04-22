@@ -90,9 +90,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	
 	</form>
-	 
+	 <!--  
 	<button  onclick="pay11();return false;">支付</button>　
-	
+	-->
 
 </div>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"  
