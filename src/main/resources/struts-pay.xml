@@ -5,6 +5,7 @@
 
 		<action name="pay_*" class="com.xiaolangn.action.PayAction" method="{1}">	   
 			<result name="apply">/WEB-INF/jsp/wechatpay.jsp</result>
+			<result name="show">/WEB-INF/jsp/pay.jsp</result>
 		</action>
 	</package>
 </struts>

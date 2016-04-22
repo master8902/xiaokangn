@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <script  type="text/javascript">
 
 function tocustomer_reg(){
-	window.location.href="<%=basePath %>register/register_show.do";
+	document.location.href="<%=basePath %>register/register_show.do";
 } 
 
 
@@ -107,7 +107,7 @@ var postdata   = "phoneNum="+ phoneNum +"&password="+ password ;
           </tr>
           <tr>
          	 <td>
-            <button id="zhuce" type="submit" onclick="tocustomer_reg()">立即注册</button>　
+            <button id="zhuce" type="submit" onclick="tocustomer_reg();return false;">立即注册</button>　
             </td>
             </tr>
     </table>

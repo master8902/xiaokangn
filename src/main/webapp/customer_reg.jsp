@@ -25,17 +25,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style1.css">
            <script type="text/javascript" src="<%=basePath %>js/jquery.min.js"></script>
- 
+    <script  type="text/javascript">
+    	function pay11(){
+    	
+    		
+    		document.location.href="<%=basePath %>pay/test/pay_show.do";
+    	//	var str = "https://open.weixin.qq.com/connect/oauth2/authorize?"+"appid="+"wx9ffc728a584dc255"+"&redirect_uri=http://www.sharlontrip.com:8080/xiaolangn/pay/pay_test.do&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";	
+    	//	document.location.href==str;
+    	}
+    	
+
+    	</script>
 </head>
 <body>
 <div id="zhuce" class="page-container">
-	<form id="form1" name="form1"  method="post" > 
+	<form id="form1" action="<%=basePath %>register/register_insert.do"  method="post" > 
+	 
 	<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td>
 				<input id="Phone" name="Phone"  placeholder="请输入手机" onblur="checkjbPhone()"/>
 				<input id="PhoneTip" style="display:none;" onfocus="xsphone()"/>
 			</td>		
+		</tr>
+		<tr>
+			<td>
+			<input id="tpyz"   placeholder="请输入验证码" onblur="checktypz()"/>
+			<input id="tpyzTip" style="display:none;" onfocus="xstypz()"/>
+			<input type="button" id="tpyzm"  onclick="changeCode()"/>
+    <script type="text/javascript">
+    	$(function(){
+    	a=createCode();
+    	document.getElementById('tpyzm').value=a;
+    	});
+    </script>
+			 </td>
 		</tr>
 		<tr>  
              <td>  
@@ -56,29 +80,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<input  id="passwordRepeatTip" style="display:none;" onfocus="xspasswordb()"/>
 			</td>
 		</tr>
-		<tr>
-			<td>
-			<input id="tpyz"   placeholder="请输入验证码" onblur="checktypz()"/>
-			<input id="tpyzTip" style="display:none;" onfocus="xstypz()"/>
-			<input type="button" id="tpyzm"  />
-    <script type="text/javascript">
-    	$(function(){
-    	a=createCode();
-    	document.getElementById('tpyzm').value=a;
-    	});
-    </script>
-			 </td>
-		</tr>
+		
 		<tr>
 		  <td>
-		  <button type="submit">注   册</button>　
+		  <button onclick="checkForm()">注   册</button>　
 		  </td>
 		 </tr>
 	</table>
+
+	
 	</form>
 	
-	<a href="<%=basePath %>pay/test/pay_apply.do?"> 申请调用付款</a>
+	<button  onclick="pay11();return false;">支付</button>　
 	
+
 </div>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"  
     type="text/javascript"></script>

@@ -75,7 +75,7 @@ var postdata   = "textplan3="+ textplan3 +"&textplan4="+ textplan4 +"&textplan5=
 <a href="<%=basePath %>product/product_info2.do?ishot=1"> 我的-调到一个近期热门产品页面</a>
 <a href="<%=basePath %>schedule/schedule_info2.do?productId=1"> 我的-调到一个日程安排页面</a>
 
-<a href="<%=basePath %>pay/pay_apply.do?"> 申请调用付款</a>
+<a href="<%=basePath %>pay/test/pay_apply.do?"> 申请调用付款</a>
 
 
 <br>

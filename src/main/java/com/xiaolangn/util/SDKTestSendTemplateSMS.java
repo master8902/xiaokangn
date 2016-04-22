@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.cloopen.rest.sdk.CCPRestSmsSDK;
 
 public class SDKTestSendTemplateSMS {
-	private static int DEADTIME = 2;//单位分钟
+	public static int DEADTIME = 10;//单位分钟
 	private static String ACCOUNT_SID = "aaf98f8952f7367a015317f3136c3e19";
 	private static String AUTH_TOKEN = "a09e23600e1841c28307d6a7fee78cea";
 	private static String AppId = "8a48b5515388ec1501539a311cb81a68";
@@ -91,7 +91,7 @@ public class SDKTestSendTemplateSMS {
 		if("000000".equals(result.get("statusCode"))){
 			
 			request.getSession().setAttribute("phoneNum", phoneNum);//往session设置设计号
-			request.getSession().setAttribute("phoneCode", code);//设置手机的验证码
+			request.getSession().setAttribute("phoneCode", code.toString());//设置手机的验证码
 			request.getSession().setAttribute("phoneData", new Date().toString());//设置新建验证码的时间
 			
 			//正常返回输出data包体信息（map）

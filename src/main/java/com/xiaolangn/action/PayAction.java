@@ -1,6 +1,7 @@
 package com.xiaolangn.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -21,6 +22,7 @@ import com.tencent.common.Signature;
 import com.xiaolangn.bean.SignBean;
 import com.xiaolangn.service.IUserService;
 import com.xiaolangn.util.CusAccessObjectUtil;
+import com.xiaolangn.util.MyHttpRequest;
 import com.xiaolangn.util.PayCommonUtil;
 import com.xiaolangn.util.TokenThread;
 import com.xiaolangn.util.WXConfigure;
@@ -41,7 +43,43 @@ public class PayAction extends BaseAction {
 	HttpServletResponse response = ServletActionContext.getResponse();
 	HttpServletRequest request = ServletActionContext.getRequest();
 	
-	public String getPrepayId(){		
+	public String show(){
+		// <%=basePath %>pay/test/pay_apply.do
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("utf-8");		
+		return "show";//指定返回路径
+	}
+	public void callback(){
+		System.out.println("callback-------------------------------------------------");
+	}
+	
+	public void oauth2(){
+		// <%=basePath %>pay/test/pay_apply.do
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("utf-8");		
+			String str = "https://open.weixin.qq.com/connect/oauth2/authorize?";
+		
+			String param = "appid="+
+					WXConfigure.appId+"&redirect_uri=" +
+							"http%3a%2f%2fwww.sharlontrip.com%3a8080%2fxiaolangn%2fpay%2ftest%2fpay_callback.do" +
+							"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+			String aa = str+param;
+			String res = MyHttpRequest.sendGet(str,param);
+			PrintWriter out;
+			try {
+				out = response.getWriter();
+				out.print(res);
+				out.flush();
+				out.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	}
+	
+
+	
+	public String getPrepayId(){
+		
 		//预处理的map集合中key一定要是全部小写英文
 		  Map<String,Object> parameters = new HashMap<String,Object> ();
 	       parameters.put("appid", WXConfigure.appId); // 公众账号ID
