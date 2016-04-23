@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     type="text/javascript"></script>
  <script src="<%=request.getContextPath()%>/js/dingdan.js"  
     type="text/javascript"></script>  
- <script src="<%=request.getContextPath()%>/js/jquery-1.4.4.min.js"  
+ <script src="<%=request.getContextPath()%>/js/jquery-1.8.3.min.js"  
     type="text/javascript"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/dingdan.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">

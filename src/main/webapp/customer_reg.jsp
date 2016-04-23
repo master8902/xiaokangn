@@ -25,6 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css">
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style1.css">
            <script type="text/javascript" src="<%=basePath %>js/jquery.min.js"></script>
+           
     <script  type="text/javascript">
     	function pay11(){
     	
@@ -39,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <div id="zhuce" class="page-container">
-	<form id="form1" action="<%=basePath %>register/register_insert.do"  method="post" > 
+	<div id="form1"   > 
 	 
 	<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
 		<tr>
@@ -83,13 +84,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<tr>
 		  <td>
-		  <button onclick="checkForm()">注   册</button>　
+		  <button onclick="checkForm('<%=basePath %>')">注   册</button>　
 		  </td>
 		 </tr>
 	</table>
 
 	
-	</form>
+	</div>
 	 <!--  
 	<button  onclick="pay11();return false;">支付</button>　
 	-->
