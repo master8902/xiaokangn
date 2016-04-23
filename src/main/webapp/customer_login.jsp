@@ -101,7 +101,7 @@ var postdata   = "phoneNum="+ phoneNum +"&password="+ password ;
          </tr>
          <tr>
         	 <td>
-            <button id="denglu" type="submit" onclick="tocustomer_check()">登	 录</button>　
+            <button id="denglu" type="submit" onclick="tocustomer_check();return false;">登	 录</button>　
             </td>
           </tr>
           <tr>
