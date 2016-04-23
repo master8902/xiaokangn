@@ -22,7 +22,7 @@ function checkisNULL(value,message){
 } 
 
 function checkForm(path){
-	/*
+	
 	    if(checkjbPhone()==false){
 	    	alert("请正确填写手机号");
 	    	return false;
@@ -35,7 +35,7 @@ function checkForm(path){
 		   alert("请正确输入密码，且两次的密码要一致");
 	    	return false;
 	   }
-	  */
+	 
 	
 	 var Phone = $("#Phone").val(); 
 	 var SmsCheckCode = $("#SmsCheckCode").val(); 

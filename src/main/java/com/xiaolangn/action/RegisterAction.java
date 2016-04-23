@@ -50,7 +50,7 @@ public class RegisterAction extends BaseAction {
 		String phoneNum = request.getParameter("Phone");
 		String passWord = request.getParameter("repassword");
 		String btnSendCode = request.getParameter("SmsCheckCode");
-	/*
+	
 		//首先检查session是否有手机号，验证码及发送验证码的时间
 				String phoneNum1 = (String) request.getSession().getAttribute("phoneNum");//往session设置设计号
 				String phoneCode1 = (String) request.getSession().getAttribute("phoneCode");//设置手机的验证码
@@ -94,7 +94,7 @@ public class RegisterAction extends BaseAction {
 		}catch(Exception e){
 			json = "{\"msg\": \"注册失败\"}";
 		}
-		*/
+		
 		PrintWriter out;
 		try {
 			out = response.getWriter();
