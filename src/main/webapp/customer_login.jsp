@@ -113,7 +113,7 @@ var postdata   = "phoneNum="+ phoneNum +"&password="+ password +"&productId="+pr
             </tr>
     </table>
  	</form>
- 	<input type="hidden" id="productId" value="<s:property value="productId"/>"/>
+ 	<input type="hidden" id="productId" value="${productId}"/>
     </div>
 </body>
 </html>
