@@ -49,11 +49,26 @@ public class OrderAction extends BaseAction {
  */
 	public void newAddOrder() {
 		response.setContentType("text/html;charset=UTF-8");
-		response.setCharacterEncoding("utf-8");		
+		response.setCharacterEncoding("utf-8");	
+//		String projectId = request.getParameter("projectId");
+		String identificationType = request.getParameter("identificationType");
+		String CredentialsCode = request.getParameter("CredentialsCode");
+		String nickname = request.getParameter("nickname");
+		String guoji = request.getParameter("guoji");
+		String phoneNum = request.getParameter("phoneNum");
+		String jiner = request.getParameter("jiner");
+		String lianxi = request.getParameter("lianxi");
         Order order = new Order();
-        order.setId(1);
-        order.setIdentificationType("身份证");
-        order.setNationality("中国");
+//        order.setId(1);
+//        order.setIdentificationType("身份证");
+//        order.setNationality("中国");
+        order.setIdentificationType(identificationType);
+        order.setIdentificationNumber(CredentialsCode);
+        order.setRealName(nickname);
+        order.setNationality(guoji);
+        order.setPhoneNum(phoneNum);
+        order.setOrderPrice(Integer.valueOf(jiner));
+        order.setContacts(lianxi);
 		orderService.newAddOrder(order);	
 	}
 

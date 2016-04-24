@@ -37,11 +37,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  } 
  window.addEventListener('load', loaded, false); 
  
- function login(){
+  function login(){
 		document.location.href="<%=basePath %>user/user_showlogin.do";
 	} 
-
  </script>
+ 
+ 
 </head>
 <body>
 <div class="container-fluid">
@@ -67,6 +68,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<img alt="" src="<%=request.getContextPath()%>/images/6.jpg" />
 					</div>
 				</div> <a class="left carousel-control" href="#carousel-58154" data-slide="prev">‹</a> <a class="right carousel-control" href="#carousel-58154" data-slide="next">›</a>
+					<div style="position:relative;width:100%;margin-top:-65%">	
+						<div style="width:100%;height:15%;position:absolute;bottom:-20">
+							<span id="day">Day</span>
+							<span id="daynum">1</span>
+							<span id="neirong">交通：自行搭乘交通工具，前往小浪&Galantrip集合地点
+							餐饮：推荐早午晚餐，费用自理
+							唐克乡是四川省阿坝藏族羌族自治州若尔盖县辖乡。唐克是个新兴的旅游区。位于若尔盖县西南部，距若尔盖县城64公里。
+							</span>
+						</div>
+						<div style="width:100%;height:15%;position:absolute;bottom:0">
+							<span id="data1">初始</span>
+							<span id="data2">结束</span>
+							</div>
+					</div>
 			</div>
 		</div>
 	</div>
@@ -74,13 +89,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="span12">
 			<div id="zhuyi" style="height:25% ;margin-top:0%;">
 				<div>
-				<div style="position:relative;width:100%;height:95%">	
-					<p>一些注意事项</p>
-							<div style="width:100%;height:15%;position:absolute;bottom:0">
-							<span id="price1">价格</span>
-							<span id="xiwei1">席位</span>
-							<span id="data1">日期</span>
-							</div>
+				<div style="position:relative;width:100%;height:95%">
+				<p>一些注意事项</p>
+				<div style="width:100%;height:15%;position:absolute;bottom:0">
+						    <span id="xiwei1">已售</span>
+							<span id="xiwei2">剩余</span>
+				</div>
 				</div>
 				</div>
 			</div>
