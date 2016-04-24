@@ -33,14 +33,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/dingdan.css">
 
  <script  type="text/javascript">
+ function pay11(){
+		document.location.href="<%=basePath %>pay/test/pay_show.do";
+	}
  function saveOrderInfo() {
-	 function pay11(){
-	    	
- 		
- 		document.location.href="<%=basePath %>pay/test/pay_show.do";
- 	//	var str = "https://open.weixin.qq.com/connect/oauth2/authorize?"+"appid="+"wx9ffc728a584dc255"+"&redirect_uri=http://www.sharlontrip.com:8080/xiaolangn/pay/pay_test.do&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";	
- 	//	document.location.href==str;
- 	}
+	
 var phoneNum = $.trim($("#phoneNum").val());
 	
 	var result = checkisNULL(phoneNum,"手机号码不能为空");//出错提示
@@ -178,7 +175,7 @@ var postdata   = "identificationType="+ identificationType
 			<table id="foot">
 				<tr>
 					<td>
-			 			<input id="ddze" type="button"  value="订单总额："/><input id="jiner" type="button" value="数字"/><input id="qrzf" type="button" value="确认支付" onclick="pay11();return false;"/>
+			 			<input id="ddze" type="button"  value="订单总额："/><input id="jiner" type="button" value="${request.product.price}"/><input id="qrzf" type="button" value="确认支付" onclick="pay11();return false;"/>
 			 		</td>
 			 	</tr>
 			 </table>
