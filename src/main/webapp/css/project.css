@@ -5,14 +5,7 @@
 	
 	background: #808080;
 }
-#price1,#xiwei1{
-    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: #f57b16;
-    margin-left:3%;
-}
-#data1{
+#xiwei1,#xiwei2{
 	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 700;
@@ -20,22 +13,54 @@
     float:right;
     margin-right:10%;
 }
+
+#day{
+	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fcfcfc;
+    float:left;
+    margin-left:5%;
+}
+#daynum{
+	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fcfcfc;
+    float:left;
+}
+#neirong{
+	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fcfcfc;
+    float:left;
+    margin-top:23%;
+    margin-left:5%;
+}
+#data1,#data2{
+	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fcfcfc;
+    float:right;
+}
 #shoucang{
-	 width:28%;
-   height:100%;
-   margin-left:2%;
+	width:28%;
+    height:100%;
+    margin-left:2%;
     padding: 0;
-    background: #ffc58a;
-    border:#ffc58a;
+    background: #FFC58A;
+    border:#FFC58A;
     font-family: 'PT Sans', Helvetica, Arial, sans-serif;
     font-size: 14px;
 }
 #baoming{
-	 width:70%;
-   height:100%;
+	width:70%;
+    height:100%;
     padding: 0;
-    background: #ffc58a;
-    border:#ffc58a;
+    background: #FFC58A;
+    border:#FFC58A;
     font-family: 'PT Sans', Helvetica, Arial, sans-serif;
     font-size: 14px;
 }
@@ -46,8 +71,8 @@
 	text-align:center;
 }
 #lvchen,#piaowu,#wo{
-   width:33%;
-   height:100%;
+    width:33%;
+    height:100%;
     padding: 0;
     background: #FF8000;
     border:#FF8000;
