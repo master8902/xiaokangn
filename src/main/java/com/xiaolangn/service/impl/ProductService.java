@@ -45,5 +45,11 @@ public class ProductService implements IProductService {
 		return productMapper.getProductById(id);
 	}
 
+	@Override
+	public Product getProductNotice(Integer id) {
+		// TODO Auto-generated method stub
+		return productMapper.getProductNotice(id);
+	}
+
 
 }

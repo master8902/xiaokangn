@@ -85,7 +85,15 @@ var postdata   = "identificationType="+ identificationType
 
 
  function queryOrderNotice() {
- 
+	 var productId = $.trim($("#productId").val());	
+	 $.ajax({
+	        url: '<%=basePath %>order/order_queryOrderById.do?productId='+productId,
+	         type: 'POST',
+	       
+	         success: function (returndata) { 	        	
+	        		 alert(returndata);	
+	         }
+	    });
  }
 
 </script>
@@ -174,6 +182,7 @@ var postdata   = "identificationType="+ identificationType
 			</tr>
             </table>  
      </form>   
+     <input type="hidden" id="productId" value="${productId}"/>
      </div>
      	<div  style="width:93%;height:5%;position:fixed;bottom:0" >
 		<div >

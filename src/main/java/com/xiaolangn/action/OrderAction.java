@@ -55,6 +55,7 @@ public class OrderAction extends BaseAction {
 		String phoneNum = request.getParameter("phoneNum");
 		String jiner = request.getParameter("jiner");
 		String lianxi = request.getParameter("lianxi");
+		String productId = request.getParameter("productId");
         Order order = new Order();
 //        order.setId(1);
 //        order.setIdentificationType("身份证");
@@ -66,6 +67,7 @@ public class OrderAction extends BaseAction {
         order.setPhoneNum(phoneNum);
         order.setOrderPrice(Integer.valueOf(jiner));
         order.setContacts(lianxi);
+        order.setProductid(Integer.valueOf(productId));
 		orderService.newAddOrder(order);	
 	}
 
@@ -73,9 +75,9 @@ public class OrderAction extends BaseAction {
  * 根据订单id查询订单须知
  */
     public void queryOrderById(){
-    	Integer id = 1;
-    	Order order = orderService.queryOrderById(id);
-    	String notice  = order.getOrderNotice();
+    	String productId = request.getParameter("productId");
+    	Product order = productService.getProductNotice(Integer.valueOf(productId));
+    	String notice  = order.getNotice();
     	PrintWriter out;
 		try {
 			out = response.getWriter();

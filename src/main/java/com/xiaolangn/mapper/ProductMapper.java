@@ -30,4 +30,7 @@ public interface ProductMapper {
    
    
    public  Product getProductById(Integer id);
+   
+   public  Product getProductNotice(Integer id);
+   
 }
