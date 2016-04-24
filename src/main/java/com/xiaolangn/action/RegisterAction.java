@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Profile;
 
@@ -32,7 +33,7 @@ public class RegisterAction extends BaseAction {
 
 	HttpServletResponse response = ServletActionContext.getResponse();
 	HttpServletRequest request = ServletActionContext.getRequest();
-	
+	Logger logger = Logger.getLogger(RegisterAction.class); 
 	
 	public String show() {
 		response.setContentType("text/html;charset=UTF-8");
@@ -55,20 +56,22 @@ public class RegisterAction extends BaseAction {
 				String phoneNum1 = (String) request.getSession().getAttribute("phoneNum");//往session设置设计号
 				String phoneCode1 = (String) request.getSession().getAttribute("phoneCode");//设置手机的验证码
 				String phoneDate1 = (String) request.getSession().getAttribute("phoneData");//设置新建验证码的时间
-				
-				if(phoneNum1==null||phoneCode1==null||phoneDate1==null){//如果session里面有session，检测下时间，如果没过期就什么也不做，过期了就清空
-					return;					
-				}else{
-					Date cur = new Date();
-					Date date = new Date(phoneDate1);
-					long interval = (cur.getTime() - date.getTime())/1000;
-					if(interval-SDKTestSendTemplateSMS.DEADTIME*60>0){//如果超过5分钟，验证码就失效了，需要清空
-						return;
-					}				
+				if(phoneNum1!=null&&phoneNum1.equals(phoneNum)){
+					if(phoneNum1==null||phoneCode1==null||phoneDate1==null){//如果session里面有session，检测下时间，如果没过期就什么也不做，过期了就清空
+						return;					
+					}else{
+						Date cur = new Date();
+						Date date = new Date(phoneDate1);
+						long interval = (cur.getTime() - date.getTime())/1000;
+						if(interval-SDKTestSendTemplateSMS.DEADTIME*60>0){//如果超过5分钟，验证码就失效了，需要清空
+							return;
+						}				
+					}
+				if(!phoneNum.equals(phoneNum1)||!btnSendCode.equals(phoneCode1)){
+					return;
 				}
-			if(!phoneNum.equals(phoneNum1)||!btnSendCode.equals(phoneCode1)){
-				return;
-			}
+				}
+				
 		
 		
 		if(phoneNum==null||phoneNum.trim().equals("")){
@@ -107,6 +110,7 @@ public class RegisterAction extends BaseAction {
 	}
 	
 	public void sendSMS() {
+		 logger.info("开始发送验证码》》》》》》》》》》》》》》》》》》");  
 		String json = "{\"msg\": \"success\"}";
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		
@@ -122,9 +126,11 @@ public class RegisterAction extends BaseAction {
 		if(user!=null&&user.getPhoneNum()!=null&&!user.getPhoneNum().equals("")&&user.getPhoneNum().equals(phoneNum)){
 			json = "{\"msg\": \"您已经注册过了\"}";
 		}else{
+			 logger.info("准备发送验证码》》》》》》》》》》》》》》》》》》");  
 			int re = SDKTestSendTemplateSMS.sendSMS(request, phoneNum);
+			logger.info("发送验证码》》》》》》》》》》》》》》》》》》返回"+re);  
 			if(re==-1){
-				json = "{\"msg\": \"验证码已经发送，请不要重复请求发送，验证码有效期为5分钟\"}";
+				json = "{\"msg\": \"验证码已经发送，请不要重复请求发送，验证码有效期为"+SDKTestSendTemplateSMS.DEADTIME+"分钟\"}";
 			}else if(re==-2){
 				json = "{\"msg\": \"验证码发送失败，可能是超过每天发送的上限\"}";
 			}

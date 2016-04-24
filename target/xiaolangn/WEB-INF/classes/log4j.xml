@@ -98,7 +98,8 @@
 <!--
 		<appender-ref ref="ERROR" />
 		<appender-ref ref="WARN" />
+		
 		<appender-ref ref="INFO" />
-	-->
+-->	
 	</root>
 </log4j:configuration>

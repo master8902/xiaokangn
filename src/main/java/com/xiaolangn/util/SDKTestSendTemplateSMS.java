@@ -6,7 +6,10 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
+
 import com.cloopen.rest.sdk.CCPRestSmsSDK;
+import com.xiaolangn.action.RegisterAction;
 
 public class SDKTestSendTemplateSMS {
 	public static int DEADTIME = 10;//单位分钟
@@ -18,7 +21,7 @@ public class SDKTestSendTemplateSMS {
 	private static String modelId = "81143";//短信模版的id
 	private static String restAPIPort = "8883";//短信服务器端口，不需要改
 	
-	
+	static Logger logger = Logger.getLogger(SDKTestSendTemplateSMS.class); 
 	/**
 	 * @param args
 	 */
@@ -30,18 +33,22 @@ public class SDKTestSendTemplateSMS {
 		String phoneCode1 = (String) request.getSession().getAttribute("phoneCode");//设置手机的验证码
 		String phoneDate1 = (String) request.getSession().getAttribute("phoneData");//设置新建验证码的时间
 		
-		if(phoneNum1!=null&&phoneCode1!=null&&phoneDate1!=null){//如果session里面有session，检测下时间，如果没过期就什么也不做，过期了就清空
-			Date cur = new Date();
-			Date date = new Date(phoneDate1);
-			long interval = (cur.getTime() - date.getTime())/1000;
-			if(interval-DEADTIME*60>0){//如果超过5分钟，验证码就失效了，需要清空
-				request.getSession().removeAttribute("phoneNum");
-				request.getSession().removeAttribute("phoneCode");
-				request.getSession().removeAttribute("phoneData");
+		if(phoneNum1!=null&&phoneNum.equals(phoneNum1)){
+			if(phoneNum1!=null&&phoneCode1!=null&&phoneDate1!=null){//如果session里面有session，检测下时间，如果没过期就什么也不做，过期了就清空
+				Date cur = new Date();
+				Date date = new Date(phoneDate1);
+				long interval = (cur.getTime() - date.getTime())/1000;
+				if(interval-DEADTIME*60>0){//如果超过5分钟，验证码就失效了，需要清空
+					request.getSession().removeAttribute("phoneNum");
+					request.getSession().removeAttribute("phoneCode");
+					request.getSession().removeAttribute("phoneData");
+				}
+				else
+					return -1;
 			}
-			else
-				return -1;
 		}
+		
+		
 		
 		//初始化SDK
 		CCPRestSmsSDK restAPI = new CCPRestSmsSDK();
@@ -85,11 +92,18 @@ public class SDKTestSendTemplateSMS {
 		//*********************************************************************************************************************
 		
 		Integer code=1000+(int)(Math.random()*8999);
-		result = restAPI.sendTemplateSMS(phoneNum,modelId ,new String[]{code.toString(),String.valueOf(DEADTIME)});
+		logger.info("发送验证码中》》》》》》"); 
+		try{
+			result = restAPI.sendTemplateSMS(phoneNum,modelId ,new String[]{code.toString(),String.valueOf(DEADTIME)});
+		}
+		catch(Exception e){
+			logger.info("发送发生异常"+e);  
+		}
 		
+		logger.info("发送验证码返回"+result);  
 		System.out.println("SDKTestGetSubAccounts result=" + result);
 		if("000000".equals(result.get("statusCode"))){
-			
+			logger.info("验证码发送正确》》》》》》》》》》》》》》》》》》》》》》》》》》" ); 
 			request.getSession().setAttribute("phoneNum", phoneNum);//往session设置设计号
 			request.getSession().setAttribute("phoneCode", code.toString());//设置手机的验证码
 			request.getSession().setAttribute("phoneData", new Date().toString());//设置新建验证码的时间
@@ -108,6 +122,7 @@ public class SDKTestSendTemplateSMS {
 			request.getSession().removeAttribute("phoneData");
 			//异常返回输出错误码和错误信息
 			System.out.println("错误码=" + result.get("statusCode") +" 错误信息= "+result.get("statusMsg"));
+			logger.info("错误码=" + result.get("statusCode") +" 错误信息= "+result.get("statusMsg"));  
 			return -2;
 			
 		}
