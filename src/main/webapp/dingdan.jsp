@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <script src="<%=request.getContextPath()%>/js/jquery-1.8.3.min.js"  
     type="text/javascript"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/dingdan.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+
 
  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
  <!--[if lt IE 9]>
@@ -63,7 +63,7 @@ var identificationType = myselect.options[index].text; //拿到选中项options�
 	//需要POST的值(前台到后台)，把每个变量都通过&来联接  
 var postdata   = "identificationType="+ identificationType 
 +"&CredentialsCode"+ CredentialsCode +"&nickname" +nickname +"&guoji" + guoji
-+ "&phoneNum" + phoneNum + "&jiner" + jiner + "&lianxi" + lianxi;  
++ "&Phone" + Phone + "&jiner" + jiner + "&lianxi" + lianxi;  
 	
     $.ajax({
         url: '<%=basePath %>order/order_newAddOrder.do',
@@ -161,7 +161,7 @@ var postdata   = "identificationType="+ identificationType
 			</tr>
        		 <tr>
 			 <td align="center" width="100%">
-				<input type="text" id="phoneNum" name="jbPhone"  onblur="checkPhone()"/>
+				<input type="text" id="Phone" name="jbPhone"  onblur="checkPhone()"/>
 				<input type="text" id="PhoneTip" style="display:none;" onfocus="xsphone()"/>
      		 </td>  		
 			</tr>
