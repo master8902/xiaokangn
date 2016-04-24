@@ -40,7 +40,8 @@ function checkForm(path){
 	 var Phone = $("#Phone").val(); 
 	 var SmsCheckCode = $("#SmsCheckCode").val(); 
 	 var repassword = $("#passwordRepeat").val(); 
-	 var aa   = "Phone="+ Phone+"&SmsCheckCode="+ SmsCheckCode+"&repassword="+ repassword;  
+	 var productId = $.trim($("#productId").val());
+	 var aa   = "Phone="+ Phone+"&SmsCheckCode="+ SmsCheckCode+"&repassword="+ repassword+"&productId="+productId ;  
 	 $.ajax({
 	        url: path+'register/register_insert.do',
 	         type: 'POST',

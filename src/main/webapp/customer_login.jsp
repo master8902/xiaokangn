@@ -26,7 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <script  type="text/javascript">
 
 function tocustomer_reg(){
-	document.location.href="<%=basePath %>register/register_show.do";
+	var productId = $.trim($("#productId").val());	
+	document.location.href="<%=basePath %>register/register_show.do?productId="+productId;
 } 
 
 
@@ -42,7 +43,8 @@ function checkisNULL(value,message){
 function tocustomer_check() {
 
 var phoneNum = $.trim($("#phoneNum").val());
-	
+var productId = $.trim($("#productId").val());	
+
 	var result = checkisNULL(phoneNum,"手机号码不能为空");//出错提示
 	if(result==false){
 	//	$("#sub").attr("disabled",false); 
@@ -58,7 +60,7 @@ var password = $.trim($("#password").val());
 	
 	
 	//需要POST的值，把每个变量都通过&来联接  
-var postdata   = "phoneNum="+ phoneNum +"&password="+ password ;  
+var postdata   = "phoneNum="+ phoneNum +"&password="+ password +"&productId="+productId ;  
 	
     $.ajax({
         url: '<%=basePath %>user/user_login.do',
@@ -111,6 +113,7 @@ var postdata   = "phoneNum="+ phoneNum +"&password="+ password ;
             </tr>
     </table>
  	</form>
+ 	<input type="hidden" id="productId" value="<s:property value="productId"/>"/>
     </div>
 </body>
 </html>

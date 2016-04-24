@@ -65,7 +65,7 @@ public class ScheduleAction extends BaseAction {
 		
 		String picture_url = schedule.getPicture_url();	
 		request.setAttribute("picture_url", picture_url);//从后台返回参数给request（跟jsp有关）
-		
+		request.setAttribute("productId", productId);//从后台返回参数给request（跟jsp有关）
 		return "scheduleinfo";//指定返回路径
 
 	}
