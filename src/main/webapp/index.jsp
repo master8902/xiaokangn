@@ -42,14 +42,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	myScroll = new iScroll('wrapper',{ snap: true, momentum: false, hScrollbar: false, vScrollbar: false,hScroll:false}); }, 100); 
  } 
  window.addEventListener('load', loaded, false); 
+ 
+ function clickimg(id){
+	 alert(id);
+ }
+ 
+ function select(){
+	var aa=  $('#select option:selected').val();//选中的文本
+	 
+	 alert(aa);
+ }
+ 
  </script>
    
  </head> 
 <body>
-
-
-
-
 
 <div class="container-fluid">
 	<div class="row-fluid" style="height:30%">
@@ -64,18 +71,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 				</ol>
 				<div class="carousel-inner">
-				
-					<div class="item active">
+				<s:iterator value="#request.productzhoubian" id="hotbean" status="La">
+				<s:if test="#La.index==0">
+				<div class="item active">
 						<img alt="" src="<%=request.getContextPath()%>/images/1.jpg"/>
-					</div>
-					
-					<div class="item">
+					</div>	
+				</s:if>
+				<s:else>
+				 <div class="item">
 						<img alt="" src="<%=request.getContextPath()%>/images/2.jpg"  />
 					</div>
-					<div class="item">
-						<img alt="" src="<%=request.getContextPath()%>/images/3.jpg" />
-					</div>
-					 
+				 </s:else>
+				</s:iterator>
 				</div> <a class="left carousel-control" href="#carousel-58154" data-slide="prev">‹</a> <a class="right carousel-control" href="#carousel-58154" data-slide="next">›</a>
 			</div>
 		</div>
@@ -84,58 +91,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="span12">
 			<div  style="height:5% ;text-align:center;margin-top:-2%;">
 				<div>
-					<select  id="select" name="select" onblur="jbPhone()">   
-     				 	<option >周边</option>
-     				 	<option value="0" >远征</option>
-     				 	<option value="1">短途</option>
- 					</select><input type="text" id="search" name="search" value="直接搜索目的地" onfocus="value=''" onblur=" if(!value)value='直接搜索目的地' "/>
+					<select  id="select" name="select"  onchange="select()">   
+     				 	<option value="0" >周边</option>
+     				 	<option value="1" >远征</option>
+     				 	<option value="2">短途</option>
+ 					<select><input type="text" id="search" name="search" value="直接搜索目的地" onfocus="value=''" onblur=" if(!value)value='直接搜索目的地' "/>
 				</div>
 			</div>
 		</div>
 	</div>
 	
-	
-
-
-
-
-
-
-
 	<div class="row-fluid">
 		<div class="span12">
 			<div id="wrapper" style="height:60%">
 				<div>
-				<s:iterator value="#request.product" id="bean" status="L">
+				<s:iterator value="#request.productzhoubian" id="bean" status="L">
 				<!--<s:property value="#L.index+1"/>-->
 					<div style="position:relative;width:100%;height:216px">				
-						<img alt="" src="<%=request.getContextPath()%>/images/1.jpg" />
+						<img id="<s:property value="#L.index+1"/>" alt="" src="<%=request.getContextPath()%>/images/1.jpg" onclick="clickimg(<s:property value="#bean.id"/>)"/>
 						<div style="width:100%;height:15%;position:absolute;bottom:0">
 							<span id="price1">价格:<s:property value="#bean.price"/></span>
 							<span id="xiwei1">席位:<s:property value="#bean.saleSeat"/></span>
 							<span id="data1">日期:<s:property value="#bean.startDate"/></span>
-							<input type="hidden" id="<s:property value="#L.index+1"/>">
 						</div>
 					</div>
 					</s:iterator>
-					<!--  
-					<div style="position:relative;width:100%;height:216px">	
-						<img alt="" src="<%=request.getContextPath()%>/images/2.jpg" style="margin-top:1.5%"/>
-						<div style="width:100%;height:15%;position:absolute;bottom:0">
-							<span id="price2">价格</span>
-							<span id="xiwei2">席位</span>
-							<span id="data2">日期</span>
-						</div>
-					</div>
-					<div style="position:relative;width:100%;height:216px">
-						<img alt="" src="<%=request.getContextPath()%>/images/3.jpg" style="margin-top:1.5%"/>
-						<div style="width:100%;height:15%;position:absolute;bottom:0">
-							<span id="price3">价格</span>
-							<span id="xiwei3">席位</span>
-							<span id="data3">日期</span>
-						</div>
-					</div>
-					-->
 				</div>
 			</div>
 		</div>

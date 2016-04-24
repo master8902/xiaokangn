@@ -48,7 +48,7 @@ function checkForm(path){
 	         success: function (returndata) { 
 	        	 var models = eval("("+returndata+")");
 	        	 if(models.msg=="success"){
-	        		 window.location.href=path+"product/product_info2.do?ishot=1";
+	        		 window.location.href=path+"product/product_index.do";
 	        	 }    else{
 	        		 alert(models.msg);
 	        	 }
