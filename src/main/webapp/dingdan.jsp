@@ -183,6 +183,7 @@ var postdata   = "identificationType="+ identificationType
 			 	</tr>
 			 </table>
 		</div>
+		<input type="hidden" id="productId" value="${productId}"/>
 	</div>                
   </body>
 </html>

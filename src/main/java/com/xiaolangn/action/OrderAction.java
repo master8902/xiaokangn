@@ -27,7 +27,8 @@ public class OrderAction extends BaseAction {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		
 		
-		
+		String productId = request.getParameter("productId");//productid从前台jsp到后台
+		request.setAttribute("productId", productId);//从后台返回参数给request（跟jsp有关）
 
 		//request.setAttribute("dingdan", picture_url);//从后台返回参数给request（跟jsp有关）
 		return "dingdan";
