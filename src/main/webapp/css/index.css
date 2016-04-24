@@ -1,24 +1,63 @@
 @CHARSET "UTF-8";
+#jqrm{
+	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    float:left;
+    margin-top:-35%;
+    margin-left:5%;
+}
+#jianjie{
+	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    float:right;
+    margin-top:-15%;
+    margin-right:5%;
+}
+#databegin,#datafinish,#hx{
+	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ff0000;
+    float:right;
+}
 #foot{
 	width:100%;
 	height:100%;
 	align:center;
 	text-align:center;
 }
-#price1,#xiwei1,#price2,#xiwei2,#price3,#xiwei3{
+#price1,#price2,#price3{
     font-family: 'PT Sans', Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 700;
-    color: #f57b16;
+    color: #ff0000;
     margin-left:3%;
 }
-#data1,#data2,#data3{
+#xiwei1,#xiwei2,#xiwei3{
 	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 700;
-    color: #f57b16;
+    color: #000000;
+    margin-left:3%;
+}
+#data1,#data2,#data3,#data1f,#data2f,#data3f,#hx1,#hx2,#hx3{
+	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ff0000;
     float:right;
-    margin-right:5%;
+}
+#xiangmu1,#xiangmu2,#xiangmu3,#xiangmu1y,#xiangmu2y,#xiangmu3y{
+	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    float:center;
+    margin-left:40%;
 }
 #lvchen,#piaowu,#wo{
    width:33%;

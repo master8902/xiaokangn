@@ -33,14 +33,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/dingdan.css">
 
  <script  type="text/javascript">
+ function pay11(){
+		document.location.href="<%=basePath %>pay/test/pay_show.do";
+	}
  function saveOrderInfo() {
-	 function pay11(){
-	    	
- 		
- 		document.location.href="<%=basePath %>pay/test/pay_show.do";
- 	//	var str = "https://open.weixin.qq.com/connect/oauth2/authorize?"+"appid="+"wx9ffc728a584dc255"+"&redirect_uri=http://www.sharlontrip.com:8080/xiaolangn/pay/pay_test.do&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";	
- 	//	document.location.href==str;
- 	}
+	
 var phoneNum = $.trim($("#phoneNum").val());
 	
 	var result = checkisNULL(phoneNum,"手机号码不能为空");//出错提示
@@ -59,11 +56,11 @@ var password = $.trim($("#password").val());
 var  myselect=document.getElementById("select"); //拿到select对象
 var index = myselect.selectedIndex ; //拿到选中项的索引
 var identificationType = myselect.options[index].text; //拿到选中项options的text
-	
+var productId = $.trim($("#productId").val());	
 	//需要POST的值(前台到后台)，把每个变量都通过&来联接  
 var postdata   = "identificationType="+ identificationType 
 +"&CredentialsCode"+ CredentialsCode +"&nickname" +nickname +"&guoji" + guoji
-+ "&Phone" + Phone + "&jiner" + jiner + "&lianxi" + lianxi;  
++ "&Phone" + Phone + "&jiner" + jiner + "&lianxi" + lianxi+ "&productId" + productId;  
 	
     $.ajax({
         url: '<%=basePath %>order/order_newAddOrder.do',
@@ -71,7 +68,7 @@ var postdata   = "identificationType="+ identificationType
          data: postdata,
          success: function (returndata) { 
         	 if(returndata=="success"){
-        		 window.location.href="<%=basePath %>product/product_info2.do?ishot=1";
+        		 alert("保存成功");
         	 }
         	 else{
         		 alert("帐号或者密码错误");
@@ -183,7 +180,7 @@ var postdata   = "identificationType="+ identificationType
 			<table id="foot">
 				<tr>
 					<td>
-			 			<input id="ddze" type="button"  value="订单总额："/><input id="jiner" type="button" value="数字"/><input id="qrzf" type="button" value="确认支付" onclick="pay11();return false;"/>
+			 			<input id="ddze" type="button"  value="订单总额："/><input id="jiner" type="button" value="${request.product.price}"/><input id="qrzf" type="button" value="确认支付" onclick="pay11();return false;"/>
 			 		</td>
 			 	</tr>
 			 </table>
