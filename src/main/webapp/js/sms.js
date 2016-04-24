@@ -48,7 +48,7 @@ function checkForm(path){
 	         success: function (returndata) { 
 	        	 var models = eval("("+returndata+")");
 	        	 if(models.msg=="success"){
-	        		 window.location.href=path+"product/product_index.do";
+	        		 window.location.href=path+"product/product_index.do?ishot=1&type=zhoubian";
 	        	 }    else{
 	        		 alert(models.msg);
 	        	 }

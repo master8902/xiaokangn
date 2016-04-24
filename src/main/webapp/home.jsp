@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <script  type="text/javascript">
         $(function (){
-        	window.location.href="<%=basePath%>product/product_index.do";
+        	window.location.href="<%=basePath%>product/product_index.do?ishot=1&type=zhoubian";
         	});
  
 

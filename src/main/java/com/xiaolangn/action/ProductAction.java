@@ -38,12 +38,17 @@ public class ProductAction extends BaseAction {
 			response.setCharacterEncoding("utf-8");	
 			String type = request.getParameter("type");
 			List<Product> productzhoubian = null;
-			if("type".equals("zhoubian")){
+			if(type.equals("zhoubian")){
 				 productzhoubian = productService.getProductByType("周边");	
-			}
-				
+			}else if(type.equals("yuanzheng")){
+				 productzhoubian = productService.getProductByType("远征");	
+			 }else if(type.equals("duantu")){
+				 productzhoubian = productService.getProductByType("短途");
+			 }else{
+				 productzhoubian = productService.getProductByType("周边");	
+			 }
 			request.setAttribute("productzhoubian", productzhoubian);
-			
+			request.setAttribute("type", type);
 			return "productinfo";//指定返回路径
 
 		}

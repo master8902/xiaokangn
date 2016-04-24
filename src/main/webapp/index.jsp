@@ -49,10 +49,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  
  function select(){
 	var aa=  $('#select option:selected').val();//选中的文本
+	var type="zhoubian";
+	var type ;
+	 if(aa=="0"){
+		 type="zhoubian";
+	 }else if(aa=="1"){
+		 type="yuanzheng";
+	 }else if(aa=="2"){
+		 type="duantu";
+	 }
 	 
-	 alert(aa);
+	 window.location.href="<%=basePath%>product/product_index.do?ishot=1&type="+type;
  }
- 
+ $(function (){
+	 var select = document.getElementById("select");  
+ 	if("<%=request.getAttribute("type")%>"=="zhoubian"){
+ 		select.options[0].selected = true;  
+ 	}else if("<%=request.getAttribute("type")%>"=="yuanzheng"){
+ 		select.options[1].selected = true;
+ 	}else{
+ 		select.options[2].selected = true;
+ 	}
+ 	
+ 	
+ 	});
  </script>
    
  </head> 

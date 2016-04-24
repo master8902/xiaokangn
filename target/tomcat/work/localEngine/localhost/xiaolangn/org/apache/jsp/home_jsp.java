@@ -90,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("        $(function (){\r\n");
       out.write("        \twindow.location.href=\"");
       out.print(basePath);
-      out.write("product/product_index.do\";\r\n");
+      out.write("product/product_index.do?ishot=1&type=zhoubian\";\r\n");
       out.write("        \t});\r\n");
       out.write(" \r\n");
       out.write("\r\n");
