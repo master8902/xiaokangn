@@ -43,8 +43,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  } 
  window.addEventListener('load', loaded, false); 
  
+ 
+  function search(){
+	  var search = $.trim($("#search").val());
+	  if(search==""){
+		  $("#search").val("直接搜索目的地");
+		  return;
+	  }
+	 
+	window.location.href="<%=basePath%>product/product_search.do?ishot=1&search="+encodeURI(encodeURI(search));
+	        	
+ }
  function clickimg(id){
 	 alert(id);
+	 
+	 var aa   = "id="+ id;  
+	 $.ajax({
+	        url: path+'register/register_insert.do',
+	         type: 'POST',
+	         data: aa,
+	         success: function (returndata) { 
+	        	 var models = eval("("+returndata+")");
+	        	 if(models.msg=="success"){
+	        		 window.location.href="<%=basePath%>product/product_index.do?ishot=1&type=zhoubian";
+	        	 }    else{
+	        		 alert(models.msg);
+	        	 }
+	        	 
+	         }
+	    });
  }
  
  function select(){
@@ -70,8 +97,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	}else{
  		select.options[2].selected = true;
  	}
- 	
- 	
  	});
  </script>
    
@@ -115,7 +140,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      				 	<option value="0" >周边</option>
      				 	<option value="1" >远征</option>
      				 	<option value="2">短途</option>
- 					<select><input type="text" id="search" name="search" value="直接搜索目的地" onfocus="value=''" onblur=" if(!value)value='直接搜索目的地' "/>
+ 					<select><input type="text" id="search" name="search" value="直接搜索目的地" onfocus="value=''" onblur="search()"/>  <!-- onblur=" if(!value)value='直接搜索目的地' " -->
 				</div>
 			</div>
 		</div>
