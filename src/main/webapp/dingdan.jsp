@@ -94,13 +94,13 @@ var postdata   = "identificationType="+ identificationType
        <table style="width:100%;"> 
        <tr>
       	 <td style="font-size:1.2em">
-      	日本双飞10日跟团出游
+      	${request.product.title}
        	</td>
        </tr>
        <tr>
        <tr>
       	 <td style="font-size:1.2em">
-      	 出游日期
+      	${request.product.startDate}
        	</td>
        </tr>
         <tr>

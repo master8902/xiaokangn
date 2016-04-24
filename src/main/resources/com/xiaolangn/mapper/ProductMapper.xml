@@ -27,5 +27,10 @@
 		FROM product_info WHERE chineseName LIKE "%"#{chineseName}"%"
 	</select>
 
+<select id="getProductById" resultMap="r" parameterType="String">
+		SELECT id,chineseName,englishName,price,startDate,endDate,picture_url,saleSeat,totalSeat,title
+		FROM product_info WHERE id=#{id}
+	</select>
+
 
 </mapper>

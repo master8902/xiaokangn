@@ -14,7 +14,9 @@ import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Profile;
 
 import com.google.gson.Gson;
+import com.xiaolangn.bean.Product;
 import com.xiaolangn.bean.Schedule;
+import com.xiaolangn.service.IProductService;
 import com.xiaolangn.service.IScheduleService;
 
 public class ScheduleAction extends BaseAction {
@@ -26,7 +28,8 @@ public class ScheduleAction extends BaseAction {
 
 	@Resource
 	IScheduleService scheduleService;
-
+	@Resource
+	IProductService productService;
 
 	HttpServletResponse response = ServletActionContext.getResponse();
 	HttpServletRequest request = ServletActionContext.getRequest();
@@ -66,6 +69,14 @@ public class ScheduleAction extends BaseAction {
 		String picture_url = schedule.getPicture_url();	
 		request.setAttribute("picture_url", picture_url);//从后台返回参数给request（跟jsp有关）
 		request.setAttribute("productId", productId);//从后台返回参数给request（跟jsp有关）
+		
+		//String productId = request.getParameter("productId");//productid从前台jsp到后台
+		request.setAttribute("productId", productId);//从后台返回参数给request（跟jsp有关）
+
+		Product product  = productService.getProductById(Integer.valueOf(productId));
+		
+		request.setAttribute("product", product);//从后台返回参数给request（跟jsp有关）
+		
 		return "scheduleinfo";//指定返回路径
 
 	}

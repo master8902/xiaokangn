@@ -1,5 +1,7 @@
 package com.xiaolangn.action;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -7,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 
 import com.xiaolangn.bean.Order;
+import com.xiaolangn.bean.Product;
 import com.xiaolangn.service.IOrderService;
+import com.xiaolangn.service.IProductService;
 
 public class OrderAction extends BaseAction {
 
@@ -18,7 +22,8 @@ public class OrderAction extends BaseAction {
 
 	@Resource
 	IOrderService orderService;
-
+	@Resource
+	IProductService productService;
 
 	HttpServletResponse response = ServletActionContext.getResponse();
 	HttpServletRequest request = ServletActionContext.getRequest();
@@ -26,11 +31,10 @@ public class OrderAction extends BaseAction {
 	public String info() {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		
-		
 		String productId = request.getParameter("productId");//productid从前台jsp到后台
 		request.setAttribute("productId", productId);//从后台返回参数给request（跟jsp有关）
-
-		//request.setAttribute("dingdan", picture_url);//从后台返回参数给request（跟jsp有关）
+		Product product  = productService.getProductById(Integer.valueOf(productId));		
+		request.setAttribute("product", product);//从后台返回参数给request（跟jsp有关）
 		return "dingdan";
 	}
 	
