@@ -36,7 +36,6 @@ function checkForm(path){
 	    	return false;
 	   }
 	 
-	
 	 var Phone = $("#Phone").val(); 
 	 var SmsCheckCode = $("#SmsCheckCode").val(); 
 	 var repassword = $("#passwordRepeat").val(); 
@@ -49,7 +48,7 @@ function checkForm(path){
 	         success: function (returndata) { 
 	        	 var models = eval("("+returndata+")");
 	        	 if(models.msg=="success"){
-	        		 window.location.href=path+"order/order_info.do?productId="+"<%=request.getAttribute('productId')%>";
+	        		 window.location.href=path+"order/order_info.do?productId="+productId;
 	        	 }    else{
 	        		 alert(models.msg);
 	        	 }

@@ -39,5 +39,11 @@ public class ProductService implements IProductService {
         return productMapper.getProductByName(chineseName);
     }
 
+	@Override
+	public Product getProductById(Integer id) {
+		// TODO Auto-generated method stub
+		return productMapper.getProductById(id);
+	}
+
 
 }

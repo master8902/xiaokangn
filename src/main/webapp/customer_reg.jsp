@@ -26,17 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style1.css">
            <script type="text/javascript" src="<%=basePath %>js/jquery.min.js"></script>
            
-    <script  type="text/javascript">
-    	function pay11(){
-    	
-    		
-    		document.location.href="<%=basePath %>pay/test/pay_show.do";
-    	//	var str = "https://open.weixin.qq.com/connect/oauth2/authorize?"+"appid="+"wx9ffc728a584dc255"+"&redirect_uri=http://www.sharlontrip.com:8080/xiaolangn/pay/pay_test.do&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";	
-    	//	document.location.href==str;
-    	}
-    	
-
-    	</script>
+  
 </head>
 <body>
 <div id="zhuce" class="page-container">
@@ -92,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	</div>
 	  
-	<button  onclick="pay11();return false;">支付</button>　
+	
 	
 
 </div>

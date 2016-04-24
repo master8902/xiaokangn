@@ -93,15 +93,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div style="position:relative;width:100%;height:95%">
 				<p>一些注意事项</p>
 				<div style="width:100%;height:15%;position:absolute;bottom:0">
-						    <span id="xiwei1">已售</span>
-							<span id="xiwei2">剩余</span>
+						    <span id="xiwei1">已售：${request.product.saleSeat}</span>
+							<span id="xiwei2">剩余：${request.product.totalSeat-request.product.saleSeat}</span>
 				</div>
 				</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<input type="hidden" id="productId" value="${productId}"/>"/>
+	<input type="hidden" id="productId" value="${productId}"/>
 <div class="row-fluid" >
 		<div class="span12">
 			<div id="shuoming" style="height:25% ;margin-top:2%;">

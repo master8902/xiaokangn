@@ -27,4 +27,7 @@ public interface ProductMapper {
  * @return
  */
    public List<Product> getProductByName(String chineseName);
+   
+   
+   public  Product getProductById(Integer id);
 }
