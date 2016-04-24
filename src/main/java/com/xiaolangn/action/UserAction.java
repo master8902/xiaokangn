@@ -54,6 +54,8 @@ public class UserAction extends BaseAction {
 	public String showlogin() {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		
+		String productId = request.getParameter("productId");//productid从前台jsp到后台
+		request.setAttribute("productId", productId);//从后台返回参数给request（跟jsp有关）
 		return "showlogin";//指定返回路径
 
 	}

@@ -38,7 +38,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  window.addEventListener('load', loaded, false); 
  
   function login(){
-		document.location.href="<%=basePath %>user/user_showlogin.do";
+	  var productId = $.trim($("#productId").val());	
+		document.location.href="<%=basePath %>user/user_showlogin.do?productId="productId;
 	} 
  </script>
  
@@ -100,6 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
+	<input type="hidden" id="productId" value="<s:property value="productId"/>"/>
 <div class="row-fluid" >
 		<div class="span12">
 			<div id="shuoming" style="height:25% ;margin-top:2%;">

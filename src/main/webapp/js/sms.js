@@ -49,7 +49,7 @@ function checkForm(path){
 	         success: function (returndata) { 
 	        	 var models = eval("("+returndata+")");
 	        	 if(models.msg=="success"){
-	        		 window.location.href=path+"order/order_info.do";
+	        		 window.location.href=path+"order/order_info.do?productId="+"<%=request.getAttribute('productId')%>";
 	        	 }    else{
 	        		 alert(models.msg);
 	        	 }
