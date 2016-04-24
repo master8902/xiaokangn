@@ -86,6 +86,11 @@ var postdata   = "identificationType="+ identificationType
     });
 }
 
+
+ function queryOrderNotice() {
+ 
+ }
+
 </script>
 
   <body>
@@ -167,7 +172,7 @@ var postdata   = "identificationType="+ identificationType
 			</tr>
 			<tr>
 				<td>
-				<input id="check" type="checkbox"><a>我已阅读订单须知</a><input align="right" id="save" type="button"  value="保存" onclick="saveOrderInfo();"/>
+				<a>请在提交前确定已阅读  </a><input id="ddxz" type="button" value="订单须知" style="color:#FF8000" onclick="queryOrderNotice();"/><input align="right" id="save" type="button"  value="保存" onclick="saveOrderInfo();"/>
 				</td>
 			</tr>
             </table>  
