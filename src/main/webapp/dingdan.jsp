@@ -37,7 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		document.location.href="<%=basePath %>pay/test/pay_show.do";
 	}
  function saveOrderInfo() {
-	
+	 alert("保存成功");
+	return;
 var phoneNum = $.trim($("#phoneNum").val());
 	
 	var result = checkisNULL(phoneNum,"手机号码不能为空");//出错提示
