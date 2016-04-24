@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -16,41 +16,102 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="">
+	<meta name="author" content="">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
-  </head>
- <script src="<%=request.getContextPath()%>/js/iscroll.js"  
-    type="text/javascript"></script>   
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/project.css">
+<script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/js/iscroll.js"  
+    type="text/javascript"></script>  
 <script type="text/javascript">
  var myScroll;
   function loaded() { 
  	setTimeout(function () { 
- 	myScroll = new iScroll('wrapper2',{ snap: true, momentum: false, hScrollbar: false, vScrollbar: false,hScroll:false}); }, 100); 
+ 	myScroll = new iScroll('wrapper1',{ snap: true, momentum: false, hScrollbar: false, vScrollbar: false,hScroll:false}); }, 100); 
  } 
  window.addEventListener('load', loaded, false); 
  </script>
- <script type="text/javascript">
- var myScroll;
-  function loaded() { 
- 	setTimeout(function () { 
- 	myScroll = new iScroll('wrapper3',{ snap: true, momentum: false, hScrollbar: false, vScrollbar: false,hScroll:false}); }, 100); 
- } 
- window.addEventListener('load', loaded, false); 
- </script>
+</head>
 <body>
-<div id="top">
-
-</div>
-<div id="wrapper2">
-
-</div>
-<div id="wrapper3">
-
-</div>
-<div id=foot>
-
+<div class="container-fluid">
+<div class="row-fluid" style="height:37%">
+		<div class="span12">
+			<div class="carousel slide" id="carousel-58154">
+				<ol class="carousel-indicators">
+					<li class="active" data-target="#carousel-58154" data-slide-to="0">
+					</li>
+					<li data-target="#carousel-58154" data-slide-to="1">
+					</li>
+					<li data-target="#carousel-58154" data-slide-to="2">
+					</li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+						<img alt="" src="<%=request.getContextPath()%>/images/4.jpg"/>
+					</div>
+					<div class="item">
+						<img alt="" src="<%=request.getContextPath()%>/images/5.jpg"  />
+					</div>
+					<div class="item">
+						<img alt="" src="<%=request.getContextPath()%>/images/6.jpg" />
+					</div>
+				</div> <a class="left carousel-control" href="#carousel-58154" data-slide="prev">‹</a> <a class="right carousel-control" href="#carousel-58154" data-slide="next">›</a>
+			</div>
+		</div>
+	</div>
+<div class="row-fluid" >
+		<div class="span12">
+			<div id="zhuyi" style="height:25% ;margin-top:0%;">
+				<div>
+				<div style="position:relative;width:100%;height:95%">	
+					<p>一些注意事项</p>
+							<div style="width:100%;height:15%;position:absolute;bottom:0">
+							<span id="price1">价格</span>
+							<span id="xiwei1">席位</span>
+							<span id="data1">日期</span>
+							</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="row-fluid" >
+		<div class="span12">
+			<div id="shuoming" style="height:25% ;margin-top:2%;">
+				<div>
+				<div style="position:relative;width:100%;height:95%">	
+					<p>开团规则说明</p>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="row-fluid" >
+		<div class="span12">
+			<div  style="height:5% ;margin-top:2%;">
+				<div>
+			 			<input id="baoming" type="button" value="我要报名"/><input id="shoucang" type="button" value="收藏"/>
+				</div>
+			</div>
+		</div>
+	</div>
+<div style="width:93%;height:5%;position:fixed;bottom:0;text-align:center" >
+		<div  style="text-align:cneter">
+			<table id="foot">
+				<tr>
+					<td>
+			 			<input id="lvchen" type="button" value="旅程"/><input id="piaowu" type="button" value="票务"/><input id="wo" type="button" value="我"/>
+			 		</td>
+			 	</tr>
+			 </table>
+		</div>
+	</div>
 </div>
 </body>
 </html>
