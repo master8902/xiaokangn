@@ -55,23 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        	
  }
  function clickimg(id){
-	 alert(id);
-	 
-	 var aa   = "id="+ id;  
-	 $.ajax({
-	        url: path+'register/register_insert.do',
-	         type: 'POST',
-	         data: aa,
-	         success: function (returndata) { 
-	        	 var models = eval("("+returndata+")");
-	        	 if(models.msg=="success"){
-	        		 window.location.href="<%=basePath%>product/product_index.do?ishot=1&type=zhoubian";
-	        	 }    else{
-	        		 alert(models.msg);
-	        	 }
-	        	 
-	         }
-	    });
+	 window.location.href="<%=basePath%>schedule/schedule_info2.do?productId="+id;
  }
  
  function select(){
