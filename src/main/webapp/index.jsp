@@ -114,6 +114,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<span id="price1">价格:<s:property value="#bean.price"/></span>
 							<span id="xiwei1">席位:<s:property value="#bean.saleSeat"/></span>
 							<span id="data1">日期:<s:property value="#bean.startDate"/></span>
+							<input type="hidden" id="<s:property value="#L.index+1"/>">
 						</div>
 					</div>
 					</s:iterator>
