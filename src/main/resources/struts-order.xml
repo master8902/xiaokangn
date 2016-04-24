@@ -4,6 +4,7 @@
 	<package name="order" extends="oa-default" namespace="/order" >
 
 		<action name="order_*" class="com.xiaolangn.action.OrderAction" method="{1}">	   
+		<result name="dingdan">/dingdan.jsp</result>
 		</action>
 	</package>
 </struts>
