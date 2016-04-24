@@ -1,5 +1,7 @@
 package com.xiaolangn.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -73,7 +75,16 @@ public class OrderAction extends BaseAction {
     public void queryOrderById(){
     	Integer id = 1;
     	Order order = orderService.queryOrderById(id);
-    	System.out.println(order.getOrderNotice());
+    	String notice  = order.getOrderNotice();
+    	PrintWriter out;
+		try {
+			out = response.getWriter();
+			out.print(notice);
+			out.flush();
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
     
 /**
