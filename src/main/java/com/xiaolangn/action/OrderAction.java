@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Profile;
 
 import com.google.gson.Gson;
 import com.xiaolangn.bean.Order;
+import com.xiaolangn.bean.Schedule;
 import com.xiaolangn.service.IOrderService;
 import com.xiaolangn.service.impl.OrderService;
 
@@ -32,25 +33,15 @@ public class OrderAction extends BaseAction {
 	HttpServletResponse response = ServletActionContext.getResponse();
 	HttpServletRequest request = ServletActionContext.getRequest();
 	
-//	public void info() {
-//		response.setContentType("text/html;charset=UTF-8");
-//		response.setCharacterEncoding("utf-8");		
-//		String userid = request.getParameter("userid");
-//		User user = userService.getUserById(Integer.valueOf(userid));		
-//		String username = user.getPhoneNum();	
-//		Gson gson = new Gson();
-//		String json = gson.toJson(username);
-//		PrintWriter out;
-//		try {
-//			out = response.getWriter();
-//			out.print(json);
-//			out.flush();
-//			out.close();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//
-//	}
+	public String info() {
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("utf-8");		
+		
+		
+
+		//request.setAttribute("dingdan", picture_url);//从后台返回参数给request（跟jsp有关）
+		return "dingdan";
+	}
 	
 /**
  * 新增订单

@@ -4,7 +4,7 @@
 	<package name="schedule" extends="oa-default" namespace="/schedule" >
 
 		<action name="schedule_*" class="com.xiaolangn.action.ScheduleAction" method="{1}">	   
-			<result name="scheduleinfo">/WEB-INF/jsp/scheduleinfo.jsp</result>
+			<result name="scheduleinfo">/project.jsp</result>
 		</action>
 	</package>
 </struts>

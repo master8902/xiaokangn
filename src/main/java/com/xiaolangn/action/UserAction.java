@@ -51,6 +51,13 @@ public class UserAction extends BaseAction {
 
 	}
 	
+	public String showlogin() {
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("utf-8");		
+		return "showlogin";//指定返回路径
+
+	}
+	
 	public String info2() {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		

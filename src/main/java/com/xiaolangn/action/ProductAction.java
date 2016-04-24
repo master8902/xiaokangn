@@ -1,5 +1,7 @@
 package com.xiaolangn.action;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -52,6 +54,31 @@ public class ProductAction extends BaseAction {
 			return "productinfo";//指定返回路径
 
 		}
+		
+		/**
+		 * 查询近期热门产品
+		 * @return
+		 */
+			public String search() {
+				response.setContentType("text/html;charset=UTF-8");
+				response.setCharacterEncoding("utf-8");		
+				String ishot = request.getParameter("ishot");//ishot从前台jsp到后台
+				List<Product> product = productService.getProductByHot(Integer.valueOf(ishot));	
+				request.setAttribute("productHot", product);					
+				response.setCharacterEncoding("utf-8");	
+				String search = "";
+				try {
+					search = URLDecoder.decode(request.getParameter("search"), "utf-8");
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				List<Product> productzhoubian = productService.getProductByName(search);
+				request.setAttribute("productzhoubian", productzhoubian);
+				request.setAttribute("type", "zhoubian");
+				return "productinfo";//指定返回路径
+
+			}
 
 /**
  * 查询近期热门产品

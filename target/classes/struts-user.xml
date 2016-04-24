@@ -5,6 +5,7 @@
 
 		<action name="user_*" class="com.xiaolangn.action.UserAction" method="{1}">	   
 			<result name="userinfo">/WEB-INF/jsp/userinfo.jsp</result>
+			<result name="showlogin">/customer_login.jsp</result>
 		</action>
 		
 	</package>

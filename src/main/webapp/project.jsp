@@ -36,6 +36,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	myScroll = new iScroll('wrapper1',{ snap: true, momentum: false, hScrollbar: false, vScrollbar: false,hScroll:false}); }, 100); 
  } 
  window.addEventListener('load', loaded, false); 
+ 
+ function login(){
+		document.location.href="<%=basePath %>user/user_showlogin.do";
+	} 
+
  </script>
 </head>
 <body>
@@ -96,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="span12">
 			<div  style="height:5% ;margin-top:2%;">
 				<div>
-			 			<input id="baoming" type="button" value="我要报名"/><input id="shoucang" type="button" value="收藏"/>
+			 			<input id="baoming" type="button" value="我要报名" onclick="login()"/><input id="shoucang" type="button" value="收藏"/>
 				</div>
 			</div>
 		</div>
