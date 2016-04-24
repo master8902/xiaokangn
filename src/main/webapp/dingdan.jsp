@@ -56,11 +56,11 @@ var password = $.trim($("#password").val());
 var  myselect=document.getElementById("select"); //拿到select对象
 var index = myselect.selectedIndex ; //拿到选中项的索引
 var identificationType = myselect.options[index].text; //拿到选中项options的text
-	
+var productId = $.trim($("#productId").val());	
 	//需要POST的值(前台到后台)，把每个变量都通过&来联接  
 var postdata   = "identificationType="+ identificationType 
 +"&CredentialsCode"+ CredentialsCode +"&nickname" +nickname +"&guoji" + guoji
-+ "&Phone" + Phone + "&jiner" + jiner + "&lianxi" + lianxi;  
++ "&Phone" + Phone + "&jiner" + jiner + "&lianxi" + lianxi+ "&productId" + productId;  
 	
     $.ajax({
         url: '<%=basePath %>order/order_newAddOrder.do',
@@ -68,7 +68,7 @@ var postdata   = "identificationType="+ identificationType
          data: postdata,
          success: function (returndata) { 
         	 if(returndata=="success"){
-        		 window.location.href="<%=basePath %>product/product_info2.do?ishot=1";
+        		 alert("保存成功");
         	 }
         	 else{
         		 alert("帐号或者密码错误");
