@@ -106,7 +106,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="span12">
 			<div id="wrapper" style="height:60%">
 				<div>
-				<s:iterator value="#request.product" id="bean" status="L">
+				<s:iterator value="#request.productByType" id="bean" status="L">
 				<!--<s:property value="#L.index+1"/>-->
 					<div style="position:relative;width:100%;height:216px">				
 						<img alt="" src="<%=request.getContextPath()%>/images/1.jpg" />
