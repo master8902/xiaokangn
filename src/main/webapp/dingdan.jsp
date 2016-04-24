@@ -61,9 +61,9 @@ var index = myselect.selectedIndex ; //拿到选中项的索引
 var identificationType = myselect.options[index].text; //拿到选中项options的text
 	
 	//需要POST的值(前台到后台)，把每个变量都通过&来联接  
-var postdata   = "projectId="+ projectId +"&identificationType="+ identificationType 
+var postdata   = "identificationType="+ identificationType 
 +"&CredentialsCode"+ CredentialsCode +"&nickname" +nickname +"&guoji" + guoji
-+ "&Phone" + Phone + "&jiner" + jiner ;  
++ "&phoneNum" + phoneNum + "&jiner" + jiner + "&lianxi" + lianxi;  
 	
     $.ajax({
         url: '<%=basePath %>order/order_newAddOrder.do',
@@ -91,9 +91,26 @@ var postdata   = "projectId="+ projectId +"&identificationType="+ identification
   <body>
   <div class="page-container">
    <form  id="form2"  method="post">  
-       <table style="width:100%;font-size:1.2em;"> 
+       <table style="width:100%;"> 
        <tr>
-      	 <td>
+      	 <td style="font-size:1.2em">
+      	日本双飞10日跟团出游
+       	</td>
+       </tr>
+       <tr>
+       <tr>
+      	 <td style="font-size:1.2em">
+      	 出游日期
+       	</td>
+       </tr>
+        <tr>
+      	 <td style="font-size:1.2em">
+       
+       	</td>
+       </tr>
+       <tr>
+       <tr>
+      	 <td style="font-size:1.2em">
       	 出游人信息
        	</td>
        </tr>
@@ -123,7 +140,7 @@ var postdata   = "projectId="+ projectId +"&identificationType="+ identification
              </td>
 		</tr>
   		<tr>
-             <td align="left" width="100%">身份证号</td>  
+             <td align="left" width="100%">证件号</td>  
         </tr>
         <tr>
              <td >  
@@ -131,18 +148,26 @@ var postdata   = "projectId="+ projectId +"&identificationType="+ identification
                  <input type="text" id="CredentialsCodeTip" style="display:none;" onfocus="xsCredentialsCode()"/>  
              </td>
         </tr>
-           <tr>
+        <tr>
+        	<td align="left" width="100%">联系人</td> 
+        </tr>
+        <tr>
+        	<td align="center" width="100%">  
+             <input type="text" name="" id="lianxi"  onblur=""/>  
+             </td>
+		</tr>
+        <tr>
 			<td align="left" width="100%">手机号</td>
 			</tr>
        		 <tr>
 			 <td align="center" width="100%">
-				<input type="text" id="Phone" name="jbPhone"  onblur="checkPhone()"/>
+				<input type="text" id="phoneNum" name="jbPhone"  onblur="checkPhone()"/>
 				<input type="text" id="PhoneTip" style="display:none;" onfocus="xsphone()"/>
      		 </td>  		
 			</tr>
 			<tr>
 				<td>
-				<input type="checkbox"><a>我已阅读订单须知</a><input id="save" type="button"  value="保存" onclick="saveOrderInfo();"/>
+				<input id="check" type="checkbox"><a>我已阅读订单须知</a><input align="right" id="save" type="button"  value="保存" onclick="saveOrderInfo();"/>
 				</td>
 			</tr>
             </table>  
