@@ -32,6 +32,62 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     type="text/javascript"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/dingdan.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
+
+ <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+ <!--[if lt IE 9]>
+     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+ <![endif]-->
+ 
+ <script  type="text/javascript">
+ function saveOrderInfo() {
+
+var phoneNum = $.trim($("#phoneNum").val());
+	
+	var result = checkisNULL(phoneNum,"手机号码不能为空");//出错提示
+	if(result==false){
+	//	$("#sub").attr("disabled",false); 
+		return false;
+	}
+var password = $.trim($("#password").val());
+	
+	var result = checkisNULL(password,"密码不能为空");
+	if(result==false){
+	//	$("#sub").attr("disabled",false); 
+		return false;
+	}
+	
+var  myselect=document.getElementById("select"); //拿到select对象
+var index = myselect.selectedIndex ; //拿到选中项的索引
+var identificationType = myselect.options[index].text; //拿到选中项options的text
+	
+	//需要POST的值(前台到后台)，把每个变量都通过&来联接  
+var postdata   = "projectId="+ projectId +"&identificationType="+ identificationType 
++"&CredentialsCode"+ CredentialsCode +"&nickname" +nickname +"&guoji" + guoji
++ "&Phone" + Phone + "&jiner" + jiner ;  
+	
+    $.ajax({
+        url: '<%=basePath %>order/order_newAddOrder.do',
+         type: 'POST',
+         data: postdata,
+         success: function (returndata) { 
+        	 if(returndata=="success"){
+        		 window.location.href="<%=basePath %>product/product_info2.do?ishot=1";
+        	 }
+        	 else{
+        		 alert("帐号或者密码错误");
+        	 }
+ 				
+ 				//跳到新的页面 			
+         },
+         error: function (returndata) {
+        	 //alert(returndata);
+             alert("请输入正确的手机号和密码");
+         }
+    });
+}
+
+</script>
+
   <body>
   <div class="page-container">
    <form  id="form2"  method="post">  
@@ -86,7 +142,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</tr>
 			<tr>
 				<td>
-				<input type="checkbox"><a>我已阅读订单须知</a><input id="save" type="button"  value="保存"/>
+				<input type="checkbox"><a>我已阅读订单须知</a><input id="save" type="button"  value="保存" onclick="saveOrderInfo();"/>
 				</td>
 			</tr>
             </table>  
