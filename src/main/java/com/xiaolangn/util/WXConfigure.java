@@ -8,7 +8,7 @@ public class WXConfigure {
 	public static String nonceStr = RandomStringGenerator.getRandomStringByLength(32);
 	public static String mch_id = "1333280901";
 	public static String device_info = "WEB";
-	public static String notify_url = "WEB";
+	public static String notify_url = "http%3a%2f%2fwww.sharlontrip.com%2fxiaolangn%2fpay%2ftest%2fpay_payback.do";
 	public static String trade_type = "JSAPI";
 
 	public static String key = "sharlon18352560727wuxixiaolangkj";
