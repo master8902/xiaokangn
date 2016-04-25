@@ -162,7 +162,7 @@ public class PayAction extends BaseAction {
 		
 		signStr = Signature.getSign(parameters);
 
-		request.setAttribute("sign", signStr);
+		request.setAttribute("paySign", signStr);
 		logger.info("apply函数>>>>>>>>>>调用结束");
 		return "apply";//指定返回路径
 
