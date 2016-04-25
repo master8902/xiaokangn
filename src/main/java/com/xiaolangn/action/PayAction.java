@@ -22,6 +22,7 @@ import org.jdom.JDOMException;
 import org.junit.Test;
 
 import com.tencent.common.HttpsRequest;
+import com.tencent.common.RandomStringGenerator;
 import com.tencent.common.Signature;
 import com.tencent.common.XMLParser;
 import com.xiaolangn.bean.SignBean;
@@ -43,7 +44,6 @@ public class PayAction extends BaseAction {
 
 	@Resource
 	IUserService userService;
-	static int randomint = 1;
 
 	HttpServletResponse response = ServletActionContext.getResponse();
 	HttpServletRequest request = ServletActionContext.getRequest();
@@ -85,7 +85,7 @@ public class PayAction extends BaseAction {
 	       parameters.put("device_info", WXConfigure.device_info); // 设备号	          
 	       parameters.put("body", "bussinesdesc"); // 商品描述
 	       //parameters.put("sign", ); // 签名	   
-	       parameters.put("out_trade_no", String.valueOf(randomint++));// 商户订单号
+	       parameters.put("out_trade_no", RandomStringGenerator.getRandomStringByLength(10)+String.valueOf((new Date().getTime())));// 商户订单号
 	       parameters.put("total_fee", "1"); // 总金额
 	       String  ip = CusAccessObjectUtil.getIpAddress(request);
 	       parameters.put("spbill_create_ip", "192.168.20.11"); // 订单生成的机器IP,测试IP
@@ -146,16 +146,12 @@ public class PayAction extends BaseAction {
         //3
      //   String nonceStr = RandomStringGenerator.getRandomStringByLength(32);
         request.setAttribute("nonceStr", WXConfigure.nonceStr  );//从后台返回参数给request（跟jsp有关）
-		request.setAttribute("package", "");//从后台返回参数给request（跟jsp有关）
-		randomint++;
+		request.setAttribute("package", packageStr);//从后台返回参数给request（跟jsp有关）
+		
 		//4
 		request.setAttribute("signType", "MD5");//从后台返回参数给request（跟jsp有关）
 		//5
-		SignBean si = new SignBean();
-		si.setJsapi_ticket(TokenThread.jsApi.getJs_api());
-		si.setNoncestr(WXConfigure.nonceStr);
-		si.setTimestamp(tinmeStamp.toString());
-	
+		
 		  Map<String,Object> parameters = new HashMap<String,Object> ();
 	       parameters.put("appid", WXConfigure.appId); // 公众账号ID
 	       parameters.put("timeStamp", tinmeStamp); // 公众账号ID

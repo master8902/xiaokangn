@@ -34,7 +34,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
  <script  type="text/javascript">
  function pay11(){
-		document.location.href="<%=basePath %>pay/test/pay_show.do";
+	 document.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9ffc728a584dc255&redirect_uri=http%3a%2f%2fwww.sharlontrip.com%2fxiaolangn%2fpay%2ftest%2fpay_callback.do&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+		
 	}
  function saveOrderInfo() {
 	 alert("保存成功");
