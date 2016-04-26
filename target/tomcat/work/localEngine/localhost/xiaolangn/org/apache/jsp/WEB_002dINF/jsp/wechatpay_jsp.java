@@ -66,7 +66,9 @@ public final class wechatpay_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\" />\r\n");
       out.write("<meta name=\"format-detection\" content=\"telephone=no\" />\r\n");
       out.write("<title>支付</title>\r\n");
-      out.write("\t<script type=\"text/javascript\" src=\"../js/jquery-1.8.3.js\"></script>\r\n");
+      out.write("\t<script type=\"text/javascript\" src=\"");
+      out.print(request.getContextPath());
+      out.write("/js/jquery.min.js\"></script>\r\n");
       out.write("\t<script type=\"text/javascript\" src=\"http://res.wx.qq.com/open/js/jweixin-1.0.0.js\"></script>\r\n");
       out.write("\r\n");
       out.write("\t<script type=\"text/javascript\">\r\n");

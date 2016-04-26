@@ -55,7 +55,7 @@ public class PayAction extends BaseAction {
 		return "show";//指定返回路径
 	}
 	
-	public String callback(){		
+	public String callback(){	
 		Logger logger = Logger.getLogger(PayAction.class); 		
 		String appid = WXConfigure.appId;
 		String secret = WXConfigure.appsecret;
@@ -81,14 +81,15 @@ public class PayAction extends BaseAction {
 		  Map<String,Object> parameters = new HashMap<String,Object> ();
 	       parameters.put("appid", WXConfigure.appId); // 公众账号ID
 	       parameters.put("mch_id", WXConfigure.mch_id); // 商户号
-	       parameters.put("nonce_str", WXConfigure.nonceStr); // 随机字符串
-	       parameters.put("device_info", WXConfigure.device_info); // 设备号	          
+	       parameters.put("device_info", "WEB"); // 设备号	 
+	       parameters.put("nonce_str", WXConfigure.nonceStr); // 随机字符串	               
 	       parameters.put("body", "bussinesdesc"); // 商品描述
 	       //parameters.put("sign", ); // 签名	   
 	       parameters.put("out_trade_no", RandomStringGenerator.getRandomStringByLength(10)+String.valueOf((new Date().getTime())));// 商户订单号
 	       parameters.put("total_fee", "1"); // 总金额
 	       String  ip = CusAccessObjectUtil.getIpAddress(request);
-	       parameters.put("spbill_create_ip", "192.168.20.11"); // 订单生成的机器IP,测试IP
+	       logger.info("ip>>>>>>>>>>"+ip);
+	       parameters.put("spbill_create_ip", ip); // 订单生成的机器IP,测试IP
 	       parameters.put("notify_url", WXConfigure.notify_url); // 通知地址,测试地址    
 	       parameters.put("trade_type", WXConfigure.trade_type); // 交易类型(JSAPI、NATIVE、APP)
 	       parameters.put("openid", openid);// 用户标识 JSAPI时，此参数必传，根据第一步授权获取openid
@@ -144,7 +145,6 @@ public class PayAction extends BaseAction {
         Long tinmeStamp = new Date().getTime();
         request.setAttribute("timeStamp", tinmeStamp);//从后台返回参数给request（跟jsp有关）
         //3
-     //   String nonceStr = RandomStringGenerator.getRandomStringByLength(32);
         request.setAttribute("nonceStr", WXConfigure.nonceStr  );//从后台返回参数给request（跟jsp有关）
 		request.setAttribute("package", packageStr);//从后台返回参数给request（跟jsp有关）
 		
@@ -153,12 +153,12 @@ public class PayAction extends BaseAction {
 		//5
 		
 		  Map<String,Object> parameters = new HashMap<String,Object> ();
-	       parameters.put("appid", WXConfigure.appId); // 公众账号ID
+	       parameters.put("appId", WXConfigure.appId); // 公众账号ID
 	       parameters.put("timeStamp", tinmeStamp); // 公众账号ID
 	       parameters.put("nonceStr", WXConfigure.nonceStr); // 公众账号ID
 	       parameters.put("package", packageStr); // 公众账号ID>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 	       parameters.put("signType", "MD5"); // 公众账号ID
-		 String signStr="";
+		   String signStr="";
 		
 		signStr = Signature.getSign(parameters);
 
