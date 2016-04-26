@@ -68,7 +68,7 @@ var postdata   = "phoneNum="+ phoneNum +"&password="+ password +"&productId="+pr
          data: postdata,
          success: function (returndata) { 
         	 if(returndata=="success"){
-        		 window.location.href="<%=basePath %>order/order_info.do?productId="+productId;
+        		 window.location.href="<%=basePath %>order/order_info.do?productId="+productId+"&Phone="+phoneNum;
         	 }
         	 else{
         		 alert("帐号或者密码错误");

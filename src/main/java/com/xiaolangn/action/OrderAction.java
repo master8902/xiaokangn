@@ -14,6 +14,7 @@ import com.xiaolangn.bean.Order;
 import com.xiaolangn.bean.Product;
 import com.xiaolangn.service.IOrderService;
 import com.xiaolangn.service.IProductService;
+import com.xiaolangn.service.IUserService;
 
 public class OrderAction extends BaseAction {
 
@@ -26,7 +27,8 @@ public class OrderAction extends BaseAction {
 	IOrderService orderService;
 	@Resource
 	IProductService productService;
-
+	@Resource
+	IUserService userService;
 	HttpServletResponse response = ServletActionContext.getResponse();
 	HttpServletRequest request = ServletActionContext.getRequest();
 	
@@ -35,8 +37,9 @@ public class OrderAction extends BaseAction {
 		response.setCharacterEncoding("utf-8");		
 		String productId = request.getParameter("productId");//productid从前台jsp到后台		
 		request.setAttribute("productId", productId);//从后台返回参数给request（跟jsp有关）
-		String userId = (String) request.getSession().getAttribute("userId");
-		request.setAttribute("userId", userId);//从后台返回参数给request（跟jsp有关）
+		String Phone = (String) request.getParameter("Phone");
+		Integer userId =  userService.getUserByPhone(Phone).getId();
+		request.setAttribute("userId", String.valueOf(userId));//从后台返回参数给request（跟jsp有关）
 		Product product  = productService.getProductById(Integer.valueOf(productId));		
 		request.setAttribute("product", product);//从后台返回参数给request（跟jsp有关）
 		return "dingdan";
