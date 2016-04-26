@@ -23,7 +23,7 @@
 		FROM t_user WHERE phoneNum=#{phoneNum}
 	</select>
 
-<insert id="insert" parameterMap="p" useGeneratedKeys="true">
+<insert id="insert" parameterMap="p" useGeneratedKeys="true" keyProperty="id">
 		 insert into t_user(phoneNum,password,createtime) 
 			values(#{phoneNum},#{password},#{createtime}) 
 	</insert>
