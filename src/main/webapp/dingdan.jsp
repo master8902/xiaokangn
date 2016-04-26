@@ -83,8 +83,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	var productId = $.trim($("#productId").val());	
 		//需要POST的值(前台到后台)，把每个变量都通过&来联接  
 	var postdata   = "identificationType="+ identificationType 
-	+"&CredentialsCode"+ CredentialsCode +"&nickname" +nickname +"&guoji" + guoji
-	+ "&Phone" + Phone + "&jiner" + jiner + "&lianxi" + lianxi+ "&productId" + productId+"&userId" + userId;  
+	+"&CredentialsCode="+ CredentialsCode +"&nickname=" +nickname +"&guoji=" + guoji
+	+ "&phoneNum=" + Phone + "&jiner=" + jiner + "&lianxi=" + lianxi+ "&productId=" + productId+"&userId=" + userId;  
 		var resultid = -1;
 	    $.ajax({
 	        url: '<%=basePath %>order/order_newAddOrder.do',

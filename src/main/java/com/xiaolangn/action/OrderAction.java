@@ -61,6 +61,9 @@ public class OrderAction extends BaseAction {
 		String jiner = request.getParameter("jiner");
 		String lianxi = request.getParameter("lianxi");
 		String productId = request.getParameter("productId");
+		String userId = request.getParameter("userId");
+		
+		
         Order order = new Order();
 //        order.setId(1);
 //        order.setIdentificationType("身份证");
@@ -73,6 +76,7 @@ public class OrderAction extends BaseAction {
         order.setOrderPrice(Double.valueOf(jiner));
         order.setContacts(lianxi);
         order.setProductid(Integer.valueOf(productId));
+        order.setUserId(Integer.valueOf(userId));
 		Integer insertid = orderService.newAddOrder(order);	
 		
 		PrintWriter out;
