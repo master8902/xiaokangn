@@ -13,13 +13,13 @@
 
 
 	<select id="getUserById" resultMap="r" parameterType="int">
-		SELECT phoneNum, password
+		SELECT phoneNum, password,id
 		FROM t_user WHERE id=#{id}
 	</select>
 
 
 <select id="getUserByPhone" resultMap="r" parameterType="String">
-		SELECT phoneNum, password
+		SELECT phoneNum, password, id
 		FROM t_user WHERE phoneNum=#{phoneNum}
 	</select>
 
