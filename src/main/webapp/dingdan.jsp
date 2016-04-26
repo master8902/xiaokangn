@@ -33,59 +33,76 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/dingdan.css">
 
  <script  type="text/javascript">
- function pay11(){
-		document.location.href="<%=basePath %>pay/test/pay_show.do";
+ function pay(){
+	 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	 var phoneNum = $.trim($("#phoneNum").val());
+		
+		var result = checkisNULL(phoneNum,"手机号码不能为空");//出错提示
+		if(result==false){
+		//	$("#sub").attr("disabled",false); 
+			return false;
+		}
+	var password = $.trim($("#password").val());
+		
+		var result = checkisNULL(password,"密码不能为空");
+		if(result==false){
+		//	$("#sub").attr("disabled",false); 
+			return false;
+		}
+		
+	var  myselect=document.getElementById("select"); //拿到select对象
+	var index = myselect.selectedIndex ; //拿到选中项的索引
+	var identificationType = myselect.options[index].text; //拿到选中项options的text
+	var productId = $.trim($("#productId").val());	
+		//需要POST的值(前台到后台)，把每个变量都通过&来联接  
+	var postdata   = "identificationType="+ identificationType 
+	+"&CredentialsCode"+ CredentialsCode +"&nickname" +nickname +"&guoji" + guoji
+	+ "&Phone" + Phone + "&jiner" + jiner + "&lianxi" + lianxi+ "&productId" + productId;  
+		
+	    $.ajax({
+	        url: '<%=basePath %>order/order_newAddOrder.do',
+	         type: 'POST',
+	         data: postdata,
+	         success: function (returndata) { 
+	        	 if(returndata=="success"){
+	        		 alert("保存成功");
+	        	 }
+	        	 else{
+	        		 alert("帐号或者密码错误");
+	        	 }
+	 				
+	 				//跳到新的页面 			
+	         },
+	         error: function (returndata) {
+	        	 //alert(returndata);
+	             alert("请输入正确的手机号和密码");
+	         }
+	    });
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	 var productId = $.trim($("#productId").val());	
+	 var userId = $.trim($("#userId").val());
+	 var state = productId+"_"+userId;
+	 document.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9ffc728a584dc255&redirect_uri=http%3a%2f%2fwww.sharlontrip.com%2fxiaolangn%2fpay%2ftest%2fpay_callback.do&response_type=code&scope=snsapi_base&state="+"123"+"#wechat_redirect";
+		
 	}
- function saveOrderInfo() {
-	
-var phoneNum = $.trim($("#phoneNum").val());
-	
-	var result = checkisNULL(phoneNum,"手机号码不能为空");//出错提示
-	if(result==false){
-	//	$("#sub").attr("disabled",false); 
-		return false;
-	}
-var password = $.trim($("#password").val());
-	
-	var result = checkisNULL(password,"密码不能为空");
-	if(result==false){
-	//	$("#sub").attr("disabled",false); 
-		return false;
-	}
-	
-var  myselect=document.getElementById("select"); //拿到select对象
-var index = myselect.selectedIndex ; //拿到选中项的索引
-var identificationType = myselect.options[index].text; //拿到选中项options的text
-var productId = $.trim($("#productId").val());	
-	//需要POST的值(前台到后台)，把每个变量都通过&来联接  
-var postdata   = "identificationType="+ identificationType 
-+"&CredentialsCode"+ CredentialsCode +"&nickname" +nickname +"&guoji" + guoji
-+ "&Phone" + Phone + "&jiner" + jiner + "&lianxi" + lianxi+ "&productId" + productId;  
-	
-    $.ajax({
-        url: '<%=basePath %>order/order_newAddOrder.do',
-         type: 'POST',
-         data: postdata,
-         success: function (returndata) { 
-        	 if(returndata=="success"){
-        		 alert("保存成功");
-        	 }
-        	 else{
-        		 alert("帐号或者密码错误");
-        	 }
- 				
- 				//跳到新的页面 			
-         },
-         error: function (returndata) {
-        	 //alert(returndata);
-             alert("请输入正确的手机号和密码");
-         }
-    });
-}
-
 
  function queryOrderNotice() {
- 
+	 var productId = $.trim($("#productId").val());	
+	 $.ajax({
+	        url: '<%=basePath %>order/order_queryOrderById.do?productId='+productId,
+	         type: 'POST',
+	       
+	         success: function (returndata) { 	        	
+	        		 alert(returndata);	
+	         }
+	    });
  }
 
 </script>
@@ -169,23 +186,26 @@ var postdata   = "identificationType="+ identificationType
 			</tr>
 			<tr>
 				<td>
-				<a>请在提交前确定已阅读  </a><input id="ddxz" type="button" value="订单须知" style="color:#FF8000" onclick="queryOrderNotice();"/><input align="right" id="save" type="button"  value="保存" onclick="saveOrderInfo();"/>
+				<a>请在提交前确定已阅读  </a><input id="ddxz" type="button" value="订单须知" style="color:#FF8000" onclick="queryOrderNotice();"/>
+				<!--  <input align="right" id="save" type="button"  value="保存" onclick="saveOrderInfo();"/> -->
 				</td>
 			</tr>
             </table>  
      </form>   
+     <input type="hidden" id="productId" value="${productId}"/>
      </div>
      	<div  style="width:93%;height:5%;position:fixed;bottom:0" >
 		<div >
 			<table id="foot">
 				<tr>
 					<td>
-			 			<input id="ddze" type="button"  value="订单总额："/><input id="jiner" type="button" value="${request.product.price}"/><input id="qrzf" type="button" value="确认支付" onclick="pay11();return false;"/>
+			 			<input id="ddze" type="button"  value="订单总额："/><input id="jiner" type="button" value="${request.product.price}"/><input id="qrzf" type="button" value="确认支付" onclick="pay();return false;"/>
 			 		</td>
 			 	</tr>
 			 </table>
 		</div>
 		<input type="hidden" id="productId" value="${productId}"/>
+		<input type="hidden" id="userId" value="${userId}"/>
 	</div>                
   </body>
 </html>

@@ -30,6 +30,8 @@ public class Order {
 	private Integer isPay;
 
 	private Integer userId;
+	
+	private Integer productid;
 
 	public Integer getId() {
 		return id;
@@ -133,6 +135,14 @@ public class Order {
 
 	public void setUserId(Integer userId) {
 		this.userId = userId;
+	}
+
+	public Integer getProductid() {
+		return productid;
+	}
+
+	public void setProductid(Integer productid) {
+		this.productid = productid;
 	}
 	
 }

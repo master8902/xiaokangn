@@ -19,6 +19,7 @@ public class Product {
 	private String explain;
     private String favorable;
 	private String picture_url;
+	private String notice;
 	
 	public Integer getId() {
 		return id;
@@ -103,6 +104,12 @@ public class Product {
 	}
 	public void setPicture_url(String picture_url) {
 		this.picture_url = picture_url;
+	}
+	public String getNotice() {
+		return notice;
+	}
+	public void setNotice(String notice) {
+		this.notice = notice;
 	}	
 
 }

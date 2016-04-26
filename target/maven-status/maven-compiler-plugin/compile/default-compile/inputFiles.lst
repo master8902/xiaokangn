@@ -34,6 +34,7 @@ E:\xiaokangn\src\main\java\com\xiaolangn\spring\util\SpringContextUtil.java
 E:\xiaokangn\src\main\java\com\xiaolangn\action\OrderAction.java
 E:\xiaokangn\src\main\java\com\tencent\protocol\refund_query_protocol\RefundQueryReqData.java
 E:\xiaokangn\src\main\java\com\tencent\service\BaseService.java
+E:\xiaokangn\src\main\java\com\xiaolangn\util\XmlConverUtil.java
 E:\xiaokangn\src\main\java\com\tencent\business\ScanPayBusiness.java
 E:\xiaokangn\src\main\java\com\tencent\protocol\pay_protocol\ScanPayReqData.java
 E:\xiaokangn\src\main\java\com\tencent\business\DownloadBillBusiness.java
@@ -44,8 +45,8 @@ E:\xiaokangn\src\main\java\com\tencent\service\ScanPayQueryService.java
 E:\xiaokangn\src\main\java\com\xiaolangn\util\XMLUtil.java
 E:\xiaokangn\src\main\java\com\tencent\protocol\refund_protocol\RefundReqData.java
 E:\xiaokangn\src\main\java\com\xiaolangn\mapper\UserMapper.java
-E:\xiaokangn\src\main\java\com\xiaolangn\service\impl\ProductService.java
 E:\xiaokangn\src\main\java\com\xiaolangn\bean\Product.java
+E:\xiaokangn\src\main\java\com\xiaolangn\service\impl\ProductService.java
 E:\xiaokangn\src\main\java\com\tencent\common\Signature.java
 E:\xiaokangn\src\main\java\com\tencent\common\report\service\ReportService.java
 E:\xiaokangn\src\main\java\com\xiaolangn\util\InitServlet.java

@@ -13,4 +13,5 @@ public interface IProductService {
 	public  List<Product> getProductByType(String type);
 	
 	public List<Product> getProductByName(String chineseName);
+	 public  Product getProductNotice(Integer id);
 }

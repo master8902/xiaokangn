@@ -13,14 +13,14 @@
 
     <insert id="newAddOrder" parameterMap="p" useGeneratedKeys="true">
     	INSERT INTO order_info (id,orderType,identificationType,identificationNumber,realName,
-    	nationality,contacts,phoneNum,orderPrice,orderNotice,orderSaveTime,isPay,userId) VALUES 
+    	nationality,contacts,phoneNum,orderPrice,orderNotice,orderSaveTime,isPay,userId,productid) VALUES 
     	(#{id},#{orderType},#{identificationType},#{identificationNumber},#{realName},
-    	#{nationality},#{contacts},#{phoneNum},#{orderPrice},#{orderNotice},#{orderSaveTime},#{isPay},#{userId})
+    	#{nationality},#{contacts},#{phoneNum},#{orderPrice},#{orderNotice},#{orderSaveTime},#{isPay},#{userId},#{productid})
     </insert>
     
     <select id="queryOrderById" resultMap="r" parameterType="int">
     	SELECT orderNotice
-		FROM order_info WHERE id=#{id}
+		FROM order_info WHERE productid=#{id}
     </select>
     
     <update id="modifyOrder" parameterMap="p">

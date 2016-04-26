@@ -1,5 +1,7 @@
 package com.xiaolangn.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -31,8 +33,10 @@ public class OrderAction extends BaseAction {
 	public String info() {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		
-		String productId = request.getParameter("productId");//productid从前台jsp到后台
+		String productId = request.getParameter("productId");//productid从前台jsp到后台		
 		request.setAttribute("productId", productId);//从后台返回参数给request（跟jsp有关）
+		String userId = (String) request.getSession().getAttribute("userId");
+		request.setAttribute("userId", userId);//从后台返回参数给request（跟jsp有关）
 		Product product  = productService.getProductById(Integer.valueOf(productId));		
 		request.setAttribute("product", product);//从后台返回参数给request（跟jsp有关）
 		return "dingdan";
@@ -53,6 +57,7 @@ public class OrderAction extends BaseAction {
 		String phoneNum = request.getParameter("phoneNum");
 		String jiner = request.getParameter("jiner");
 		String lianxi = request.getParameter("lianxi");
+		String productId = request.getParameter("productId");
         Order order = new Order();
 //        order.setId(1);
 //        order.setIdentificationType("身份证");
@@ -64,6 +69,7 @@ public class OrderAction extends BaseAction {
         order.setPhoneNum(phoneNum);
         order.setOrderPrice(Integer.valueOf(jiner));
         order.setContacts(lianxi);
+        order.setProductid(Integer.valueOf(productId));
 		orderService.newAddOrder(order);	
 	}
 
@@ -71,9 +77,18 @@ public class OrderAction extends BaseAction {
  * 根据订单id查询订单须知
  */
     public void queryOrderById(){
-    	Integer id = 1;
-    	Order order = orderService.queryOrderById(id);
-    	System.out.println(order.getOrderNotice());
+    	String productId = request.getParameter("productId");
+    	Product order = productService.getProductNotice(Integer.valueOf(productId));
+    	String notice  = order.getNotice();
+    	PrintWriter out;
+		try {
+			out = response.getWriter();
+			out.print(notice);
+			out.flush();
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
     
 /**

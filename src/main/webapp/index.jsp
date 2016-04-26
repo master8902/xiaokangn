@@ -112,7 +112,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 				 </s:else>
 				</s:iterator>
-				</div> <a class="left carousel-control" href="#carousel-58154" data-slide="prev">‹</a> <a class="right carousel-control" href="#carousel-58154" data-slide="next">›</a>
+				</div><a class="left carousel-control" href="#carousel-58154" data-slide="prev">‹</a> <a class="right carousel-control" href="#carousel-58154" data-slide="next">›</a>
+					<div style="position:relative;width:100%;margin-top:-10%">	
+						<div style="width:100%;height:15%;position:absolute;bottom:0">
+							<span id="jqrm">近期热门</span>
+						</div>
+						<div style="width:100%;height:15%;position:absolute;bottom:0">
+							<span id="jianjie">迷情上海
+							<br>三天三夜
+							</span>
+						</div>
+						<div style="width:100%;height:15%;position:absolute;bottom:0">
+							<span id="databegin">初始</span>
+							<span id="hx">—</span>
+							<span id="datafinish">结束</span>
+						</div>
+					</div>
 			</div>
 		</div>
 	</div>
@@ -143,7 +158,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<span id="xiwei1">席位:<s:property value="#bean.saleSeat"/></span>
 							<span id="data1">日期:<s:property value="#bean.startDate"/></span>
 						</div>
+						<div style="width:100%;height:15%;position:absolute;bottom:40%">
+							<span id="xiangmu2">土耳其</span>
+							<span id="xiangmu2y">Turkey</span>
+						</div>
 					</div>
+						
 					</s:iterator>
 				</div>
 			</div>
