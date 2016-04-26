@@ -33,8 +33,10 @@ public class OrderAction extends BaseAction {
 	public String info() {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		
-		String productId = request.getParameter("productId");//productid从前台jsp到后台
+		String productId = request.getParameter("productId");//productid从前台jsp到后台		
 		request.setAttribute("productId", productId);//从后台返回参数给request（跟jsp有关）
+		String userId = (String) request.getSession().getAttribute("userId");
+		request.setAttribute("userId", userId);//从后台返回参数给request（跟jsp有关）
 		Product product  = productService.getProductById(Integer.valueOf(productId));		
 		request.setAttribute("product", product);//从后台返回参数给request（跟jsp有关）
 		return "dingdan";
