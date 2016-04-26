@@ -54,6 +54,9 @@ public class RegisterAction extends BaseAction {
 		String btnSendCode = request.getParameter("SmsCheckCode");
 		String productId = request.getParameter("productId");//productid从前台jsp到后台
 		request.setAttribute("productId", productId);//从后台返回参数给request（跟jsp有关）
+		String Phone = (String) request.getParameter("phoneNum");
+		Integer userId =  userService.getUserByPhone(Phone).getId();
+		request.setAttribute("userId", String.valueOf(userId));//从后台返回参数给request（跟jsp有关）
 		//首先检查session是否有手机号，验证码及发送验证码的时间
 				String phoneNum1 = (String) request.getSession().getAttribute("phoneNum");//往session设置设计号
 				String phoneCode1 = (String) request.getSession().getAttribute("phoneCode");//设置手机的验证码
