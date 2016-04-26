@@ -1,5 +1,6 @@
 package com.xiaolangn.bean;
 
+import java.text.DecimalFormat;
 import java.util.Date;
 
 
@@ -21,7 +22,7 @@ public class Order {
 	
 	private String phoneNum;
 	
-    private Integer orderPrice;
+    private Double orderPrice;
     
 	private String orderNotice;
 	
@@ -97,11 +98,11 @@ public class Order {
 		this.phoneNum = phoneNum;
 	}
 
-	public Integer getOrderPrice() {
+	public Double getOrderPrice() {
 		return orderPrice;
 	}
 
-	public void setOrderPrice(Integer orderPrice) {
+	public void setOrderPrice(Double orderPrice) {
 		this.orderPrice = orderPrice;
 	}
 

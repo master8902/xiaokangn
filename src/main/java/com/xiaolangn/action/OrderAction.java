@@ -70,7 +70,7 @@ public class OrderAction extends BaseAction {
         order.setRealName(nickname);
         order.setNationality(guoji);
         order.setPhoneNum(phoneNum);
-        order.setOrderPrice(Integer.valueOf(jiner));
+        order.setOrderPrice(Double.valueOf(jiner));
         order.setContacts(lianxi);
         order.setProductid(Integer.valueOf(productId));
 		Integer insertid = orderService.newAddOrder(order);	
