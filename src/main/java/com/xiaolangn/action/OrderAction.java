@@ -77,8 +77,8 @@ public class OrderAction extends BaseAction {
         order.setContacts(lianxi);
         order.setProductid(Integer.valueOf(productId));
         order.setUserId(Integer.valueOf(userId));
-		Integer insertid = orderService.newAddOrder(order);	
-		
+		Integer id = orderService.newAddOrder(order);	
+		Integer insertid = order.getId();
 		PrintWriter out;
 		try {
 			out = response.getWriter();

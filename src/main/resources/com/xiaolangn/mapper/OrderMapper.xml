@@ -11,7 +11,7 @@
 	<parameterMap type="com.xiaolangn.bean.Order" id="p"></parameterMap>
 
 
-    <insert id="newAddOrder" parameterMap="p" useGeneratedKeys="true">
+    <insert id="newAddOrder" parameterMap="p" useGeneratedKeys="true" keyProperty="id">
     	INSERT INTO order_info (id,orderType,identificationType,identificationNumber,realName,
     	nationality,contacts,phoneNum,orderPrice,orderNotice,orderSaveTime,isPay,userId,productid) VALUES 
     	(#{id},#{orderType},#{identificationType},#{identificationNumber},#{realName},
