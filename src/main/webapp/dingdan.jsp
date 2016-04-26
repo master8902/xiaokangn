@@ -33,20 +33,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/dingdan.css">
 
  <script  type="text/javascript">
+ function checkisNULL(value,message){
+		if(value==""|value=="null"){
+			alert(message);
+			//$("#sub").attr("disabled",false); 
+			return false;	
+		}
+		return true;	
+	} 
  function pay(){
 	 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	 var phoneNum = $.trim($("#phoneNum").val());
-		
-		var result = checkisNULL(phoneNum,"手机号码不能为空");//出错提示
+	  var identificationType =  $('#select option:selected').val();//选中的文本
+	 var nickname = $.trim($("#nickname").val());//姓名
+	 var guoji = $.trim($("#guoji").val());//姓名
+	 var CredentialsCode = $.trim($("#CredentialsCode").val());//姓名
+	 var lianxi = $.trim($("#lianxi").val());//姓名
+	 var Phone = $.trim($("#Phone").val());//姓名
+	
+	
+	 var productId = $.trim($("#productId").val());	
+	 var userId = $.trim($("#userId").val());
+	 var jiner = $.trim($("#jiner").val());
+	 
+	 
+		var result = checkisNULL(nickname,"姓名不能为空");//出错提示
 		if(result==false){
-		//	$("#sub").attr("disabled",false); 
+			return false;
+		}		
+		var result = checkisNULL(guoji,"国籍不能为空");
+		if(result==false){
 			return false;
 		}
-	var password = $.trim($("#password").val());
-		
-		var result = checkisNULL(password,"密码不能为空");
+		var result = checkisNULL(CredentialsCode,"证件号不能为空");
 		if(result==false){
-		//	$("#sub").attr("disabled",false); 
+			return false;
+		}
+		var result = checkisNULL(lianxi,"联系人不能为空");
+		if(result==false){
+			return false;
+		}
+		var result = checkisNULL(Phone,"手机号不能为空");
+		if(result==false){
 			return false;
 		}
 		
@@ -58,37 +85,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	var postdata   = "identificationType="+ identificationType 
 	+"&CredentialsCode"+ CredentialsCode +"&nickname" +nickname +"&guoji" + guoji
 	+ "&Phone" + Phone + "&jiner" + jiner + "&lianxi" + lianxi+ "&productId" + productId;  
-		
+		var resultid = -1;
 	    $.ajax({
 	        url: '<%=basePath %>order/order_newAddOrder.do',
 	         type: 'POST',
 	         data: postdata,
-	         success: function (returndata) { 
-	        	 if(returndata=="success"){
-	        		 alert("保存成功");
-	        	 }
-	        	 else{
-	        		 alert("帐号或者密码错误");
-	        	 }
-	 				
-	 				//跳到新的页面 			
-	         },
-	         error: function (returndata) {
-	        	 //alert(returndata);
-	             alert("请输入正确的手机号和密码");
+	         success: function (returndata) { 	        	 
+	        	 resultid = returndata;		
 	         }
 	    });
-	 
-	 
-	 
-	 
-	 
-	 
-	 
 	 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	 var productId = $.trim($("#productId").val());	
-	 var userId = $.trim($("#userId").val());
-	 var state = productId+"_"+userId;
+	
+	
+	 var state = productId+"_"+userId+"_"+resultid;
 	 document.location.href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx9ffc728a584dc255&redirect_uri=http%3a%2f%2fwww.sharlontrip.com%2fxiaolangn%2fpay%2ftest%2fpay_callback.do&response_type=code&scope=snsapi_base&state="+"123"+"#wechat_redirect";
 		
 	}
