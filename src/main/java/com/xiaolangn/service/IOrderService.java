@@ -2,6 +2,7 @@ package com.xiaolangn.service;
 
 
 import com.xiaolangn.bean.Order;
+import com.xiaolangn.bean.Product;
 
 public interface IOrderService {
 	
@@ -18,9 +19,12 @@ public interface IOrderService {
 	 */
 	public Order queryOrderById(Integer id);
 	
+	
+	public Product selectProByOrderId(Integer id);
+	
 	/**
 	 * 修改订单
 	 * @param order
 	 */
-	public void modifyOrder(Order order);
+	public Integer modifyOrder(Order order);
 }

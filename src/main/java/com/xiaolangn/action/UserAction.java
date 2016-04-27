@@ -88,6 +88,7 @@ public class UserAction extends BaseAction {
 			//比对密码
 			else if(user.getPassword().equals(password))
 			{
+				request.getSession().setAttribute("userId", user.getId());
 				out.print("success");
 			}
 			else 

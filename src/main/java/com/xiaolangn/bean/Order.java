@@ -1,5 +1,6 @@
 package com.xiaolangn.bean;
 
+import java.text.DecimalFormat;
 import java.util.Date;
 
 
@@ -21,7 +22,7 @@ public class Order {
 	
 	private String phoneNum;
 	
-    private Integer orderPrice;
+    private Double orderPrice;
     
 	private String orderNotice;
 	
@@ -32,7 +33,17 @@ public class Order {
 	private Integer userId;
 	
 	private Integer productid;
-
+	
+	private Date tradeTime;
+	
+	private String tradeOddNum;
+	
+	private String businessOddNum;
+	
+	private String businessName;
+	
+	private String openid;
+	private Date createTime;
 	public Integer getId() {
 		return id;
 	}
@@ -97,11 +108,11 @@ public class Order {
 		this.phoneNum = phoneNum;
 	}
 
-	public Integer getOrderPrice() {
+	public Double getOrderPrice() {
 		return orderPrice;
 	}
 
-	public void setOrderPrice(Integer orderPrice) {
+	public void setOrderPrice(Double orderPrice) {
 		this.orderPrice = orderPrice;
 	}
 
@@ -143,6 +154,54 @@ public class Order {
 
 	public void setProductid(Integer productid) {
 		this.productid = productid;
+	}
+
+	public Date getTradeTime() {
+		return tradeTime;
+	}
+
+	public void setTradeTime(Date tradeTime) {
+		this.tradeTime = tradeTime;
+	}
+
+	public String getTradeOddNum() {
+		return tradeOddNum;
+	}
+
+	public void setTradeOddNum(String tradeOddNum) {
+		this.tradeOddNum = tradeOddNum;
+	}
+
+	public String getBusinessOddNum() {
+		return businessOddNum;
+	}
+
+	public void setBusinessOddNum(String businessOddNum) {
+		this.businessOddNum = businessOddNum;
+	}
+
+	public String getBusinessName() {
+		return businessName;
+	}
+
+	public void setBusinessName(String businessName) {
+		this.businessName = businessName;
+	}
+
+	public String getOpenid() {
+		return openid;
+	}
+
+	public void setOpenid(String openid) {
+		this.openid = openid;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 	
 }

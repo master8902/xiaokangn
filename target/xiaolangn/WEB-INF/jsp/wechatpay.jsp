@@ -18,6 +18,9 @@
 
 	<script type="text/javascript">
 
+	$(document).ready(function(){ 
+	pay();
+		}); 
 
 	 wx.config({
 	        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -38,15 +41,19 @@
 		    	    "signType": "<%=request.getAttribute("signType")%>", // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
 		    	    "paySign": "<%=request.getAttribute("paySign")%>", // 支付签名
 		       },
-		       function(res){     
+		       function(res){  
+		    	//   $('#hiddeninput').show();
 		           if(res.err_msg == "get_brand_wcpay_request:ok" ) {
-		        	   alert("支付成功");
+		        	 //  alert("支付成功");
+		        	   $("#hiddeninput").val("支付成功"); 
 		           }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
 		           else if(res.err_msg == "get_brand_wcpay_request:cancel" ) {
-		        	   alert("支付取消");
+		        	  // alert("支付取消");
+		        	   $("#hiddeninput").val("支付取消"); 
 		           }
 		           else if(res.err_msg == "get_brand_wcpay_request:fail" ) {
-		        	   alert("支付失败");
+		        	 //  alert("支付失败");
+		        	   $("#hiddeninput").val("支付失败"); 
 		           }		          
 		       }
 		   ); 
@@ -70,13 +77,16 @@ function pay(){
 
 <body>
 	<div class="index_box">
-		<div class="apply_name">微信js支付测试</div>
+		<div class="apply_name">商品</div>
 
 		<div class="branch_con">
 			<ul>
-				<li><span class="name">测试支付信息</span></li>
+				<li><span class="name">日本三日游</span></li>
 			</ul>
-			<p class="cz_btn"><a href="javascript:pay();" class="btn_1">立即支付</a></p>
+			<p class="cz_btn">
+			支付状态：
+			<input  type="text" value="等待支付" id="hiddeninput" readonly="readonly" style='border-left:0px;border-top:0px;border-right:0px;border-bottom:1px '/>
+			</p>
 		</div>
 	</div>
 
