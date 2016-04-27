@@ -117,20 +117,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="span12">
 			<div  style="height:5% ;margin-top:2%;">
 				<div>
-			 			<input id="baoming" type="button" value="我要报名" onclick="login()"/><input id="shoucang" type="button" value="收藏"/>
+			 			<input id="baoming" type="button" value="我要报名" onclick="login()"/>
 				</div>
 			</div>
-		</div>
-	</div>
-<div style="width:93%;height:5%;position:fixed;bottom:0;text-align:center" >
-		<div  style="text-align:cneter">
-			<table id="foot">
-				<tr>
-					<td>
-			 			<input id="lvchen" type="button" value="旅程"/><input id="piaowu" type="button" value="票务"/><input id="wo" type="button" value="我"/>
-			 		</td>
-			 	</tr>
-			 </table>
 		</div>
 	</div>
 </div>

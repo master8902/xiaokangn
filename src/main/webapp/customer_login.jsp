@@ -90,31 +90,31 @@ var postdata   = "phoneNum="+ phoneNum +"&password="+ password +"&productId="+pr
 </head>
 
 <body>
-    <div id="denglu" class="page-container" >
+      <div  class="page-container" >
    	<form action="" method="post">
 	<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td>
-				<input id="phoneNum" name="phoneNum"  placeholder="请输入手机" onblur="checkjbPhone()"/>
+				<input id="phoneNum" name="phoneNum"  placeholder="请输入手机号码" onblur="checkjbPhone()"/>
 				<input id="PhonelTip" style="display:none;" onfocus="xsphone()"/>
 			</td>		
 		</tr>
 		<tr>
 			<td>
-            <input id="password" type="password"  class="password" placeholder="密码" size="18"/>
+            <input id="password" type="password"  class="password" placeholder="请输入密码" size="18"/>
             </td>
          </tr>
-         <tr>
-        	 <td>
-            <button id="denglu" type="submit" onclick="tocustomer_check();return false;">登	 录</button>　
-            </td>
-          </tr>
-          <tr>
+            <tr>
          	 <td>
             <button id="zhuce" type="submit" onclick="tocustomer_reg();return false;">立即注册</button>　
             </td>
             </tr>
-    </table>
+         <tr>
+        	 <td>
+            <button id="denglu" type="submit" onclick="tocustomer_check();return false;">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</button>　
+            </td>
+          </tr>
+	</table>
  	</form>
  	<input type="hidden" id="productId" value="${productId}"/>
     </div>

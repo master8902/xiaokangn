@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+	<title>浪旅行</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>浪旅行</title>
+
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
@@ -87,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  </head> 
 <body>
 
-<div class="container-fluid">
+<div >
 	<div class="row-fluid" style="height:30%">
 		<div class="span12">
 			<div class="carousel slide" id="carousel-58154">
@@ -112,11 +112,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 				 </s:else>
 				</s:iterator>
-				</div><a class="left carousel-control" href="#carousel-58154" data-slide="prev">‹</a> <a class="right carousel-control" href="#carousel-58154" data-slide="next">›</a>
+				</div>
 					<div style="position:relative;width:100%;margin-top:-10%">	
 						<div style="width:100%;height:15%;position:absolute;bottom:0">
 							<span id="jqrm">近期热门</span>
 						</div>
+						<a class="left carousel-control"href="#carousel-58154" data-slide="prev" style="margin-top:-20%;margin-left:-1%">‹</a>
+						<a class="right carousel-control" href="#carousel-58154" data-slide="next" style="margin-top:-22%;margin-right:-2%">›</a>
 						<div style="width:100%;height:15%;position:absolute;bottom:0">
 							<span id="jianjie"><s:property value="#hotbean.title"/>
 							</span>
@@ -132,13 +134,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div class="row-fluid" >
 		<div class="span12">
-			<div  style="height:5% ;text-align:center;margin-top:-2%;">
+			<div  style="height:4%;margin-top:-1%;">
 				<div>
-					<select  id="select" name="select"  onchange="select()">   
-     				 	<option value="0" >周边</option>
-     				 	<option value="1" >远征</option>
-     				 	<option value="2">短途</option>
- 					<select><input type="text" id="search" name="search" value="直接搜索目的地" onfocus="value=''" onblur="search()"/>  <!-- onblur=" if(!value)value='直接搜索目的地' " -->
+					<select id="select" name="select" onchange="select()">   
+     				 	<option value="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;周边</option>
+     				 	<option value="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;远征</option>
+     				 	<option value="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;短途</option>
+ 					</select>
+ 					<input type="text" id="search" name="search" value="直接搜索目的地" onfocus="value=''" onblur="search()"/>  <!-- onblur=" if(!value)value='直接搜索目的地' " -->
 				</div>
 			</div>
 		</div>
@@ -146,13 +149,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<div class="row-fluid">
 		<div class="span12">
-			<div id="wrapper" style="height:60%">
+			<div id="wrapper" style="height:61.8%;;margin-top:-0.8%;">
 				<div>
 				<s:iterator value="#request.productzhoubian" id="bean" status="L">
 				<!--<s:property value="#L.index+1"/>-->
-					<div style="position:relative;width:100%;height:216px">				
+					<div style="position:relative;width:100%;height:56%">				
 						<img id="<s:property value="#L.index+1"/>" alt="" src="<%=request.getContextPath()%><s:property value="#bean.picture_url"/>" onclick="clickimg(<s:property value="#bean.id"/>)"/>
-						<div style="width:100%;height:15%;position:absolute;bottom:0">
+						<div style="width:100%;height:20%;position:absolute;bottom:0">
 							<span id="price1">价格:<s:property value="#bean.price"/></span>
 							<span id="xiwei1">席位:<s:property value="#bean.saleSeat"/></span>
 							<span id="data1">日期:<s:property value="#bean.startDate"/></span>
@@ -169,7 +172,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 	
-	<div  style="width:93%;height:5%;position:fixed;bottom:0;text-align:center" >
+	<div  style="width:100%;height:8%;position:fixed;bottom:0;text-align:center" >
 		<div  style="text-align:cneter">
 			<table id="foot">
 				<tr>
