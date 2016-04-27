@@ -23,17 +23,17 @@
 	</select>
 	
 	<select id="getProductByType" resultMap="r" parameterType="String">
-		SELECT id,chineseName,englishName,price,startDate,endDate,picture_url,saleSeat
+		SELECT id,title,chineseName,englishName,price,startDate,endDate,picture_url,saleSeat
 		FROM product_info WHERE type=#{type}
 	</select>
 	
     <select id="getProductByName" resultMap="r" parameterType="String">
-		SELECT id,chineseName,englishName,price,startDate,endDate,picture_url,saleSeat
+		SELECT id,title,chineseName,englishName,price,startDate,endDate,picture_url,saleSeat
 		FROM product_info WHERE chineseName LIKE "%"#{chineseName}"%"
 	</select>
 
 <select id="getProductById" resultMap="r" parameterType="String">
-		SELECT id,chineseName,englishName,price,startDate,endDate,picture_url,saleSeat,totalSeat,title
+		SELECT id,title,chineseName,englishName,price,startDate,endDate,picture_url,saleSeat,totalSeat,title
 		FROM product_info WHERE id=#{id}
 	</select>
 

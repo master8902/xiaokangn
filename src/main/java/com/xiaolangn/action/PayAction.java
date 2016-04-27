@@ -97,7 +97,10 @@ public class PayAction extends BaseAction {
 		String packageStr = getPrepayId(openid,state,title,price);//生成预处理订单编号
 		apply(packageStr);//生成支付参数
 
-		
+		request.setAttribute("title", p.getTitle());
+		request.setAttribute("price", p.getPrice().toString());
+		request.setAttribute("startDate", p.getStartDate().toString());
+		request.setAttribute("endDate", p.getEndDate().toString());
 		return "apply";// 指定返回路径
 	}
 

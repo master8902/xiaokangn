@@ -81,13 +81,13 @@ function pay(){
 
 		<div class="branch_con">
 			<ul>
-				<li><span class="name">#request.product.title</span></li>
+				<li><span class="name">${ title}</span></li>
 			</ul>
 			<ul>
-				<li><span class="name">#request.product.price</span></li>
+				<li><span class="name">${price}元</span></li>
 			</ul>
 			<ul>
-				<li><span class="name">#request.product.startDate-#request.product.endDate</span></li>
+				<li><span class="name">${startDate}-${endDate}</span></li>
 			</ul>
 			<p class="cz_btn">
 			支付状态：
