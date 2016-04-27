@@ -219,6 +219,7 @@ public class PayAction extends BaseAction {
 	  }
 	
 	public String getPrepayId(String openid,String state,String title,Integer price) {
+
 		logger.info("获取预支付id"+openid+">>"+state+"+"+title+">>>"+price);
 		// 预处理的map集合中key一定要是全部小写英文
 		Map<String, Object> parameters = new HashMap<String, Object>();
@@ -226,7 +227,7 @@ public class PayAction extends BaseAction {
 		parameters.put("mch_id", WXConfigure.mch_id); // 商户号
 		parameters.put("device_info", "WEB"); // 设备号
 		parameters.put("nonce_str", WXConfigure.nonceStr); // 随机字符串
-		parameters.put("body", "xiaolang"); // 商品描述
+		parameters.put("body", title); // 商品描述
 		parameters.put("attach", state); // 商品描述
 		parameters.put(
 				"out_trade_no",
