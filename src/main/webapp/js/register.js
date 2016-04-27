@@ -99,6 +99,12 @@ function checkpassword() {
 function checkpasswrodb() {  
     var password = $("#password").val();  
     var passwordRepeat =  $("#passwordRepeat").val(); 
+    if(password=="请输入密码"||passwordRepeat=="请输入密码"||password=="验证码错误"||passwordRepeat=="验证码错误"){ 
+    	 return false;  
+    }
+    if(password==""||passwordRepeat==""||password=="不能小于6位大于30位"||passwordRepeat=="不能小于6位大于30位"||password=="密码不能全是数字"||passwordRepeat=="密码不能全是数字"){ 
+   	 return false;  
+   }
     if (trim(password) != trim(passwordRepeat)) {  
    	 $("#passwordRepeat").hide();//隐藏
 	 $("#passwordRepeatTip").show();//隐藏 
