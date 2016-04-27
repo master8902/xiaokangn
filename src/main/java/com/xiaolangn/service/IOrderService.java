@@ -27,4 +27,8 @@ public interface IOrderService {
 	 * @param order
 	 */
 	public Integer modifyOrder(Order order);
+	
+	
+	//根据用户的id，查询最新一条的订单
+	public Order selectOrderByUserId(Integer id);
 }

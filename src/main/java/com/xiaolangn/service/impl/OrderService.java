@@ -49,5 +49,11 @@ public class OrderService implements IOrderService {
 		// TODO Auto-generated method stub
 		return orderMapper.selectProByOrderId(id);
 	}
+
+	@Override
+	public Order selectOrderByUserId(Integer id) {
+		// TODO Auto-generated method stub
+		return orderMapper.selectOrderByUserId(id);
+	}
     
 }

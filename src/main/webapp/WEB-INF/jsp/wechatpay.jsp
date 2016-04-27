@@ -81,7 +81,13 @@ function pay(){
 
 		<div class="branch_con">
 			<ul>
-				<li><span class="name">日本三日游</span></li>
+				<li><span class="name">#request.product.title</span></li>
+			</ul>
+			<ul>
+				<li><span class="name">#request.product.price</span></li>
+			</ul>
+			<ul>
+				<li><span class="name">#request.product.startDate-#request.product.endDate</span></li>
 			</ul>
 			<p class="cz_btn">
 			支付状态：

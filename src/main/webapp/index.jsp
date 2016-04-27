@@ -103,12 +103,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<s:iterator value="#request.productzhoubian" id="hotbean" status="La">
 				<s:if test="#La.index==0">
 				<div class="item active">
-						<img alt="" src="<%=request.getContextPath()%>/images/1.jpg"/>
+						<img alt="" src="<%=request.getContextPath()%><s:property value="#hotbean.picture_url"/>"/>  
 					</div>	
 				</s:if>
 				<s:else>
 				 <div class="item">
-						<img alt="" src="<%=request.getContextPath()%>/images/2.jpg"  />
+						<img alt="" src="<%=request.getContextPath()%><s:property value="#hotbean.picture_url"/>"  />
 					</div>
 				 </s:else>
 				</s:iterator>
@@ -118,8 +118,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<span id="jqrm">近期热门</span>
 						</div>
 						<div style="width:100%;height:15%;position:absolute;bottom:0">
-							<span id="jianjie">迷情上海
-							<br>三天三夜
+							<span id="jianjie"><s:property value="#hotbean.title"/>
 							</span>
 						</div>
 						<div style="width:100%;height:15%;position:absolute;bottom:0">
@@ -152,15 +151,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<s:iterator value="#request.productzhoubian" id="bean" status="L">
 				<!--<s:property value="#L.index+1"/>-->
 					<div style="position:relative;width:100%;height:216px">				
-						<img id="<s:property value="#L.index+1"/>" alt="" src="<%=request.getContextPath()%>/images/1.jpg" onclick="clickimg(<s:property value="#bean.id"/>)"/>
+						<img id="<s:property value="#L.index+1"/>" alt="" src="<%=request.getContextPath()%><s:property value="#bean.picture_url"/>" onclick="clickimg(<s:property value="#bean.id"/>)"/>
 						<div style="width:100%;height:15%;position:absolute;bottom:0">
 							<span id="price1">价格:<s:property value="#bean.price"/></span>
 							<span id="xiwei1">席位:<s:property value="#bean.saleSeat"/></span>
 							<span id="data1">日期:<s:property value="#bean.startDate"/></span>
 						</div>
 						<div style="width:100%;height:15%;position:absolute;bottom:40%">
-							<span id="xiangmu2">土耳其</span>
-							<span id="xiangmu2y">Turkey</span>
+							<span id="xiangmu2"> <s:property value="#bean.chineseName"/>  </span>
+							<span id="xiangmu2y"><s:property value="#bean.englishName"/></span>
 						</div>
 					</div>
 						

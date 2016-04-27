@@ -110,6 +110,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	         }
 	    });
  }
+ 
+
+	$(document).ready(function(){ 
+		if("<%=request.getAttribute("identificationType")%>"=="护照"){
+			document.getElementById("select")[1].selected=true;
+		}
+		}); 
 
 </script>
 
@@ -125,7 +132,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <tr>
        <tr>
       	 <td style="font-size:1.2em">
-      	${request.product.startDate}
+      	${request.product.startDate}-${request.product.endDate}
        	</td>
        </tr>
         <tr>
@@ -152,7 +159,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</tr>
 		<tr>
 			<td align="center" >  
-             <input type="text" name="nickname" id="nickname"  onblur="checknickname()"/>  
+             <input type="text" name="nickname" id="nickname"  onblur="checknickname()" value="${realName}"/>  
              <input type="text" id="nicknameTip" style="display:none;" onfocus="xsnickname()"/>
             </td>  
 		</tr>
@@ -161,7 +168,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </tr>
         <tr>
         	<td align="center" width="100%">  
-             <input type="text" name="" id="guoji"  onblur=""/>  
+             <input type="text" name="" id="guoji"  onblur="" value="${nationality}"/>  
              </td>
 		</tr>
   		<tr>
@@ -169,7 +176,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </tr>
         <tr>
              <td >  
-                 <input type="text" name="CredentialsCode" id="CredentialsCode" onblur="checkCredentialsCode()"/>
+                 <input type="text" name="CredentialsCode" id="CredentialsCode" onblur="checkCredentialsCode()" value="${identificationNumber}"/>
                  <input type="text" id="CredentialsCodeTip" style="display:none;" onfocus="xsCredentialsCode()"/>  
              </td>
         </tr>
@@ -178,7 +185,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </tr>
         <tr>
         	<td align="center" width="100%">  
-             <input type="text" name="" id="lianxi"  onblur=""/>  
+             <input type="text" name="" id="lianxi"  onblur="" value="${contacts}"/>  
              </td>
 		</tr>
         <tr>
@@ -186,7 +193,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</tr>
        		 <tr>
 			 <td align="center" width="100%">
-				<input type="text" id="Phone" name="jbPhone"  onblur="checkPhone()"/>
+				<input type="text" id="Phone" name="jbPhone"  onblur="checkPhone()" value="${phoneNum}"/>
 				<input type="text" id="PhoneTip" style="display:none;" onfocus="xsphone()"/>
      		 </td>  		
 			</tr>

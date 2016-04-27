@@ -26,6 +26,11 @@
 		FROM order_info WHERE productid=#{id}
     </select>
     
+     <select id="selectOrderByUserId" resultMap="r" parameterType="int">
+		SELECT identificationType,identificationNumber,realName,nationality,contacts,phoneNum
+		FROM order_info WHERE userId=#{id}  order by createTime desc limit 1
+    </select>
+    
     <select id="selectProByOrderId" resultMap="r2" parameterType="int">
     	SELECT * FROM product_info where id = ((SELECT productid
 		FROM order_info WHERE id= #{id}) )

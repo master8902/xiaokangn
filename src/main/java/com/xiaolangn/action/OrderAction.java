@@ -43,6 +43,18 @@ public class OrderAction extends BaseAction {
 		request.setAttribute("userId", String.valueOf(userId));//从后台返回参数给request（跟jsp有关）
 		Product product  = productService.getProductById(Integer.valueOf(productId));		
 		request.setAttribute("product", product);//从后台返回参数给request（跟jsp有关）
+
+		Order order = orderService.selectOrderByUserId(userId);//根据用户的id，查询最新一条的订单
+		if(order!=null){
+			request.setAttribute("identificationType", order.getIdentificationType());
+			request.setAttribute("identificationNumber", order.getIdentificationNumber());
+			request.setAttribute("realName", order.getRealName());
+			request.setAttribute("nationality", order.getNationality());
+			request.setAttribute("contacts", order.getContacts());
+			request.setAttribute("phoneNum", order.getPhoneNum());
+		}
+		
+		
 		return "dingdan";
 	}
 	
