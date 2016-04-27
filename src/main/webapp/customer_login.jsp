@@ -46,14 +46,17 @@ var phoneNum = $.trim($("#phoneNum").val());
 var productId = $.trim($("#productId").val());	
 
 	var result = checkisNULL(phoneNum,"手机号码不能为空");//出错提示
-	if(result==false){
-	//	$("#sub").attr("disabled",false); 
+	if(phoneNum=="请输入手机号"||phoneNum=="手机号码不能为空"||phoneNum=="请输入有效的手机号码"){
+			return false;
+	}
+	if(result==false||phoneNum.length!=11){
 		return false;
 	}
-var password = $.trim($("#password").val());
+	var password = $.trim($("#password").val());
 	
 	var result = checkisNULL(password,"密码不能为空");
-	if(result==false){
+	
+	if(result==false||password=="密码"){
 	//	$("#sub").attr("disabled",false); 
 		return false;
 	}

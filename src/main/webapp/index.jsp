@@ -100,7 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 				</ol>
 				<div class="carousel-inner">
-				<s:iterator value="#request.productzhoubian" id="hotbean" status="La">
+				<s:iterator value="#request.productHot" id="hotbean" status="La">
 				<s:if test="#La.index==0">
 				<div class="item active">
 						<img alt="" src="<%=request.getContextPath()%><s:property value="#hotbean.picture_url"/>"/>  
