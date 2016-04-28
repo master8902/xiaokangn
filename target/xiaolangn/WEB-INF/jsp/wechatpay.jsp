@@ -84,7 +84,7 @@ function pay(){
 				<li><span class="name">${ title}</span></li>
 			</ul>
 			<ul>
-				<li><span class="name">${price}</span></li>
+				<li><span class="name">${price}元</span></li>
 			</ul>
 			<ul>
 				<li><span class="name">${startDate}-${endDate}</span></li>

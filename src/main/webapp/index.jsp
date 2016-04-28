@@ -84,11 +84,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	});
  </script>
    
+   <script type="text/javascript">
+          $(function() {
+              var startX, startY, endX, endY;
+             var showADID = 1;
+            document.getElementById("carousel-58154").addEventListener("touchstart", touchStart, false);
+            document.getElementById("carousel-58154").addEventListener("touchmove", touchMove, false);
+            document.getElementById("carousel-58154").addEventListener("touchend", touchEnd, false);
+             function touchStart(event) {
+                 var touch = event.touches[0];
+                 startY = touch.pageY;
+                 startX = touch.pageX;
+            }
+             function touchMove(event) {
+            	// alert("aaaaaa");
+				document.getElementById("row-fluid").style.display="none";//隐藏
+				//document.getElementById("carousel-58154").height="0%";
+             }
+
+         })
+</script>
+   
+   
  </head> 
 <body>
 
 <div >
-	<div class="row-fluid" style="height:30%">
+	<div class="row-fluid" id="row-fluid" style="height:30%">
 		<div class="span12">
 			<div class="carousel slide" id="carousel-58154">
 				<ol class="carousel-indicators">
