@@ -125,29 +125,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <form  id="form2"  method="post">  
        <table style="width:100%;"> 
        <tr>
-      	 <td style="font-size:1.2em">
+      	 <td style="font-size:1.2em;font-weight:600;font-family:Microsoft YaHei;color:#ff8800">
       	${request.product.title}
        	</td>
        </tr>
        <tr>
        <tr>
-      	 <td style="font-size:1.2em">
+      	 <td style="font-size:0.9em;font-family:Microsoft YaHei">
       	${request.product.startDate}-${request.product.endDate}
        	</td>
        </tr>
         <tr>
       	 <td style="font-size:1.2em">
-       
+      	 
        	</td>
        </tr>
        <tr>
        <tr>
-      	 <td style="font-size:1.2em">
+      	 <td style="font-size:0.9em;font-family:Microsoft YaHei">
       	 出游人信息
        	</td>
        </tr>
        <tr>
-        	<td align="left" width="100%">证件类型
+        	<td align="left" width="100%" style="font-size:0.9em;font-family:Microsoft YaHei;">证件类型
         	<select style="text-align:center;" id="select" name="select" >   
       		<option value="0" >身份证</option>
       		<option value="1">护照</option>
@@ -155,7 +155,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			</td>
 		</tr> 
   		 <tr>  
-            <td align="left" width="100%">姓名</td>  
+            <td align="left" width="100%" style="font-size:0.9em;font-family:Microsoft YaHei;font-weight:500">姓名</td>  
 		</tr>
 		<tr>
 			<td align="center" >  
@@ -164,7 +164,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </td>  
 		</tr>
 		<tr>
-        	<td align="left" width="100%">国籍</td> 
+        	<td align="left" width="100%" style="font-size:0.9em;font-family:Microsoft YaHei;font-weight:500">国籍</td> 
         </tr>
         <tr>
         	<td align="center" width="100%">  
@@ -172,7 +172,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              </td>
 		</tr>
   		<tr>
-             <td align="left" width="100%">证件号</td>  
+             <td align="left" width="100%" style="font-size:0.9em;font-family:Microsoft YaHei;font-weight:500">证件号</td>  
         </tr>
         <tr>
              <td >  
@@ -181,7 +181,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              </td>
         </tr>
         <tr>
-        	<td align="left" width="100%">联系人</td> 
+        	<td align="left" width="100%" style="font-size:0.9em;font-family:Microsoft YaHei;font-weight:500">联系人</td> 
         </tr>
         <tr>
         	<td align="center" width="100%">  
@@ -189,7 +189,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              </td>
 		</tr>
         <tr>
-			<td align="left" width="100%">手机号</td>
+			<td align="left" width="100%" style="font-size:0.9em;font-family:Microsoft YaHei;font-weight:500">手机号</td>
 			</tr>
        		 <tr>
 			 <td align="center" width="100%">
@@ -199,7 +199,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</tr>
 			<tr>
 				<td>
-				<a>请在提交前确定已阅读  </a><input id="ddxz" type="button" value="订单须知" style="color:#FF8000" onclick="queryOrderNotice();"/>
+				<a style="font-size:0.9em;font-family:Microsoft YaHei">请在提交前确定已阅读  </a><input id="ddxz" type="button" value="订单须知" style="font-size:0.9em;font-family:Microsoft YaHei;color:#FF8000;background:#fafafa;border:#fafafa;" onclick="queryOrderNotice();"/>
 				<!--  <input align="right" id="save" type="button"  value="保存" onclick="saveOrderInfo();"/> -->
 				</td>
 			</tr>
@@ -207,7 +207,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      </form>   
      <input type="hidden" id="productId" value="${productId}"/>
      </div>
-     	<div  style="width:93%;height:5%;position:fixed;bottom:0" >
+     	<div  style="width:93%;height:7%;position:fixed;bottom:0" >
 		<div >
 			<table id="foot">
 				<tr>
