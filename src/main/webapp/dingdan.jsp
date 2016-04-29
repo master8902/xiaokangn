@@ -286,7 +286,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 		<td width="30%">
 			 			<input id="jiner" type="button" value="${request.product.price}"/>
 			 		</td >
-			 		<td width="40%">
+			 		<td width="40%" >
 			 		<!--  	<input id="qrzf" type="button"  value="确认支付" onclick="paypre();return false;"/> 
 			 		-->
 			 		<button id="qrzf" class="qrzf" type="button" data-toggle="modal" onclick="show()">
@@ -332,15 +332,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div style="float:left;">支付方式</div>
          <div style="float:right;">微信支付></div>
       </div>
-        <div class="modal-footer" id="支付jin'e">
+        <div class="modal-footer" >
         <div style="float:left;">支付金额</div>
          <div style="float:right;">${request.product.price}元</div>
       </div>
      
-      <div class="modal-footer">
-      
-       <div style="width：100%"><button class="qrzf2" type="button" id="querenzhifu" onclick="pay()">确认支付</button></div>
-        
+      <div class="modal-footer" id="qrzf3">
+<button class="qrzf2" type="button" id="querenzhifu" onclick="pay()">
+       <font size="5">确认支付 </font>
+      </button>
       </div>
     </div>
   </div>
