@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     type="text/javascript"></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/dingdan.css">
-
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
  <script  type="text/javascript">
  function show(){
 	 $("#setphonenum").val($.trim($("#Phone").val())) ;	
@@ -316,13 +316,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
       
        <div class="modal-footer">
-         <div style="float:left;">手机号</div> 
+         <div style="float:left;">手机号码</div> 
          <div style="float:left;"> ：<input value="" id="setphonenum" readonly="readonly" style='border-left:0px;border-top:0px;border-right:0px;border-bottom:1px '/></div>  
       </div>
       
        <div class="modal-footer">
         <div style="float:left;">支付方式</div>
-         <div style="float:right;">微信支付></button></div>
+         <div style="float:right;">微信支付></div>
       </div>
         <div class="modal-footer">
         <div style="float:left;">支付金额</div>
