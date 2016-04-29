@@ -35,7 +35,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/dingdan.css">
 
  <script  type="text/javascript">
- 
+ function show(){
+	 $("#setphonenum").val($.trim($("#Phone").val())) ;	
+		
+	 $('#myModal').modal({
+		  keyboard: false
+		})
+ }
  
  function checkisNULL(value,message){
 		if(value==""|value=="null"){
@@ -80,6 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		if(result==false){
 			return false;
 		}
+		
 		
 	var  myselect=document.getElementById("select"); //拿到select对象
 	var index = myselect.selectedIndex ; //拿到选中项的索引
@@ -224,7 +231,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 		<td width="40%">
 			 		<!--  	<input id="qrzf" type="button"  value="确认支付" onclick="paypre();return false;"/> 
 			 		-->
-			 		<button id="qrzf" type="button" data-toggle="modal" data-target="#myModal">
+			 		<button id="qrzf" class="qrzf" type="button" data-toggle="modal" onclick="show()">
   						确认支付
 					</button>
 			 		</td>
@@ -246,24 +253,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">填写订单</h4>
-      </div>
-      <div class="modal-body">
-      <span>
-      <div style="float:left;">订单信息</div>  
-      <div style="float:right;">订单信息</div>  
-      </span>
-      	
-      </div>
-       <div class="modal-body">
-   	微信号
-      </div>
-       <div class="modal-body">
-   	支付方式
+        <h4 class="modal-title" id="myModalLabel">订单填写</h4>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <span>
+      <div style="float:left;">订单信息</div>  
+      <div style="float:left;"> ：${request.product.title}</div> 
+      </span>      	
+      </div>
+      
+       <div class="modal-footer">
+         <div style="float:left;">手机号</div> 
+         <div style="float:left;"> ：<input value="" id="setphonenum" readonly="readonly" style='border-left:0px;border-top:0px;border-right:0px;border-bottom:1px '/></div>  
+      </div>
+      
+       <div class="modal-footer">
+        <div style="float:left;">支付方式</div>
+         <div style="float:right;">微信支付<img src=""/></div>
+      </div>
+        <div class="modal-footer">
+        <div style="float:left;">支付金额</div>
+         <div style="float:right;">${request.product.price}元</div>
+      </div>
+     
+      <div class="modal-footer">
+      
+       <div style="width：100%"><button class="qrzf2" type="button" >确认支付</button></div>
+        
       </div>
     </div>
   </div>

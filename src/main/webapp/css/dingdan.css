@@ -73,9 +73,20 @@ body {
     text-align:left;
 }
 
-#qrzf{
+.qrzf{
    width:100%;
    height:100%;
+    padding: 0;
+    background: #FF8000;
+    border:1px #FF8000;
+    font-family:Microsoft YaHei;
+    color: #fff;
+    font-size: 1em;
+}
+
+.qrzf2{
+   width:100%;
+   height:5%;
     padding: 0;
     background: #FF8000;
     border:1px #FF8000;
