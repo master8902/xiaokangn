@@ -5,7 +5,7 @@ body {
     background-size: 100% ;
 }
 .page-container {
-    margin:10% auto 0 auto;
+    margin:0% auto 0 auto;
     
 }
 #form2 {
@@ -126,5 +126,12 @@ body {
     {
     height:60%;
     width:100%;
+    }
+    
+  
+
+  #querenzhifu
+    {
+    height:10%;
     }
   

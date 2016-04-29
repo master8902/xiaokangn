@@ -303,45 +303,50 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>  
 	
 		
-		<!-- Modal -->
+
+  
+ </div>
+         
+         
+      		<!-- Modal -->
 <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header" id="tianxiedingdan">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">订单填写</h4>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" id="dingdanxinxi">
       <span>
       <div style="float:left;">订单信息</div>  
       <div style="float:left;"> ：${request.product.title}</div> 
       </span>      	
       </div>
       
-       <div class="modal-footer">
+       <div class="modal-footer" id="shoujihao">
          <div style="float:left;">手机号码</div> 
          <div style="float:left;"> ：<input value="" id="setphonenum" readonly="readonly" style='border-left:0px;border-top:0px;border-right:0px;border-bottom:1px '/></div>  
       </div>
       
-       <div class="modal-footer">
+       <div class="modal-footer" id="zhifufangshi">
         <div style="float:left;">支付方式</div>
          <div style="float:right;">微信支付></div>
       </div>
-        <div class="modal-footer">
+        <div class="modal-footer" id="zhifujine">
         <div style="float:left;">支付金额</div>
          <div style="float:right;">${request.product.price}元</div>
       </div>
      
-      <div class="modal-footer">
+      <div class="modal-footer" id="queren">
       
-       <div style="width：100%"><button class="qrzf2" type="button" onclick="pay()">确认支付</button></div>
+       <div style="width：100%;height:7%">
+       <button class="qrzf2" type="button" id="querenzhifu" onclick="pay()">确认支付</button>
+       </div>
         
       </div>
     </div>
   </div>
-</div>
-  
- </div>
+</div>   
               
   </body>
 </html>
