@@ -37,10 +37,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <script  type="text/javascript">
  function show(){
 	 $("#setphonenum").val($.trim($("#Phone").val())) ;	
-		
+	
 	 $('#myModal').modal({
 		  keyboard: false
-		})
+		});
+		
+		 var Height=document.getElementById("myModal").style.height;
+	 document.getElementById("myModal").style.top = (document.body.scrollHeight-document.body.scrollHeight*0.6)+'px';
  }
  
  function checkisNULL(value,message){
