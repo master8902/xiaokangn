@@ -33,6 +33,10 @@ body {
     -moz-transition: all .2s;
     -webkit-transition: all .2s;
     -ms-transition: all .2s;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
 }
 #select{
 	width:25%;
@@ -42,10 +46,18 @@ body {
 	font-size: 1em;
 	font-family: Microsoft YaHei;
     color: #000000;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
 }
 
 #check{
 	align:right;
+	appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+	
 }
 #foot{
 	width:100%;
@@ -61,6 +73,10 @@ body {
     font-family:Microsoft YaHei;
     font-size: 1em;
     text-align:right;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
 }
 #jiner{
 	width:100%;
@@ -71,6 +87,10 @@ body {
     font-family:Microsoft YaHei;
     font-size: 1em;
     text-align:left;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
 }
 
 #qrzf{
@@ -82,4 +102,11 @@ body {
     font-family:Microsoft YaHei;
     color: #fff;
     font-size: 1em;
+<<<<<<< HEAD
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
+=======
+>>>>>>> 31d80220149f30db71ebb39a0df0ee321a70c43e
 }

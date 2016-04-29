@@ -15,6 +15,10 @@ body {
     color: #fff;
     background:url(../images/beijin.png);
     background-size: 100% ;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
 }
 
 .page-container {
@@ -28,6 +32,10 @@ form {
     width: 100%;
     margin: 15px auto 0 auto;
     text-align: center;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
 }
 
 #phoneNum,#PhonelTip,#password{
@@ -43,6 +51,13 @@ form {
     font-family:  Microsoft YaHei;
     font-size: 14px;
     color: #fff;
+<<<<<<< HEAD
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
+=======
+>>>>>>> 31d80220149f30db71ebb39a0df0ee321a70c43e
 }
 
 input:-moz-placeholder { color: #fff; }
@@ -60,6 +75,10 @@ input:focus {
     box-shadow:
         0 2px 3px 0 rgba(0,0,0,.1) inset,
         0 2px 7px 0 rgba(0,0,0,.2);
+        appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+        
 }
 #zhuce {
     float:right;
@@ -73,6 +92,13 @@ input:focus {
     font-weight: 600;
     color: #ff8000;
     text-align:right;
+<<<<<<< HEAD
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
+=======
+>>>>>>> 31d80220149f30db71ebb39a0df0ee321a70c43e
 }
 #zhuce:focus{outline:0;}
 #denglu {
@@ -89,6 +115,13 @@ input:focus {
     font-size: 1.2em;
     font-weight: 700;
     color: #fff;
+<<<<<<< HEAD
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
+=======
+>>>>>>> 31d80220149f30db71ebb39a0df0ee321a70c43e
 }
 #denglu:focus{outline:0;}
 

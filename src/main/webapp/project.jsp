@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'project.jsp' starting page</title>
+    <title>小浪旅行</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -42,12 +42,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		document.location.href="<%=basePath %>user/user_showlogin.do?productId="+productId;
 	} 
  </script>
- 
- 
+   <script type="text/javascript">
+          $(function() {
+              var startX, startY, endX, endY;
+             var showADID = 1;
+            document.getElementById("carousel-58154").addEventListener("touchstart", touchStart, false);
+            document.getElementById("carousel-58154").addEventListener("touchmove", touchMove, false);
+            document.getElementById("carousel-58154").addEventListener("touchend", touchEnd, false);
+             function touchStart(event) {
+                 var touch = event.touches[0];
+                 startY = touch.pageY;
+                 startX = touch.pageX;
+            }
+             function touchMove(event) {
+            	// alert("aaaaaa");
+				document.getElementById("row-fluid").style.display="none";//隐藏
+				document.getElementById("box").style.height="80%";
+             }
+             function touchEnd(event){
+             }
+
+         })
+</script>
 </head>
 <body>
 <div class="container-fluid">
-<div class="row-fluid" style="height:37%">
+<div class="row-fluid" id="row-fluid" style="height:35%">
 		<div class="span12">
 			<div class="carousel slide" id="carousel-58154">
 				<ol class="carousel-indicators">
@@ -66,56 +86,85 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<img alt="" src="<%=request.getContextPath()%>/images/5.jpg"  />
 					</div>
 					<div class="item">
-						<img alt="" src="<%=request.getContextPath()%>/images/6.jpg" />
+						<img alt="" src="<%=request.getContextPath()%>/images/6.jpg"/>
 					</div>
 				</div> <a class="left carousel-control" href="#carousel-58154" data-slide="prev">‹</a> <a class="right carousel-control" href="#carousel-58154" data-slide="next">›</a>
-					<div style="position:relative;width:100%;margin-top:-65%">	
-						<div style="width:100%;height:15%;position:absolute;bottom:-20">
-							<span id="day">Day</span>
-							<span id="daynum">1</span>
-							<span id="neirong">交通：自行搭乘交通工具，前往小浪&Galantrip集合地点
-							餐饮：推荐早午晚餐，费用自理
-							唐克乡是四川省阿坝藏族羌族自治州若尔盖县辖乡。唐克是个新兴的旅游区。位于若尔盖县西南部，距若尔盖县城64公里。
-							</span>
-						</div>
-						<div style="width:100%;height:15%;position:absolute;bottom:0">
-							<span id="data1">初始</span>
-							<span id="data2">结束</span>
-							</div>
 					</div>
 			</div>
 		</div>
 	</div>
-<div class="row-fluid" >
+	<div>
+	<span>旅行名称</span> <span>日期</span>
+	<span>价格</span>
+	<input type="image" src="<%=request.getContextPath()%>/images/collection.png" style="width:5%;height:5%"/>
+	<span>收藏</span>
+	</div>
+	<div id="box" class="row-fluid" style="height:60%;">
 		<div class="span12">
-			<div id="zhuyi" style="height:25% ;margin-top:0%;">
+			<div id="wrapper1" style="height:100%;">
 				<div>
-				<div style="position:relative;width:100%;height:95%">
-				<p>一些注意事项</p>
-				<div style="width:100%;height:15%;position:absolute;bottom:0">
-						    <span id="xiwei1">已售：${request.product.saleSeat}</span>
-							<span id="xiwei2">剩余：${request.product.totalSeat-request.product.saleSeat}</span>
-				</div>
-				</div>
+					<div>
+     					<div style="float:left;height:20%;width:20%;background-color:#F36;"><span>Day</span><span id="datanum">1</span>
+     					<span>行程安排</span>
+     					</div>
+      					<div  style="background-color:#F60;height:20%; width:80%;float:left">
+      					<span>行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排</span>
+      					<span>行程详情</span>
+      					</div>
+     					<div style="float:left;height:20%;width:20%;background-color:#F36;"><span>Day</span><span id="datanum">1</span>
+     					<span>行程安排</span>
+     					</div>
+      					<div style="background-color:#F60;height:20%; width:80%;float:left">
+      					<span>行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排</span>
+      					<span>行程详情</span>
+      					</div>
+      					<div style="float:left;height:20%;width:20%;background-color:#F36;"><span>Day</span><span id="datanum">1</span>
+     					<span>行程安排</span>
+     					</div>
+      					<div  style="background-color:#F60;height:20%; width:80%;float:left">
+      					<span>行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排</span>
+      					<span>行程详情</span>
+      					</div>
+      					<div style="float:left;height:20%;width:20%;background-color:#F36;"><span>Day</span><span id="datanum">1</span>
+     					<span>行程安排</span>
+     					</div>
+      					<div  style="background-color:#F60;height:20%; width:80%;float:left">
+      					<span>行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排</span>
+      					<span>行程详情</span>
+      					</div>
+      					<div style="float:left;height:20%;width:20%;background-color:#F36;"><span>Day</span><span id="datanum">1</span>
+     					<span>行程安排</span>
+     					</div>
+      					<div  style="background-color:#F60;height:20%; width:80%;float:left">
+      					<span>行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排</span>
+      					<span>行程详情</span>
+      					</div>	
+					</div>
+					<div >费用包含</div>
+					<span>1、一些说明与注意事项</span>
+					<span>2、一些说明与注意事项</span>
+					<span>3、一些说明与注意事项</span>
+					<span>4、一些说明与注意事项</span>
+					<span>5、一些说明与注意事项</span>
+					<div>费用不包含</div>
+					<span>1、一些说明与注意事项</span>
+					<span>2、一些说明与注意事项</span>
+					<span>3、一些说明与注意事项</span>
+					<span>4、一些说明与注意事项</span>
+					<span>5、一些说明与注意事项</span>
+					<div>开团规则</div>
+					<span>1、一些说明与注意事项</span>
+					<span>2、一些说明与注意事项</span>
+					<span>3、一些说明与注意事项</span>
+					<span>4、一些说明与注意事项</span>
+					<span>5、一些说明与注意事项</span>
 				</div>
 			</div>
 		</div>
 	</div>
-	<input type="hidden" id="productId" value="${productId}"/>
-<div class="row-fluid" >
+	<div class="row-fluid" >
 		<div class="span12">
-			<div id="shuoming" style="height:25% ;margin-top:2%;">
-				<div>
-				<div style="position:relative;width:100%;height:95%">	
-					<p>开团规则说明</p>
-				</div>
-				</div>
-			</div>
-		</div>
-	</div>
-<div class="row-fluid" >
-		<div class="span12">
-			<div  style="height:5% ;margin-top:2%;">
+			<div  style="height:5%;">
 				<div>
 			 			<input id="baoming" type="button" value="我要报名" onclick="login()"/>
 				</div>

@@ -7,6 +7,10 @@
     float:left;
     margin-top:-40%;
     margin-left:7%;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+
 }
 #jianjie{
 	font-family:Microsoft YaHei ;
@@ -16,6 +20,10 @@
     float:right;
     margin-top:-10%;
     margin-right:5%;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
 }
 #databegin,#datafinish,#hx{
 	font-family:Microsoft YaHei ;
@@ -23,12 +31,20 @@
     font-weight:600;
     color: #ff0000;
     float:right;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
 }
 #foot{
 	width:100%;
 	height:100%;
 	align:center;
 	text-align:center;
+	appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+	
 }
 #price1,#price2,#price3{
     font-family:Microsoft YaHei ;
@@ -36,6 +52,10 @@
     font-weight:600;
     color: #ff0000;
     margin-left:3%;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
 }
 #xiwei1,#xiwei2,#xiwei3{
 	font-family:  Microsoft YaHei ;
@@ -43,6 +63,10 @@
     font-weight:600;
     color: #000000;
     margin-left:3%;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
 }
 #data1,#data2,#data3,#data1f,#data2f,#data3f,#hx1,#hx2,#hx3{
 	font-family:Microsoft YaHei ;
@@ -50,6 +74,10 @@
     font-weight:600;
     color: #ff0000;
     float:right;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
 }
 #xiangmu1,#xiangmu2,#xiangmu3{
 	font-family:Microsoft YaHei ;
@@ -58,6 +86,10 @@
     color: #ffffff;
     float:center;
     margin-left:45%;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+
 }
 #xiangmu1y,#xiangmu2y,#xiangmu3y{
 	font-family:Microsoft YaHei ;
@@ -66,7 +98,33 @@
     color: #ffffff;
     float:center;
     margin-left:40%;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
 }
+#lvchen{
+    width:34%;
+    height:100%;
+    line-height:100%;
+    background: #FF8000;
+    border:#FF8000;
+    font-family:Microsoft YaHei ;
+    font-size:1.1em;
+    color:#282828;
+    font-weight:600;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
+    
+}
+#piaowu,#wo{
+  	width:33%;
+   	height:100%;
+   	line-height:100%;
+    background: #FF8000;
+    border:#FF8000;
+    }
 #lvchen{
     width:34%;
     height:100%;
@@ -88,6 +146,9 @@
     font-size: 1.1em;
     color:#ffffff;
     font-weight:600;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
 }
 #select{
 	width:34%;
@@ -99,6 +160,9 @@
     font-weight:600;
     color: #ffffff;
     text-align:center; 
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
 }
 #search{
 	width:66%;
@@ -108,5 +172,8 @@
     color: #ffab57;
     background-color:#f8f5f5;
     border: 0px;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari 和 Chrome */
     float:right;
 }

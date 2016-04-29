@@ -27,7 +27,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/buttons.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/index.css">
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
@@ -99,7 +98,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              function touchMove(event) {
             	// alert("aaaaaa");
 				document.getElementById("row-fluid").style.display="none";//隐藏
+				
+				document.getElementById("box").style.height="80%";
+             }
+             function touchEnd(event){
+
 				//document.getElementById("carousel-58154").height="0%";
+
              }
 
          })
@@ -162,15 +167,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      				 	<option value="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;周边</option>
      				 	<option value="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;远征</option>
      				 	<option value="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;短途</option>
- 					</select>
- 					<input type="text" id="search" name="search" value="直接搜索目的地" onfocus="value=''" onblur="search()"/>  <!-- onblur=" if(!value)value='直接搜索目的地' " -->
+ 					</select><input type="text" id="search" name="search" value="直接搜索目的地" onfocus="value=''" onblur="search()"/>  <!-- onblur=" if(!value)value='直接搜索目的地' " -->
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	<div class="row-fluid">
+	<div id="box" class="row-fluid" style="height:60%;">
 		<div class="span12">
+			<div id="wrapper" style="height:100%;">
 			<div id="wrapper" style="height:61.8%;;margin-top:-0.8%;">
 				<div>
 				<s:iterator value="#request.productzhoubian" id="bean" status="L">
@@ -192,8 +196,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 		</div>
-	</div>
-	
+	</div>	
 	<div  style="width:100%;height:8%;position:fixed;bottom:0;text-align:center" >
 		<div  style="text-align:cneter">
 			<table id="foot">
@@ -205,8 +208,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 </table>
 		</div>
 	</div>
-	
 </div>
-
 </body>
 </html>
