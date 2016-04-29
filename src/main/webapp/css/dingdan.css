@@ -33,6 +33,10 @@ body {
     -moz-transition: all .2s;
     -webkit-transition: all .2s;
     -ms-transition: all .2s;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari �� Chrome */
+    
 }
 #select{
 	width:25%;
@@ -42,10 +46,18 @@ body {
 	font-size: 1em;
 	font-family: Microsoft YaHei;
     color: #000000;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari �� Chrome */
+    
 }
 
 #check{
 	align:right;
+	appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari �� Chrome */
+	
 }
 #foot{
 	width:100%;
@@ -61,6 +73,10 @@ body {
     font-family:Microsoft YaHei;
     font-size: 1em;
     text-align:right;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari �� Chrome */
+    
 }
 #jiner{
 	width:100%;
@@ -71,6 +87,10 @@ body {
     font-family:Microsoft YaHei;
     font-size: 1em;
     text-align:left;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari �� Chrome */
+    
 }
 
 .qrzf{
@@ -82,6 +102,9 @@ body {
     font-family:Microsoft YaHei;
     color: #fff;
     font-size: 1em;
+     appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari �� Chrome */
 }
 
 .qrzf2{
@@ -93,4 +116,8 @@ body {
     font-family:Microsoft YaHei;
     color: #fff;
     font-size: 1em;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari �� Chrome */
+
 }

@@ -101,6 +101,21 @@ public class PayAction extends BaseAction {
 		request.setAttribute("price", p.getPrice().toString());
 		request.setAttribute("startDate", p.getStartDate().toString());
 		request.setAttribute("endDate", p.getEndDate().toString());
+		request.setAttribute("productId", productId);
+		request.setAttribute("userId", userId);
+		
+		Product product  = productService.getProductById(Integer.valueOf(productId));		
+		request.setAttribute("product", product);//从后台返回参数给request（跟jsp有关）
+		Order order = orderService.selectOrderByUserId(Integer.valueOf(userId));//根据用户的id，查询最新一条的订单
+		if(order!=null){
+			request.setAttribute("identificationType", order.getIdentificationType());
+			request.setAttribute("identificationNumber", order.getIdentificationNumber());
+			request.setAttribute("realName", order.getRealName());
+			request.setAttribute("nationality", order.getNationality());
+			request.setAttribute("contacts", order.getContacts());
+			request.setAttribute("phoneNum", order.getPhoneNum());
+		}
+		request.setAttribute("topay", "1");
 		return "apply";// 指定返回路径
 	}
 
