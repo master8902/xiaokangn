@@ -332,16 +332,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div style="float:left;">支付方式</div>
          <div style="float:right;">微信支付></div>
       </div>
-        <div class="modal-footer" id="zhifujine">
+        <div class="modal-footer" id="支付jin'e">
         <div style="float:left;">支付金额</div>
          <div style="float:right;">${request.product.price}元</div>
       </div>
      
-      <div class="modal-footer" id="queren">
+      <div class="modal-footer">
       
-       <div style="width：100%;height:7%">
-       <button class="qrzf2" type="button" id="querenzhifu" onclick="pay()">确认支付</button>
-       </div>
+       <div style="width：100%"><button class="qrzf2" type="button" id="querenzhifu" onclick="pay()">确认支付</button></div>
         
       </div>
     </div>
