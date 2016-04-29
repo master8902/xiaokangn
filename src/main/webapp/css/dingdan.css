@@ -121,3 +121,9 @@ body {
  -webkit-appearance:none; /* Safari �� Chrome */
 
 }
+
+  #myModal
+    {
+    position:absolute; width:100%; botton:100px;
+    }
+  

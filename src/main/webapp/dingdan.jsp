@@ -188,7 +188,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</script>
 
   <body>
-  <div class="page-container">
+  <div class="page-container" id="page-container">
    <form  id="form2"  method="post">  
        <table style="width:100%;"> 
        <tr>
@@ -271,10 +271,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
 			</tr>
             </table>  
-     </form>   
-     <input type="hidden" id="productId" value="${productId}"/>
-     </div>
-     	<div  style="width:93%;height:7%;position:fixed;bottom:0" >
+     </form>
+     
+      <div  style="width:100%;height:7%;position:fixed;bottom:0" >
 		<div >
 			<table id="foot">
 				<tr>
@@ -300,10 +299,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<input type="hidden" id="userId" value="${userId}"/>
 	</div>  
 	
-	
-	
-	
-	<!-- Modal -->
+		
+		<!-- Modal -->
 <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -325,7 +322,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       
        <div class="modal-footer">
         <div style="float:left;">支付方式</div>
-         <div style="float:right;">微信支付<img src=""/></div>
+         <div style="float:right;">微信支付></button></div>
       </div>
         <div class="modal-footer">
         <div style="float:left;">支付金额</div>
@@ -340,8 +337,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
   </div>
 </div>
-
-
-	              
+  
+ </div>
+              
   </body>
 </html>
