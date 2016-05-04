@@ -18,6 +18,9 @@
 
 	<script type="text/javascript">
 
+	$(document).ready(function(){ 
+	pay();
+		}); 
 
 	 wx.config({
 	        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -70,13 +73,18 @@ function pay(){
 
 <body>
 	<div class="index_box">
-		<div class="apply_name">微信js支付测试</div>
+		<div class="apply_name">商品</div>
 
 		<div class="branch_con">
 			<ul>
-				<li><span class="name">测试支付信息</span></li>
+				<li><span class="name">日本三日游</span></li>
 			</ul>
-			<p class="cz_btn"><a href="javascript:pay();" class="btn_1">立即支付</a></p>
+			<p class="cz_btn">
+			支付状态
+			<!--  
+			<a href="javascript:pay();" class="btn_1">立即支付</a>
+			-->
+			</p>
 		</div>
 	</div>
 
