@@ -1,7 +1,9 @@
 package com.xiaolangn.service;
 
+import java.util.List;
+
 import com.xiaolangn.bean.Schedule;
 
 public interface IScheduleService {
-	public  Schedule getScheduleByProductId(Integer productid);
+	public  List<Schedule> getScheduleByProductId(Integer productid);
 }

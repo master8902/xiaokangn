@@ -11,14 +11,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-	<title>浪旅行</title>
+	<title>小浪旅行</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0,user-scalable=no" />
 	<meta name="description" content="">
 	<meta name="author" content="">
 
@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min1.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/index.css">
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
@@ -161,7 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div class="row-fluid" >
 		<div class="span12">
-			<div  style="height:4%;margin-top:-1%;">
+			<div  style="height:5%;margin-top:2%;">
 				<div>
 					<select id="select" name="select" onchange="select()">   
      				 	<option value="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;周边</option>
@@ -175,11 +175,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="box" class="row-fluid" style="height:60%;">
 		<div class="span12">
 			<div id="wrapper" style="height:100%;">
-			<div id="wrapper" style="height:61.8%;;margin-top:-0.8%;">
 				<div>
 				<s:iterator value="#request.productzhoubian" id="bean" status="L">
 				<!--<s:property value="#L.index+1"/>-->
-					<div style="position:relative;width:100%;height:56%">				
+					<div style="position:relative;width:100%;height:60%">				
 						<img id="<s:property value="#L.index+1"/>" alt="" src="<%=request.getContextPath()%><s:property value="#bean.picture_url"/>" onclick="clickimg(<s:property value="#bean.id"/>)"/>
 						<div style="width:100%;height:20%;position:absolute;bottom:0">
 							<span id="price1">价格:<s:property value="#bean.price"/></span>
@@ -197,7 +196,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>	
-	<div  style="width:100%;height:8%;position:fixed;bottom:0;text-align:center" >
+	<div  style="width:100%;height:6%;position:fixed;bottom:0;text-align:center" >
 		<div  style="text-align:cneter">
 			<table id="foot">
 				<tr>

@@ -31,9 +31,10 @@
 		SELECT id,title,chineseName,englishName,price,startDate,endDate,picture_url,saleSeat
 		FROM product_info WHERE chineseName LIKE "%"#{chineseName}"%"
 	</select>
+	
 
 <select id="getProductById" resultMap="r" parameterType="String">
-		SELECT id,title,chineseName,englishName,price,startDate,endDate,picture_url,saleSeat,totalSeat,title
+		SELECT id,title,chineseName,englishName,price,startDate,endDate,picture_url,saleSeat,totalSeat,title,costContain,costUncomtain,groupRule
 		FROM product_info WHERE id=#{id}
 	</select>
 

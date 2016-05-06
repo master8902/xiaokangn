@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<tr>
 		  <td>
-		  <button onclick="checkForm('<%=basePath %>')">注   册</button>　
+		  <button id="zc" onclick="checkForm('<%=basePath %>')">注   册</button>　
 		  </td>
 		 </tr>
 	</table>

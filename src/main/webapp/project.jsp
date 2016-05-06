@@ -43,6 +43,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	} 
  </script>
    <script type="text/javascript">
+   
+   function clickimage(obj){
+	   var id = obj.id;
+	   var productId = $.trim($("#productId").val());	
+	   window.location.href="<%=basePath%>schedule/schedule_showdetail.do?scheduleId="+id+"&productId="+productId;
+	   
+   }
           $(function() {
               var startX, startY, endX, endY;
              var showADID = 1;
@@ -67,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <div class="container-fluid">
-<div class="row-fluid" id="row-fluid" style="height:35%">
+<div class="row-fluid" id="row-fluid" style="height:38%">
 		<div class="span12">
 			<div class="carousel slide" id="carousel-58154">
 				<ol class="carousel-indicators">
@@ -79,85 +86,70 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 				</ol>
 				<div class="carousel-inner">
-					<div class="item active">
-						<img alt="" src="<%=request.getContextPath()%>/images/4.jpg"/>
+				
+				
+				<s:iterator value="#request.schedule" id="schedulebean1" status="La">
+				<s:if test="#La.index==0">
+				<div class="item active">
+						<img alt="" src="<%=request.getContextPath()%><s:property value="#schedulebean1.picture_url"/>"/>  
+					</div>	
+				</s:if>
+				<s:elseif test="#La.index<3">
+				 <div class="item">
+						<img alt="" src="<%=request.getContextPath()%><s:property value="#schedulebean1.picture_url"/>"  />
 					</div>
-					<div class="item">
-						<img alt="" src="<%=request.getContextPath()%>/images/5.jpg"  />
-					</div>
-					<div class="item">
-						<img alt="" src="<%=request.getContextPath()%>/images/6.jpg"/>
-					</div>
-				</div> <a class="left carousel-control" href="#carousel-58154" data-slide="prev">‹</a> <a class="right carousel-control" href="#carousel-58154" data-slide="next">›</a>
+				 </s:elseif>
+				</s:iterator>				
+				</div> <a class="left carousel-control" href="#carousel-58154" data-slide="prev">?</a> <a class="right carousel-control" href="#carousel-58154" data-slide="next">?</a>
 					</div>
 			</div>
 		</div>
 	</div>
-	<div>
-	<span>旅行名称</span> <span>日期</span>
-	<span>价格</span>
-	<input type="image" src="<%=request.getContextPath()%>/images/collection.png" style="width:5%;height:5%"/>
-	<span>收藏</span>
+	<div style="height:7%;width:100%">
+		<span id="lxmc">旅行名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		<span id="databegin">初始</span>
+		<span id="hx">—</span>
+		<span id="datafinish">结束</span>
+		<span id="price">价格</span>
+		<span id="shoucang">收藏</span>
+		<input style="float:right" type="image" src="<%=request.getContextPath()%>/images/collection.png" />
 	</div>
-	<div id="box" class="row-fluid" style="height:60%;">
+	<div id="box" class="row-fluid" style="height:50%;">
 		<div class="span12">
 			<div id="wrapper1" style="height:100%;">
 				<div>
 					<div>
-     					<div style="float:left;height:20%;width:20%;background-color:#F36;"><span>Day</span><span id="datanum">1</span>
-     					<span>行程安排</span>
+					<s:iterator value="#request.schedule" id="schedulebean" status="La">
+     					 <div style="float:left;height:40%;width:25%;padding-top:5%;border-right: 3px solid #ff8800; ">
+     					<span style="float:left;font-family:Microsoft YaHei;font-size:1em;margin-left:20%;">Day</span>
+     					<span style="float:left;" id="datanum"><s:property value="#schedulebean.day"/>
+     					</span>
+     					<span style="float:left;font-family:Microsoft YaHei;font-size:0.9em;margin-left:12%;">行程安排</span>
      					</div>
-      					<div  style="background-color:#F60;height:20%; width:80%;float:left">
-      					<span>行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排</span>
-      					<span>行程详情</span>
+      					<div  style="height:40%; width:75%;float:left;font-family:Microsoft YaHei;font-size:0.9em;padding-top:10%;padding-left:5%;">
+      					<span><s:property value="#schedulebean.content"/></span>
+      					<span style="float:left;font-family:Microsoft YaHei;font-size:0.9em;margin-top:5%;">
+      					<a id="<s:property value="#schedulebean.scheduleId"/>"  href="javascript:void(0)" onclick="clickimage(this)">
+      					行程详情
+      					</a>
+      					</span>
       					</div>
-     					<div style="float:left;height:20%;width:20%;background-color:#F36;"><span>Day</span><span id="datanum">1</span>
-     					<span>行程安排</span>
-     					</div>
-      					<div style="background-color:#F60;height:20%; width:80%;float:left">
-      					<span>行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排</span>
-      					<span>行程详情</span>
-      					</div>
-      					<div style="float:left;height:20%;width:20%;background-color:#F36;"><span>Day</span><span id="datanum">1</span>
-     					<span>行程安排</span>
-     					</div>
-      					<div  style="background-color:#F60;height:20%; width:80%;float:left">
-      					<span>行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排</span>
-      					<span>行程详情</span>
-      					</div>
-      					<div style="float:left;height:20%;width:20%;background-color:#F36;"><span>Day</span><span id="datanum">1</span>
-     					<span>行程安排</span>
-     					</div>
-      					<div  style="background-color:#F60;height:20%; width:80%;float:left">
-      					<span>行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排</span>
-      					<span>行程详情</span>
-      					</div>
-      					<div style="float:left;height:20%;width:20%;background-color:#F36;"><span>Day</span><span id="datanum">1</span>
-     					<span>行程安排</span>
-     					</div>
-      					<div  style="background-color:#F60;height:20%; width:80%;float:left">
-      					<span>行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排行程安排</span>
-      					<span>行程详情</span>
-      					</div>	
+      				</s:iterator>      			
 					</div>
-					<div >费用包含</div>
-					<span>1、一些说明与注意事项</span>
-					<span>2、一些说明与注意事项</span>
-					<span>3、一些说明与注意事项</span>
-					<span>4、一些说明与注意事项</span>
-					<span>5、一些说明与注意事项</span>
-					<div>费用不包含</div>
-					<span>1、一些说明与注意事项</span>
-					<span>2、一些说明与注意事项</span>
-					<span>3、一些说明与注意事项</span>
-					<span>4、一些说明与注意事项</span>
-					<span>5、一些说明与注意事项</span>
-					<div>开团规则</div>
-					<span>1、一些说明与注意事项</span>
-					<span>2、一些说明与注意事项</span>
-					<span>3、一些说明与注意事项</span>
-					<span>4、一些说明与注意事项</span>
-					<span>5、一些说明与注意事项</span>
+					<div style="float:none">
+					<span>费用包含<br></br></span>
+					<span>
+						<s:property value="#request.product.costContain"/>
+						</span>
+					</div>
+					<div style="margin-top:5%;float:none">
+					<span>费用不包含<br></br></span>
+					<span><s:property value="#request.product.costUncomtain"/></span>
+					</div>
+					<div style="margin-top:5%;float:none">
+					<span>费用不包含<br></br></span>
+					<span><s:property value="#request.product.groupRule"/></span>
+					</div>
 				</div>
 			</div>
 		</div>

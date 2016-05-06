@@ -34,45 +34,32 @@ public class ScheduleAction extends BaseAction {
 	HttpServletResponse response = ServletActionContext.getResponse();
 	HttpServletRequest request = ServletActionContext.getRequest();
 	
-//	public void info() {
-//		response.setContentType("text/html;charset=UTF-8");
-//		response.setCharacterEncoding("utf-8");		
-//		String userid = request.getParameter("userid");
-//		User user = userService.getUserById(Integer.valueOf(userid));		
-//		String username = user.getPhoneNum();	
-//		Gson gson = new Gson();
-//		String json = gson.toJson(username);
-//		PrintWriter out;
-//		try {
-//			out = response.getWriter();
-//			out.print(json);
-//			out.flush();
-//			out.close();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//
-//	}
+	public String showdetail(){
+		response.setContentType("text/html;charset=UTF-8");
+		response.setCharacterEncoding("utf-8");		
+		String productId = request.getParameter("productId");//productid从前台jsp到后台
+		String scheduleId = request.getParameter("scheduleId");
+		
+		List<Schedule> schedule = scheduleService.getScheduleByProductId(Integer.valueOf(productId));	
+		
+		request.setAttribute("schedule", schedule);
+		request.setAttribute("productId", productId);//从后台返回参数给request（跟jsp有关）
+		Product product  = productService.getProductById(Integer.valueOf(productId));		
+		request.setAttribute("product", product);//从后台返回参数给request（跟jsp有关）
+		
+		return "xingcheng";//指定返回路径
+	}
 	
 	public String info2() {
 		response.setContentType("text/html;charset=UTF-8");
 		response.setCharacterEncoding("utf-8");		
 		String productId = request.getParameter("productId");//productid从前台jsp到后台
-		Schedule schedule = scheduleService.getScheduleByProductId(Integer.valueOf(productId));	
+		List<Schedule> schedule = scheduleService.getScheduleByProductId(Integer.valueOf(productId));	
 		
-		Integer day = schedule.getDay();	
-		request.setAttribute("day", day);//从后台返回参数给request（跟jsp有关）
+		request.setAttribute("schedule", schedule);
 		
-		String content = schedule.getContent();	
-		request.setAttribute("content", content);//从后台返回参数给request（跟jsp有关）
 		
-		String picture_url = schedule.getPicture_url();	
-		request.setAttribute("picture_url", picture_url);//从后台返回参数给request（跟jsp有关）
 		request.setAttribute("productId", productId);//从后台返回参数给request（跟jsp有关）
-		
-		//String productId = request.getParameter("productId");//productid从前台jsp到后台
-		request.setAttribute("productId", productId);//从后台返回参数给request（跟jsp有关）
-
 		Product product  = productService.getProductById(Integer.valueOf(productId));
 		
 		request.setAttribute("product", product);//从后台返回参数给request（跟jsp有关）

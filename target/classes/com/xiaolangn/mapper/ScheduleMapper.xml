@@ -10,10 +10,8 @@
 
 	<parameterMap type="com.xiaolangn.bean.Schedule" id="p"></parameterMap>
 
-
-
 	<select id="getScheduleByProductId" resultMap="r" parameterType="int">
-		SELECT day,content,picture_url
+		SELECT scheduleId,day,content,picture_url,scheduleName,scheduleDetails
 		FROM schedule_info 
 		WHERE productId=#{productId}
 	</select>

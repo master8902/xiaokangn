@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="description" content="">
 <meta name="author" content="">
 <title>用户登录</title>
-        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css">
+
         <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
         <script type="text/javascript" src="<%=basePath %>js/jquery.min.js"></script>
         <script type="text/javascript" src="<%=basePath %>js/login.js"></script>

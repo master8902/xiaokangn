@@ -81,15 +81,6 @@ function pay(){
 
 		<div class="branch_con">
 			<ul>
-<<<<<<< HEAD
-				<li><span class="name">日本三日游</span></li>
-			</ul>
-			<p class="cz_btn">
-			支付状态
-			<!--  
-			<a href="javascript:pay();" class="btn_1">立即支付</a>
-			-->
-=======
 				<li><span class="name">${ title}</span></li>
 			</ul>
 			<ul>
@@ -101,7 +92,6 @@ function pay(){
 			<p class="cz_btn">
 			支付状态：
 			<input  type="text" value="等待支付" id="hiddeninput" readonly="readonly" style='border-left:0px;border-top:0px;border-right:0px;border-bottom:1px '/>
->>>>>>> d50847bacb0ab07f0db87c08a907aa91091c5fc9
 			</p>
 		</div>
 	</div>

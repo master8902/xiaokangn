@@ -20,7 +20,28 @@ public class Product {
     private String favorable;
 	private String picture_url;
 	private String notice;
+	private String costContain;
+	private String costUncomtain;
+	private String groupRule;
 	
+	public String getCostContain() {
+		return costContain;
+	}
+	public void setCostContain(String costContain) {
+		this.costContain = costContain;
+	}
+	public String getCostUncomtain() {
+		return costUncomtain;
+	}
+	public void setCostUncomtain(String costUncomtain) {
+		this.costUncomtain = costUncomtain;
+	}
+	public String getGroupRule() {
+		return groupRule;
+	}
+	public void setGroupRule(String groupRule) {
+		this.groupRule = groupRule;
+	}
 	public Integer getId() {
 		return id;
 	}

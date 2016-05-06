@@ -1,6 +1,6 @@
 body {
     background: #f8f8f8;
-    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-family:Microsoft YaHei;
     text-align: center;
     background-size: 100% ;
 }
@@ -9,7 +9,8 @@ body {
     
 }
 #form2 {
-     width: 100%;
+     width: 94%;
+     margin-left:3%;
     text-align: center;
 }
 #nickname,#nicknameTip,#CredentialsCode,#CredentialsCodeTip,#Phone,#PhoneTip,#guoji,#lianxi{
@@ -32,32 +33,23 @@ body {
     -o-transition: all .2s;
     -moz-transition: all .2s;
     -webkit-transition: all .2s;
-    -ms-transition: all .2s;
-    appearance:none;
- -moz-appearance:none; /* Firefox */
- -webkit-appearance:none; /* Safari ï¿½ï¿½ Chrome */
-    
+    -ms-transition: all .2s;  
 }
 #select{
 	width:25%;
 	margin-left:5%;
-	background: #2d2d2d; /* browsers that don't support rgba */
-    background: rgba(45,45,45,.15);
+	background:#fafafa;
+	border:#fafafa;
 	font-size: 1em;
 	font-family: Microsoft YaHei;
     color: #000000;
-    appearance:none;
+ appearance:none;
  -moz-appearance:none; /* Firefox */
- -webkit-appearance:none; /* Safari ï¿½ï¿½ Chrome */
-    
+ -webkit-appearance:none; /* Safari ºÍ Chrome */
 }
 
 #check{
 	align:right;
-	appearance:none;
- -moz-appearance:none; /* Firefox */
- -webkit-appearance:none; /* Safari ï¿½ï¿½ Chrome */
-	
 }
 #foot{
 	width:100%;
@@ -73,9 +65,9 @@ body {
     font-family:Microsoft YaHei;
     font-size: 1em;
     text-align:right;
-    appearance:none;
- -moz-appearance:none; /* Firefox */
- -webkit-appearance:none; /* Safari ï¿½ï¿½ Chrome */
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
     
 }
 #jiner{
@@ -87,12 +79,21 @@ body {
     font-family:Microsoft YaHei;
     font-size: 1em;
     text-align:left;
-    appearance:none;
- -moz-appearance:none; /* Firefox */
- -webkit-appearance:none; /* Safari ï¿½ï¿½ Chrome */
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
     
 }
-
+  #myModal
+    {
+    height:60%;
+    width:100%;
+     font-family:Microsoft YaHei;
+    font-size:1em;
+     appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari ºÍ Chrome */
+    }
 .qrzf{
    width:100%;
    height:100%;
@@ -102,9 +103,9 @@ body {
     font-family:Microsoft YaHei;
     color: #fff;
     font-size: 1em;
-     appearance:none;
- -moz-appearance:none; /* Firefox */
- -webkit-appearance:none; /* Safari ï¿½ï¿½ Chrome */
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
 }
 
 .qrzf2{
@@ -115,16 +116,9 @@ body {
     border:1px #FF8000;
     font-family:Microsoft YaHei;
     color: #fff;
-    font-size: 1em;
-    appearance:none;
- -moz-appearance:none; /* Firefox */
- -webkit-appearance:none; /* Safari ï¿½ï¿½ Chrome */
-
+    font-size:1em;
+ 	-moz-appearance:none; /* Firefox */
+ 	-webkit-appearance:none; /* Safari ºÍ Chrome */
 }
 
-  #myModal
-    {
-    height:60%;
-    width:100%;
-    }
     

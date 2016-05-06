@@ -1,5 +1,7 @@
 package com.xiaolangn.mapper;
 
+import java.util.List;
+
 import com.xiaolangn.bean.Schedule;
 
 public interface ScheduleMapper {
@@ -8,7 +10,7 @@ public interface ScheduleMapper {
  * @param productId
  * @return
  */
-   public Schedule getScheduleByProductId(Integer productId);
+   public List<Schedule> getScheduleByProductId(Integer productId);
 
    
 }

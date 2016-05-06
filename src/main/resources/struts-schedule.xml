@@ -5,6 +5,7 @@
 
 		<action name="schedule_*" class="com.xiaolangn.action.ScheduleAction" method="{1}">	   
 			<result name="scheduleinfo">/project.jsp</result>
+			<result name="xingcheng">/xingcheng.jsp</result>
 		</action>
 	</package>
 </struts>

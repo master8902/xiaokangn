@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="expires" content="0">    
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page"> 
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0,user-scalable=no" />
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<!--
@@ -301,20 +301,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<input type="hidden" id="productId" value="${productId}"/>
 		<input type="hidden" id="userId" value="${userId}"/>
 	</div>  
-	
-		
-
-  
- </div>
-         
-         
+ </div>        
       		<!-- Modal -->
 <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header" id="tianxiedingdan">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">订单填写</h4>
+        <h4 class="modal-title" id="myModalLabel" style="color:#ff8800">订单填写</h4>
       </div>
       <div class="modal-footer" id="dingdanxinxi">
       <span>
@@ -335,16 +329,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="modal-footer" >
         <div style="float:left;">支付金额</div>
          <div style="float:right;">${request.product.price}元</div>
-      </div>
-     
+      </div>     
       <div class="modal-footer" id="qrzf3">
-<button class="qrzf2" type="button" id="querenzhifu" onclick="pay()">
-       <font size="5">确认支付 </font>
+		<button class="qrzf2" type="button" id="querenzhifu" onclick="pay()">
+       <font size="4">确认支付 </font>
       </button>
       </div>
     </div>
   </div>
-</div>   
-              
+</div>               
   </body>
 </html>
