@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+	<title>浪旅行</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -21,13 +21,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>浪旅行</title>
+
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/buttons.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/index.css">
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
@@ -84,11 +83,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	});
  </script>
    
+   <script type="text/javascript">
+          $(function() {
+              var startX, startY, endX, endY;
+             var showADID = 1;
+            document.getElementById("carousel-58154").addEventListener("touchstart", touchStart, false);
+            document.getElementById("carousel-58154").addEventListener("touchmove", touchMove, false);
+            document.getElementById("carousel-58154").addEventListener("touchend", touchEnd, false);
+             function touchStart(event) {
+                 var touch = event.touches[0];
+                 startY = touch.pageY;
+                 startX = touch.pageX;
+            }
+             function touchMove(event) {
+            	// alert("aaaaaa");
+				document.getElementById("row-fluid").style.display="none";//隐藏
+				
+				document.getElementById("box").style.height="80%";
+             }
+             function touchEnd(event){
+
+				//document.getElementById("carousel-58154").height="0%";
+
+             }
+
+         })
+</script>
+   
+   
  </head> 
 <body>
 
-<div class="container-fluid">
-	<div class="row-fluid" style="height:30%">
+<div >
+	<div class="row-fluid" id="row-fluid" style="height:30%">
 		<div class="span12">
 			<div class="carousel slide" id="carousel-58154">
 				<ol class="carousel-indicators">
@@ -100,26 +127,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</li>
 				</ol>
 				<div class="carousel-inner">
-				<s:iterator value="#request.productzhoubian" id="hotbean" status="La">
+				<s:iterator value="#request.productHot" id="hotbean" status="La">
 				<s:if test="#La.index==0">
 				<div class="item active">
-						<img alt="" src="<%=request.getContextPath()%>/images/1.jpg"/>
+						<img alt="" src="<%=request.getContextPath()%><s:property value="#hotbean.picture_url"/>"/>  
 					</div>	
 				</s:if>
 				<s:else>
 				 <div class="item">
-						<img alt="" src="<%=request.getContextPath()%>/images/2.jpg"  />
+						<img alt="" src="<%=request.getContextPath()%><s:property value="#hotbean.picture_url"/>"  />
 					</div>
 				 </s:else>
 				</s:iterator>
-				</div><a class="left carousel-control" href="#carousel-58154" data-slide="prev">‹</a> <a class="right carousel-control" href="#carousel-58154" data-slide="next">›</a>
+				</div>
 					<div style="position:relative;width:100%;margin-top:-10%">	
 						<div style="width:100%;height:15%;position:absolute;bottom:0">
 							<span id="jqrm">近期热门</span>
 						</div>
+						<a class="left carousel-control"href="#carousel-58154" data-slide="prev" style="margin-top:-20%;margin-left:-1%">‹</a>
+						<a class="right carousel-control" href="#carousel-58154" data-slide="next" style="margin-top:-22%;margin-right:-2%">›</a>
 						<div style="width:100%;height:15%;position:absolute;bottom:0">
-							<span id="jianjie">迷情上海
-							<br>三天三夜
+							<span id="jianjie"><s:property value="#hotbean.title"/>
 							</span>
 						</div>
 						<div style="width:100%;height:15%;position:absolute;bottom:0">
@@ -133,34 +161,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<div class="row-fluid" >
 		<div class="span12">
-			<div  style="height:5% ;text-align:center;margin-top:-2%;">
+			<div  style="height:4%;margin-top:-1%;">
 				<div>
-					<select  id="select" name="select"  onchange="select()">   
-     				 	<option value="0" >周边</option>
-     				 	<option value="1" >远征</option>
-     				 	<option value="2">短途</option>
- 					<select><input type="text" id="search" name="search" value="直接搜索目的地" onfocus="value=''" onblur="search()"/>  <!-- onblur=" if(!value)value='直接搜索目的地' " -->
+					<select id="select" name="select" onchange="select()">   
+     				 	<option value="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;周边</option>
+     				 	<option value="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;远征</option>
+     				 	<option value="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;短途</option>
+ 					</select><input type="text" id="search" name="search" value="直接搜索目的地" onfocus="value=''" onblur="search()"/>  <!-- onblur=" if(!value)value='直接搜索目的地' " -->
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	<div class="row-fluid">
+	<div id="box" class="row-fluid" style="height:60%;">
 		<div class="span12">
-			<div id="wrapper" style="height:60%">
+			<div id="wrapper" style="height:100%;">
+			<div id="wrapper" style="height:61.8%;;margin-top:-0.8%;">
 				<div>
 				<s:iterator value="#request.productzhoubian" id="bean" status="L">
 				<!--<s:property value="#L.index+1"/>-->
-					<div style="position:relative;width:100%;height:216px">				
-						<img id="<s:property value="#L.index+1"/>" alt="" src="<%=request.getContextPath()%>/images/1.jpg" onclick="clickimg(<s:property value="#bean.id"/>)"/>
-						<div style="width:100%;height:15%;position:absolute;bottom:0">
+					<div style="position:relative;width:100%;height:56%">				
+						<img id="<s:property value="#L.index+1"/>" alt="" src="<%=request.getContextPath()%><s:property value="#bean.picture_url"/>" onclick="clickimg(<s:property value="#bean.id"/>)"/>
+						<div style="width:100%;height:20%;position:absolute;bottom:0">
 							<span id="price1">价格:<s:property value="#bean.price"/></span>
 							<span id="xiwei1">席位:<s:property value="#bean.saleSeat"/></span>
 							<span id="data1">日期:<s:property value="#bean.startDate"/></span>
 						</div>
 						<div style="width:100%;height:15%;position:absolute;bottom:40%">
-							<span id="xiangmu2">土耳其</span>
-							<span id="xiangmu2y">Turkey</span>
+							<span id="xiangmu2"> <s:property value="#bean.chineseName"/>  </span>
+							<span id="xiangmu2y"><s:property value="#bean.englishName"/></span>
 						</div>
 					</div>
 						
@@ -168,9 +196,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	<div  style="width:93%;height:5%;position:fixed;bottom:0;text-align:center" >
+	</div>	
+	<div  style="width:100%;height:8%;position:fixed;bottom:0;text-align:center" >
 		<div  style="text-align:cneter">
 			<table id="foot">
 				<tr>
@@ -181,8 +208,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 </table>
 		</div>
 	</div>
-	
 </div>
-
 </body>
 </html>

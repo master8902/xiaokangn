@@ -61,19 +61,32 @@ public class RegisterAction extends BaseAction {
 				String phoneNum1 = (String) request.getSession().getAttribute("phoneNum");//往session设置设计号
 				String phoneCode1 = (String) request.getSession().getAttribute("phoneCode");//设置手机的验证码
 				String phoneDate1 = (String) request.getSession().getAttribute("phoneData");//设置新建验证码的时间
+				
+				if(phoneCode1==null||phoneCode1.equals("")){
+					json = "{\"msg\": \"注册失败\"}";
+					sendJson(json);
+					return ;
+				}
+				
 				if(phoneNum1!=null&&phoneNum1.equals(phoneNum)){
 					if(phoneNum1==null||phoneCode1==null||phoneDate1==null){//如果session里面有session，检测下时间，如果没过期就什么也不做，过期了就清空
-						return;					
+						json = "{\"msg\": \"注册失败\"}";
+						sendJson(json);
+						return ;				
 					}else{
 						Date cur = new Date();
 						Date date = new Date(phoneDate1);
 						long interval = (cur.getTime() - date.getTime())/1000;
 						if(interval-SDKTestSendTemplateSMS.DEADTIME*60>0){//如果超过5分钟，验证码就失效了，需要清空
-							return;
+							json = "{\"msg\": \"注册失败\"}";
+							sendJson(json);
+							return ;
 						}				
 					}
 				if(!phoneNum.equals(phoneNum1)||!btnSendCode.equals(phoneCode1)){
-					return;
+					json = "{\"msg\": \"注册失败\"}";
+					sendJson(json);
+					return ;
 				}
 				}
 				
@@ -81,9 +94,13 @@ public class RegisterAction extends BaseAction {
 		
 		if(phoneNum==null||phoneNum.trim().equals("")){
 			json = "{\"msg\": \"手机号码不能为空\"}";
+			sendJson(json);
+			return ;
 		}
 		if(passWord==null||passWord.trim().equals("")){
 			json = "{\"msg\": \"密码不能为空\"}";
+			sendJson(json);
+			return ;
 		}
 		
 		User user = new User();
@@ -98,14 +115,23 @@ public class RegisterAction extends BaseAction {
 				request.setAttribute("userId", userid);//从后台返回参数给request（跟jsp有关）
 				request.getSession().setAttribute("userId",userid );
 				json = "{\"msg\": \"success\"}";
+				sendJson(json);
+				return ;
 			}else{
 				json = "{\"msg\": \"注册失败\"}";
+				sendJson(json);
+				return ;
 			}
 			
 		}catch(Exception e){
 			json = "{\"msg\": \"注册失败\"}";
+			sendJson(json);
+			return ;
 		}
 		
+	}
+	
+	public void sendJson(String json){
 		PrintWriter out;
 		try {
 			out = response.getWriter();

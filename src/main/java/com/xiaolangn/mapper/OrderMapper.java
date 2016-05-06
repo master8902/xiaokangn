@@ -3,6 +3,7 @@ package com.xiaolangn.mapper;
 
 
 import com.xiaolangn.bean.Order;
+import com.xiaolangn.bean.Product;
 
 public interface OrderMapper {
 
@@ -22,5 +23,12 @@ public interface OrderMapper {
    /**
     * 修改订单信息
     */
-   public void modifyOrder(Order order);
+   public Integer modifyOrder(Order order);
+   
+ //根据订单id，查询订单信息
+ 	public Product selectProByOrderId(Integer id);
+ 	
+ 	//根据用户的id，查询最新一条的订单
+ 		public Order selectOrderByUserId(Integer id);
+ 	
 }

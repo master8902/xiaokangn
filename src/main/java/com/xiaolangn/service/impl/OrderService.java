@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 
 import com.xiaolangn.bean.Order;
+import com.xiaolangn.bean.Product;
 import com.xiaolangn.mapper.OrderMapper;
 import com.xiaolangn.service.IOrderService;
 
@@ -38,9 +39,21 @@ public class OrderService implements IOrderService {
     }
     
     @Override
-	public void modifyOrder(Order order){
+	public Integer modifyOrder(Order order){
     	
-    	orderMapper.modifyOrder(order);
+    	return orderMapper.modifyOrder(order);
     }
+
+	@Override
+	public Product selectProByOrderId(Integer id) {
+		// TODO Auto-generated method stub
+		return orderMapper.selectProByOrderId(id);
+	}
+
+	@Override
+	public Order selectOrderByUserId(Integer id) {
+		// TODO Auto-generated method stub
+		return orderMapper.selectOrderByUserId(id);
+	}
     
 }

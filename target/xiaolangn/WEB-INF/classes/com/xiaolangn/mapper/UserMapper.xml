@@ -14,13 +14,21 @@
 
 	<select id="getUserById" resultMap="r" parameterType="int">
 		SELECT phoneNum, password,id
+<<<<<<< HEAD
 		FROM t_user WHERE id=#{id}
+=======
+		FROM t_user WHERE id=#{id} 
+>>>>>>> d50847bacb0ab07f0db87c08a907aa91091c5fc9
 	</select>
 
 
 <select id="getUserByPhone" resultMap="r" parameterType="String">
 		SELECT phoneNum, password, id
+<<<<<<< HEAD
 		FROM t_user WHERE phoneNum=#{phoneNum}
+=======
+		FROM t_user WHERE phoneNum=#{phoneNum} limit 1
+>>>>>>> d50847bacb0ab07f0db87c08a907aa91091c5fc9
 	</select>
 
 <insert id="insert" parameterMap="p" useGeneratedKeys="true" keyProperty="id">

@@ -5,7 +5,7 @@ body {
     background-size: 100% ;
 }
 .page-container {
-    margin:10% auto 0 auto;
+    margin:0% auto 0 auto;
     
 }
 #form2 {
@@ -14,7 +14,7 @@ body {
 }
 #nickname,#nicknameTip,#CredentialsCode,#CredentialsCodeTip,#Phone,#PhoneTip,#guoji,#lianxi{
 	width:100%;
-    height: 42px;
+    height: 32px;
     background: #2d2d2d; /* browsers that don't support rgba */
     background: rgba(45,45,45,.15);
     -moz-border-radius: 6px;
@@ -25,14 +25,18 @@ body {
     -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
     -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
     box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
-    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-family:  Microsoft YaHei;
     font-size: 14px;
-    color: #fff;
+    color: #000000;
     text-shadow: 0 1px 2px rgba(0,0,0,.1);
     -o-transition: all .2s;
     -moz-transition: all .2s;
     -webkit-transition: all .2s;
     -ms-transition: all .2s;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari �� Chrome */
+    
 }
 #select{
 	width:25%;
@@ -40,20 +44,20 @@ body {
 	background: #2d2d2d; /* browsers that don't support rgba */
     background: rgba(45,45,45,.15);
 	font-size: 1em;
-	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+	font-family: Microsoft YaHei;
     color: #000000;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari �� Chrome */
+    
 }
-#save{
-	width:20%;
-	margin-left:25%;
-    background: #FF8000;
-    border:1px #FF8000;
-	font-size: 1em;
-	font-family: 'PT Sans', Helvetica, Arial, sans-serif;
-    color: #fff;
-}
+
 #check{
 	align:right;
+	appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari �� Chrome */
+	
 }
 #foot{
 	width:100%;
@@ -61,33 +65,66 @@ body {
 }
 
 #ddze{
-	width:33%;
+	width:100%;
    	height:100%;
     padding: 0;
     background: #c0c0c0;
     border: #c0c0c0;
-    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
-    font-size: 1.2em;
+    font-family:Microsoft YaHei;
+    font-size: 1em;
     text-align:right;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari �� Chrome */
+    
 }
 #jiner{
-	width:33%;
+	width:100%;
    	height:100%;
    	padding: 0;
     background: #c0c0c0;
     border: #c0c0c0;
-    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
-    font-size: 1.2em;
+    font-family:Microsoft YaHei;
+    font-size: 1em;
     text-align:left;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari �� Chrome */
+    
 }
 
-#qrzf{
-   width:33%;
+.qrzf{
+   width:100%;
    height:100%;
     padding: 0;
     background: #FF8000;
     border:1px #FF8000;
-    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-family:Microsoft YaHei;
     color: #fff;
-    font-size: 1.2em;
+    font-size: 1em;
+     appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari �� Chrome */
 }
+
+.qrzf2{
+   width:100%;
+   height:9%;
+    padding: 0;
+    background: #FF8000;
+    border:1px #FF8000;
+    font-family:Microsoft YaHei;
+    color: #fff;
+    font-size: 1em;
+    appearance:none;
+ -moz-appearance:none; /* Firefox */
+ -webkit-appearance:none; /* Safari �� Chrome */
+
+}
+
+  #myModal
+    {
+    height:60%;
+    width:100%;
+    }
+    

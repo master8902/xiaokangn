@@ -7,15 +7,18 @@
 <mapper namespace="com.xiaolangn.mapper.OrderMapper">
 	<resultMap type="com.xiaolangn.bean.Order" id="r">
 	</resultMap>
+	
+	<resultMap type="com.xiaolangn.bean.Product" id="r2">
+	</resultMap>
 
 	<parameterMap type="com.xiaolangn.bean.Order" id="p"></parameterMap>
 
 
     <insert id="newAddOrder" parameterMap="p" useGeneratedKeys="true" keyProperty="id">
     	INSERT INTO order_info (id,orderType,identificationType,identificationNumber,realName,
-    	nationality,contacts,phoneNum,orderPrice,orderNotice,orderSaveTime,isPay,userId,productid) VALUES 
+    	nationality,contacts,phoneNum,orderPrice,orderNotice,orderSaveTime,isPay,userId,productid,createTime) VALUES 
     	(#{id},#{orderType},#{identificationType},#{identificationNumber},#{realName},
-    	#{nationality},#{contacts},#{phoneNum},#{orderPrice},#{orderNotice},#{orderSaveTime},#{isPay},#{userId},#{productid})
+    	#{nationality},#{contacts},#{phoneNum},#{orderPrice},#{orderNotice},#{orderSaveTime},#{isPay},#{userId},#{productid},#{createTime})
     </insert>
     
     <select id="queryOrderById" resultMap="r" parameterType="int">
@@ -23,8 +26,18 @@
 		FROM order_info WHERE productid=#{id}
     </select>
     
+     <select id="selectOrderByUserId" resultMap="r" parameterType="int">
+		SELECT identificationType,identificationNumber,realName,nationality,contacts,phoneNum
+		FROM order_info WHERE userId=#{id}  order by createTime desc limit 1
+    </select>
+    
+    <select id="selectProByOrderId" resultMap="r2" parameterType="int">
+    	SELECT * FROM product_info where id = ((SELECT productid
+		FROM order_info WHERE id= #{id}) )
+    </select>
+    
     <update id="modifyOrder" parameterMap="p">
-    	UPDATE order_info SET isPay=#{isPay} WHERE id=#{id}
+    	UPDATE order_info SET isPay=#{isPay},orderPrice=#{orderPrice},tradeTime=#{tradeTime},tradeOddNum=#{tradeOddNum},businessOddNum=#{businessOddNum},openid=#{openid}  WHERE id=#{id}
     </update>
 
 </mapper>

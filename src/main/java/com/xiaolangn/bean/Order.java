@@ -33,7 +33,17 @@ public class Order {
 	private Integer userId;
 	
 	private Integer productid;
-
+	
+	private Date tradeTime;
+	
+	private String tradeOddNum;
+	
+	private String businessOddNum;
+	
+	private String businessName;
+	
+	private String openid;
+	private Date createTime;
 	public Integer getId() {
 		return id;
 	}
@@ -144,6 +154,54 @@ public class Order {
 
 	public void setProductid(Integer productid) {
 		this.productid = productid;
+	}
+
+	public Date getTradeTime() {
+		return tradeTime;
+	}
+
+	public void setTradeTime(Date tradeTime) {
+		this.tradeTime = tradeTime;
+	}
+
+	public String getTradeOddNum() {
+		return tradeOddNum;
+	}
+
+	public void setTradeOddNum(String tradeOddNum) {
+		this.tradeOddNum = tradeOddNum;
+	}
+
+	public String getBusinessOddNum() {
+		return businessOddNum;
+	}
+
+	public void setBusinessOddNum(String businessOddNum) {
+		this.businessOddNum = businessOddNum;
+	}
+
+	public String getBusinessName() {
+		return businessName;
+	}
+
+	public void setBusinessName(String businessName) {
+		this.businessName = businessName;
+	}
+
+	public String getOpenid() {
+		return openid;
+	}
+
+	public void setOpenid(String openid) {
+		this.openid = openid;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 	
 }

@@ -2,6 +2,7 @@ package com.xiaolangn.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -42,6 +43,18 @@ public class OrderAction extends BaseAction {
 		request.setAttribute("userId", String.valueOf(userId));//从后台返回参数给request（跟jsp有关）
 		Product product  = productService.getProductById(Integer.valueOf(productId));		
 		request.setAttribute("product", product);//从后台返回参数给request（跟jsp有关）
+
+		Order order = orderService.selectOrderByUserId(userId);//根据用户的id，查询最新一条的订单
+		if(order!=null){
+			request.setAttribute("identificationType", order.getIdentificationType());
+			request.setAttribute("identificationNumber", order.getIdentificationNumber());
+			request.setAttribute("realName", order.getRealName());
+			request.setAttribute("nationality", order.getNationality());
+			request.setAttribute("contacts", order.getContacts());
+			request.setAttribute("phoneNum", order.getPhoneNum());
+		}
+		
+		
 		return "dingdan";
 	}
 	
@@ -77,6 +90,7 @@ public class OrderAction extends BaseAction {
         order.setContacts(lianxi);
         order.setProductid(Integer.valueOf(productId));
         order.setUserId(Integer.valueOf(userId));
+        order.setCreateTime(new Date());
 		Integer id = orderService.newAddOrder(order);	
 		Integer insertid = order.getId();
 		PrintWriter out;
@@ -108,17 +122,6 @@ public class OrderAction extends BaseAction {
 		}
     }
     
-/**
- * 修改订单信息 --是否支付
- * 订单id 必填
- */
-    public void modifyOrder(){
-    	Order order =  new Order();
-    	order.setId(1);
-    	order.setIsPay(1);
-    	orderService.modifyOrder(order);
-    	
-    }
 
 }
 

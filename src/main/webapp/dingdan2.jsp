@@ -33,17 +33,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     type="text/javascript"></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/dingdan.css">
-<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
  <script  type="text/javascript">
  function show(){
 	 $("#setphonenum").val($.trim($("#Phone").val())) ;	
-	
+		
 	 $('#myModal').modal({
 		  keyboard: false
-		});
-		
-		 var Height=document.getElementById("myModal").style.height;
-	 document.getElementById("myModal").style.top = (document.body.scrollHeight-document.body.scrollHeight*0.6)+'px';
+		})
  }
  
  function checkisNULL(value,message){
@@ -55,7 +52,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		return true;	
 	} 
  function pay(){
-	 $('#myModal').modal('hide');
 	 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	  var identificationType =  $('#select option:selected').val();//选中的文本
 	 var nickname = $.trim($("#nickname").val());//姓名
@@ -127,71 +123,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  }
  
 
-	$(document).ready(function(){
-		$('#myModal').modal('hide');
+	$(document).ready(function(){ 
 		if("<%=request.getAttribute("identificationType")%>"=="护照"){
 			document.getElementById("select")[1].selected=true;
 		}
-		
-		if("<%=request.getAttribute("topay")%>"=="1"){
-			paywx();
-		}
 		}); 
 
-		 wx.config({
-		        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-		        appId: "<%=request.getAttribute("appId")%>", // 必填，公众号的唯一标识
-		        timestamp: "<%=request.getAttribute("timeStamp")%>", // 必填，生成签名的时间戳
-		        nonceStr: "<%=request.getAttribute("nonceStr")%>", // 必填，生成签名的随机串
-		        signature: "<%=request.getAttribute("paySign")%>", // 必填，签名，见附录1
-		        jsApiList: ['chooseWXPay'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-		    });
-		
-		function onBridgeReady(){
-			   WeixinJSBridge.invoke(
-			       'getBrandWCPayRequest', {
-			    	   "appId": "<%=request.getAttribute("appId")%>",     //公众号名称，由商户传入    
-			    	   "timeStamp": "<%=request.getAttribute("timeStamp")%>", // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
-			    	    "nonceStr": "<%=request.getAttribute("nonceStr")%>", // 支付签名随机串，不长于 32 位
-			    	    "package": "<%=request.getAttribute("package")%>", // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
-			    	    "signType": "<%=request.getAttribute("signType")%>", // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
-			    	    "paySign": "<%=request.getAttribute("paySign")%>", // 支付签名
-			       },
-			       function(res){  
-			    	//   $('#hiddeninput').show();
-			           if(res.err_msg == "get_brand_wcpay_request:ok" ) {
-			        	 //  alert("支付成功");
-			        	   $("#hiddeninput").val("支付成功"); 
-			           }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
-			           else if(res.err_msg == "get_brand_wcpay_request:cancel" ) {
-			        	  // alert("支付取消");
-			        	   $("#hiddeninput").val("支付取消"); 
-			           }
-			           else if(res.err_msg == "get_brand_wcpay_request:fail" ) {
-			        	 //  alert("支付失败");
-			        	   $("#hiddeninput").val("支付失败"); 
-			           }		          
-			       }
-			   ); 
-			}
-			
-		
-	function paywx(){
-		if (typeof WeixinJSBridge == "undefined"){
-			   if( document.addEventListener ){
-			       document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-			   }else if (document.attachEvent){
-			       document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
-			       document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-			   }
-			}else{
-			   onBridgeReady();
-			}
-	}
-		</script>
+</script>
 
   <body>
-  <div class="page-container" id="page-container">
+  <div class="page-container">
    <form  id="form2"  method="post">  
        <table style="width:100%;"> 
        <tr>
@@ -274,9 +215,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</td>
 			</tr>
             </table>  
-     </form>
-     
-      <div  style="width:100%;height:7%;position:fixed;bottom:0" >
+     </form>   
+     <input type="hidden" id="productId" value="${productId}"/>
+     </div>
+     	<div  style="width:93%;height:7%;position:fixed;bottom:0" >
 		<div >
 			<table id="foot">
 				<tr>
@@ -286,7 +228,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 		<td width="30%">
 			 			<input id="jiner" type="button" value="${request.product.price}"/>
 			 		</td >
-			 		<td width="40%" >
+			 		<td width="40%">
 			 		<!--  	<input id="qrzf" type="button"  value="确认支付" onclick="paypre();return false;"/> 
 			 		-->
 			 		<button id="qrzf" class="qrzf" type="button" data-toggle="modal" onclick="show()">
@@ -302,49 +244,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<input type="hidden" id="userId" value="${userId}"/>
 	</div>  
 	
-		
-
-  
- </div>
-         
-         
-      		<!-- Modal -->
+	
+	
+	
+	<!-- Modal -->
 <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header" id="tianxiedingdan">
+      <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">订单填写</h4>
       </div>
-      <div class="modal-footer" id="dingdanxinxi">
+      <div class="modal-footer">
       <span>
       <div style="float:left;">订单信息</div>  
       <div style="float:left;"> ：${request.product.title}</div> 
       </span>      	
       </div>
       
-       <div class="modal-footer" id="shoujihao">
-         <div style="float:left;">手机号码</div> 
+       <div class="modal-footer">
+         <div style="float:left;">手机号</div> 
          <div style="float:left;"> ：<input value="" id="setphonenum" readonly="readonly" style='border-left:0px;border-top:0px;border-right:0px;border-bottom:1px '/></div>  
       </div>
       
-       <div class="modal-footer" id="zhifufangshi">
+       <div class="modal-footer">
         <div style="float:left;">支付方式</div>
-         <div style="float:right;">微信支付></div>
+         <div style="float:right;">微信支付<img src=""/></div>
       </div>
-        <div class="modal-footer" >
+        <div class="modal-footer">
         <div style="float:left;">支付金额</div>
          <div style="float:right;">${request.product.price}元</div>
       </div>
      
-      <div class="modal-footer" id="qrzf3">
-<button class="qrzf2" type="button" id="querenzhifu" onclick="pay()">
-       <font size="5">确认支付 </font>
-      </button>
+      <div class="modal-footer">
+      
+       <div style="width：100%"><button class="qrzf2" type="button" >确认支付</button></div>
+        
       </div>
     </div>
   </div>
-</div>   
-              
+</div>
+
+
+	              
   </body>
 </html>

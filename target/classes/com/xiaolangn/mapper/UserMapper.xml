@@ -14,13 +14,13 @@
 
 	<select id="getUserById" resultMap="r" parameterType="int">
 		SELECT phoneNum, password,id
-		FROM t_user WHERE id=#{id}
+		FROM t_user WHERE id=#{id} 
 	</select>
 
 
 <select id="getUserByPhone" resultMap="r" parameterType="String">
 		SELECT phoneNum, password, id
-		FROM t_user WHERE phoneNum=#{phoneNum}
+		FROM t_user WHERE phoneNum=#{phoneNum} limit 1
 	</select>
 
 <insert id="insert" parameterMap="p" useGeneratedKeys="true" keyProperty="id">
